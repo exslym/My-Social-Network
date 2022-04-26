@@ -1,5 +1,5 @@
-.app-footer {
-	grid-area: app-footer;
+.app_footer {
+	grid-area: app_footer;
 	display: flex;
 	align-items: center;
 	justify-content: center;

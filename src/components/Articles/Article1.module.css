@@ -1,0 +1,9 @@
+.app_article1 {
+	grid-area: app_article1;
+	padding: 10px;
+	background: bisque;
+}
+
+.post {
+	margin-top: 10px;
+}

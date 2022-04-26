@@ -1,17 +1,17 @@
 import React from 'react';
-import './Navbar.css';
+import styles from './Navbar.module.css';
 
 function Navbar() {
 	return (
-		<nav className='app-nav'>
+		<nav className={styles.app_nav}>
 			<ul>
-				<li>
+				<li className={styles.app_nav_li}>
 					<a href='#'>Profile</a>
 				</li>
-				<li>
+				<li className={styles.app_nav_li}>
 					<a href='#'>Messaages</a>
 				</li>
-				<li>
+				<li className={styles.app_nav_li}>
 					<a href='#'>News</a>
 				</li>
 			</ul>

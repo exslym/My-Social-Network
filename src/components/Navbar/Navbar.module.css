@@ -1,5 +1,5 @@
-.app-nav {
-	grid-area: app-nav;
+.app_nav {
+	grid-area: app_nav;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -7,19 +7,22 @@
 	padding: 10px;
 	background: coral;
 }
-nav ul {
+.app_nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
-nav ul li {
+.app_nav_li {
 	margin-bottom: 20px;
 }
-nav ul li:last-child {
+.app_nav_li:last-child {
 	margin-bottom: 0;
 }
-nav ul li a {
+.app_nav_li a {
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
+}
+.app_nav_li a:hover {
+	color: rgb(72, 231, 180);
 }

@@ -1,15 +1,23 @@
-.app-header {
-	grid-area: app-header;
+.app_header {
+	grid-area: app_header;
+	margin: 0;
 	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 	background: aquamarine;
 }
-.app-header img {
+.app_header img {
+	margin: 0;
+	padding: 0;
 	display: inline-block;
 	vertical-align: middle;
 	width: 10%;
 	max-width: 100px;
 }
-.app-header p {
+.app_header p {
+	margin: 0;
+	padding: 0;
 	display: inline-block;
 	vertical-align: middle;
 	width: 90%;

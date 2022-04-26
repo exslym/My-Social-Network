@@ -1,5 +1,5 @@
-.app-main {
-	grid-area: app-main;
+.app_main {
+	grid-area: app_main;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
