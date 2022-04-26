@@ -1,0 +1,25 @@
+.app-nav {
+	grid-area: app-nav;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding: 10px;
+	background: coral;
+}
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	margin-bottom: 20px;
+}
+nav ul li:last-child {
+	margin-bottom: 0;
+}
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}

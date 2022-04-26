@@ -1,0 +1,18 @@
+.app-header {
+	grid-area: app-header;
+	padding: 10px;
+	background: aquamarine;
+}
+.app-header img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 10%;
+	max-width: 100px;
+}
+.app-header p {
+	display: inline-block;
+	vertical-align: middle;
+	width: 90%;
+	text-align: center;
+	margin-left: calc(0px - 100px / 2);
+}
