@@ -1,0 +1,18 @@
+.textarea {
+	width: 50%;
+	height: auto;
+	display: block;
+}
+.button {
+	display: block;
+	margin-top: 4px;
+	border: 1px solid #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.title {
+	font-weight: bold;
+}
+.posts {
+	margin: 20px 0;
+}

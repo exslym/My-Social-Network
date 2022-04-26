@@ -1,0 +1,9 @@
+.app_profile {
+	grid-area: app_profile;
+	padding: 10px;
+	background: bisque;
+}
+.header {
+	font-weight: bold;
+	font-size: clamp(1em, 2.5vw, 1.8em);
+}

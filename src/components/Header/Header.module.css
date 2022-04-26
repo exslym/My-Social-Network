@@ -23,4 +23,6 @@
 	width: 90%;
 	text-align: center;
 	margin-left: calc(0px - 100px / 2);
+	font-weight: bold;
+	font-size: clamp(1.5em, 5vw, 2.5em);
 }

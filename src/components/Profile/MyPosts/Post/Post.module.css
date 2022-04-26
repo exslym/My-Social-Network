@@ -1,0 +1,32 @@
+.item {
+	margin: 10px 0;
+}
+.post_wrap {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.item p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+.avatar {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: clamp(20px, 2.5vw, 40px);
+	margin-right: clamp(10px, 2.5vw, 20px);
+}
+.likes img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	max-width: 20px;
+	margin-right: 4px;
+}
+.likes span {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0.8em;
+}

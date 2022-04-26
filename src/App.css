@@ -1,13 +1,11 @@
 .app_wrapper {
 	display: grid;
 	grid-template-columns: 2fr 8fr;
-	grid-template-rows: repeat(5, 1fr);
+	grid-template-rows: auto auto 1fr;
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
 	grid-template-areas:
 		'app_header app_header'
 		'app_nav app_main'
-		'app_nav app_article1'
-		'app_nav app_article2'
-		'app_footer app_footer';
+		'app_nav app_profile';
 }
