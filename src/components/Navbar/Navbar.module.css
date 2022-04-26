@@ -24,5 +24,8 @@
 	font-weight: bold;
 }
 .app_nav_li a:hover {
-	color: rgb(72, 231, 180);
+	color: rgb(255, 244, 182);
+}
+.app_nav_li a.activelink {
+	color: rgb(255, 251, 31);
 }

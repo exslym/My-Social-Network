@@ -1,4 +1,5 @@
 .app_wrapper {
+	height: 100vh;
 	display: grid;
 	grid-template-columns: 2fr 8fr;
 	grid-template-rows: auto auto 1fr;
@@ -8,4 +9,13 @@
 		'app_header app_header'
 		'app_nav app_main'
 		'app_nav app_profile';
+}
+
+.app_wrapper_content {
+	grid-area: app_profile;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }

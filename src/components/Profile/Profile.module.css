@@ -1,7 +1,8 @@
 .app_profile {
-	grid-area: app_profile;
-	padding: 10px;
 	background: bisque;
+	padding: 10px;
+	width: 100%;
+	height: calc(100% - 10px * 2);
 }
 .header {
 	font-weight: bold;

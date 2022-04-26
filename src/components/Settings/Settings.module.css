@@ -1,0 +1,10 @@
+.app_settings {
+	background: rgb(169, 249, 253);
+	padding: 10px;
+	width: 100%;
+	height: calc(100% - 10px * 2);
+}
+.app_settings p {
+	margin: 0;
+	padding: 0;
+}

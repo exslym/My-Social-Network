@@ -1,0 +1,10 @@
+.app_news {
+	background: rgb(211, 253, 169);
+	padding: 10px;
+	width: 100%;
+	height: calc(100% - 10px * 2);
+}
+.app_news p {
+	margin: 0;
+	padding: 0;
+}
