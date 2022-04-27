@@ -1,10 +1,11 @@
 import React from 'react';
+import logo from './assets/logo192.png';
 import styles from './Header.module.css';
 
 const Header = () => {
 	return (
 		<header className={styles.app_header}>
-			<img src='./logo192.png' alt='logo'></img>
+			<img className={styles.logo} src={logo} alt='logo' />
 			<p>Header</p>
 		</header>
 	);

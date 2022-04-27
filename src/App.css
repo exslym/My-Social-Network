@@ -1,21 +1,21 @@
 .app_wrapper {
+	overflow: hidden;
 	height: 100vh;
+	width: 100%;
+	max-width: 1280px;
 	display: grid;
-	grid-template-columns: 2fr 8fr;
-	grid-template-rows: auto auto 1fr;
-	grid-column-gap: 10px;
-	grid-row-gap: 10px;
+	grid-template-columns: 20% 80%;
+	grid-template-rows: 20% 80%;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
 	grid-template-areas:
 		'app_header app_header'
-		'app_nav app_main'
 		'app_nav app_profile';
 }
 
 .app_wrapper_content {
+	overflow: hidden;
 	grid-area: app_profile;
 	margin: 0;
 	padding: 0;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
 }

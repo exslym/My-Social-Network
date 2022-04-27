@@ -1,10 +1,37 @@
 .app_dialogs {
-	background: rgb(247, 253, 169);
+	background: rgb(169, 249, 253);
 	padding: 10px;
 	width: 100%;
 	height: calc(100% - 10px * 2);
+	display: grid;
+	grid-template-columns: 30% 70%;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
 }
-.app_dialogs p {
+.app_dialogs_items,
+.app_dialogs_messages {
 	margin: 0;
 	padding: 0;
+}
+.app_dialogs_item,
+.app_dialogs_message {
+	margin: 10px 0;
+	padding: 0;
+}
+.app_dialogs_message p {
+	margin: 0;
+	padding: 0;
+}
+.app_dialogs_item a {
+	text-decoration: none;
+	color: inherit;
+	margin: 0;
+	padding: 0;
+}
+.app_dialogs_item a:hover {
+	color: rgb(255, 244, 182);
+}
+.app_dialogs_item a.active {
+	font-weight: bold;
+	color: rgb(35, 35, 29);
 }

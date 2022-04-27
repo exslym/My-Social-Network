@@ -5,9 +5,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	background: aquamarine;
+	background: rgb(127, 255, 202);
 }
-.app_header img {
+.app_header .logo {
 	margin: 0;
 	padding: 0;
 	display: inline-block;
