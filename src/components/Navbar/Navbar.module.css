@@ -6,6 +6,9 @@
 	justify-content: flex-start;
 	padding: 10px;
 	background: coral;
+	/* height: calc(100% - 10px); */
+	height: 100%;
+	width: 100%;
 }
 .app_nav ul {
 	list-style-type: none;

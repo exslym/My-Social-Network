@@ -20,7 +20,11 @@
 }
 .app_dialogs_message p {
 	margin: 0;
-	padding: 0;
+	padding: 8px 15px;
+	border-radius: 20px;
+	width: 100%;
+	max-width: 50%;
+	background: white;
 }
 .app_dialogs_item a {
 	text-decoration: none;

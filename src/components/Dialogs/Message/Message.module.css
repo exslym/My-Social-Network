@@ -1,0 +1,16 @@
+.app_dialogs_messages {
+	margin: 0;
+	padding: 0;
+}
+.app_dialogs_message {
+	margin: 10px 0;
+	padding: 0;
+}
+.app_dialogs_message p {
+	margin: 0;
+	padding: 8px 15px;
+	border-radius: 20px;
+	width: 100%;
+	max-width: 50%;
+	background: white;
+}

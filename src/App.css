@@ -1,16 +1,19 @@
 .app_wrapper {
-	overflow: hidden;
-	height: 100vh;
-	width: 100%;
-	max-width: 1280px;
+	/* overflow: hidden; */
+	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 20% 80%;
-	grid-template-rows: 20% 80%;
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
+	/* grid-template-columns: 20% calc(80% - 10px); */
+	/* grid-template-rows: 10% calc(90% - 10px); */
+	grid-template-columns: 2fr 8fr;
+	grid-template-rows: 1fr 9fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
 	grid-template-areas:
 		'app_header app_header'
 		'app_nav app_profile';
+	height: 100vh;
+	width: 100%;
+	max-width: 1000px;
 }
 
 .app_wrapper_content {
@@ -18,4 +21,6 @@
 	grid-area: app_profile;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	height: 100%;
 }
