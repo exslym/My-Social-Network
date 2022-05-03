@@ -6,6 +6,7 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
+import Friends from './components/Friends/Friends';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = props => {
@@ -13,17 +14,18 @@ const App = props => {
 		<BrowserRouter>
 			<div className='app_wrapper'>
 				<Header />
-				<Navbar />
+				<Navbar state={props.state.sideBar} />
 				<div className='app_wrapper_content'>
 					<Routes>
-						<Route path='/' element={<Profile />} />
-						<Route path='/profile' element={<Profile posts={props.posts} />} />
+						<Route path='/' element={<Profile state={props.state.profilePage} />} />
 						<Route
-							path='/dialogs/*'
-							element={<Dialogs dialogs={props.dialogs} messages={props.messages} />}
+							path='/profile'
+							element={<Profile state={props.state.profilePage} addPost={props.addPost} />}
 						/>
-						<Route path='/news' element={<News news={props.news} />} />
+						<Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage} />} />
+						<Route path='/news' element={<News />} />
 						<Route path='/settings' element={<Settings />} />
+						<Route path='/friends' element={<Friends />} />
 					</Routes>
 				</div>
 			</div>

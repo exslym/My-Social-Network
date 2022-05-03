@@ -1,16 +1,47 @@
-.app_dialogs_messages {
-	margin: 0;
-	padding: 0;
-}
 .app_dialogs_message {
 	margin: 10px 0;
 	padding: 0;
 }
+.app_dialogs_message {
+	max-width: 90%;
+}
 .app_dialogs_message p {
-	margin: 0;
 	padding: 8px 15px;
 	border-radius: 20px;
-	width: 100%;
-	max-width: 50%;
+	max-width: -moz-fit-content;
+	max-width: -webkit-fit-content;
+	max-width: fit-content;
+}
+.app_dialogs_messageIn {
+	margin: 10px 0;
+	margin-left: 5px;
+	margin-right: auto;
 	background: white;
+	position: relative;
+}
+.app_dialogs_messageIn::before {
+	content: '';
+	position: absolute;
+	left: -5px;
+	bottom: 0px;
+	width: 10px;
+	height: 10px;
+	background: white;
+	border-radius: 50%;
+}
+.app_dialogs_messageOut {
+	margin: 10px 0;
+	margin-left: auto;
+	background: rgb(236, 255, 212);
+	position: relative;
+}
+.app_dialogs_messageOut::after {
+	content: '';
+	position: absolute;
+	right: -5px;
+	bottom: 0px;
+	width: 10px;
+	height: 10px;
+	background: rgb(236, 255, 212);
+	border-radius: 50%;
 }
