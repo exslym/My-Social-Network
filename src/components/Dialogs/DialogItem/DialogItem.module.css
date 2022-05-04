@@ -9,8 +9,8 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	max-width: clamp(20px, 2.5vw, 40px);
-	margin-right: clamp(4px, 1.25vw, 10px);
+	max-width: clamp(30px, 3vw, 50px);
+	margin: clamp(4px, 0.5vw, 8px) clamp(4px, 1.25vw, 10px);
 	font-size: 0.6em;
 }
 .app_dialogs_item a {
@@ -28,8 +28,11 @@
 	font-weight: bold;
 }
 .app_dialogs_item a:hover {
-	color: rgb(255, 244, 182);
+	color: rgb(110, 110, 110);
 }
 .app_dialogs_item a.active {
 	color: rgb(35, 35, 29);
+	background: rgb(255, 254, 247);
+	width: 100%;
+	border-radius: 5px;
 }

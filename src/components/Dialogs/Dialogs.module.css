@@ -19,6 +19,18 @@
 .app_dialogs_items {
 	margin: 0;
 	padding: 0;
+	width: 96%;
+	position: relative;
+}
+.app_dialogs_items::after {
+	position: absolute;
+	content: '';
+	right: -5%;
+	top: 0;
+	width: 2px;
+	height: 100%;
+	background: rgb(255, 254, 247);
+	border-radius: 50%;
 }
 .app_dialogs_newMessage {
 	position: absolute;
