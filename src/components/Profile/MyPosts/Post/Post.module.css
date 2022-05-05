@@ -12,11 +12,12 @@
 	font-weight: bold;
 }
 .avatar {
+	margin-right: clamp(10px, 2vw, 15px);
 	display: block;
 	width: 100%;
 	height: 100%;
-	max-width: clamp(20px, 2.5vw, 40px);
-	margin-right: clamp(10px, 2.5vw, 20px);
+	max-width: clamp(20px, 3vw, 50px);
+	border-radius: 50%;
 }
 .likes img {
 	display: inline-block;

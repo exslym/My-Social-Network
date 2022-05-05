@@ -6,6 +6,5 @@
 		"baseUrl": "./src",
 		"checkJs": true
 	},
-	"javascript.preferences.importModuleSpecifier": "non-relative",
 	"exclude": ["node_modules", "**/node_modules/*"]
 }

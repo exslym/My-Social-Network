@@ -8,6 +8,8 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import store from './redux/store';
+import store from './redux/redux-store';
 
 const App = props => {
 	return (
@@ -31,7 +33,7 @@ const App = props => {
 							path='/profile'
 							element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />}
 						/>
-						<Route path='/dialogs/*' element={<Dialogs dialogsPage={props.state.dialogsPage} />} />
+						<Route path='/dialogs/*' element={<Dialogs store={store} />} />
 						<Route path='/news' element={<News />} />
 						<Route path='/settings' element={<Settings />} />
 						<Route path='/friends' element={<Friends friends={props.state.sideBar.friends} />} />

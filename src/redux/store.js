@@ -1,5 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import sidebarReducer from './sidebar-reducer';
 
 let store = {
 	_state: {
@@ -46,6 +47,7 @@ let store = {
 				{ id: 4, message: "I'm busy" },
 				{ id: 5, message: 'Bye!' },
 			],
+			newMessageBody: '',
 		},
 		sideBar: {
 			friends: [
@@ -77,9 +79,12 @@ let store = {
 			],
 		},
 	},
+
+	//
 	_callSubscriber() {
 		console.log('State changed');
 	},
+
 	//
 	getState() {
 		return this._state;
@@ -88,48 +93,15 @@ let store = {
 		this._callSubscriber = observer;
 	},
 
-	// private:
-	_addPost() {
-		let newPost = {
-			id: 5,
-			post: this._state.profilePage.newPostText,
-			likesCount: 0,
-		};
-		this._state.profilePage.posts.push(newPost);
-		this._state.profilePage.newPostText = '';
-		this._callSubscriber(this._state);
-	},
-	_updateNewPostText(newText) {
-		this._state.profilePage.newPostText = newText;
-		this._callSubscriber(this._state);
-	},
-
 	// dispatch:
 	dispatch(action) {
-		if (action.type === ADD_POST) {
-			this._addPost();
-			// let newPost = {
-			// 	id: 5,
-			// 	post: this._state.profilePage.newPostText,
-			// 	likesCount: 0,
-			// };
-			// this._state.profilePage.posts.push(newPost);
-			// this._state.profilePage.newPostText = '';
-			// this._callSubscriber(this._state);
-		} else if (action.type === UPDATE_NEW_POST_TEXT) {
-			this._updateNewPostText(action.newText);
-			// this._state.profilePage.newPostText = action.newText;
-			// this._callSubscriber(this._state);
-		}
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+		this._state.sideBar = sidebarReducer(this._state.sideBar, action);
+
+		this._callSubscriber(this._state);
 	},
 };
-
-// ActionCreator:
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const updateNewPostTextActionCreator = text => ({
-	type: UPDATE_NEW_POST_TEXT,
-	newText: text,
-});
 
 export default store;
 
