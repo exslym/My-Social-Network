@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import SideBar from '../SideBar/SideBar';
+import SideBar from '../SideBar/SideBar';
 import styles from './Navbar.module.css';
 
 const Navbar = props => {
@@ -31,7 +31,7 @@ const Navbar = props => {
 				</li>
 				<li className={styles.app_nav_li}>
 					<NavLink to='/friends' className={activeLink}>
-						{/* <SideBar state={props.state.sideBar} /> */}
+						<SideBar friends={props.sideBar.friends} />
 					</NavLink>
 				</li>
 			</ul>

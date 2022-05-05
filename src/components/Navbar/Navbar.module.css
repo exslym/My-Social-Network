@@ -9,6 +9,7 @@
 	/* height: calc(100% - 10px); */
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 .app_nav ul {
 	list-style-type: none;
@@ -34,5 +35,6 @@
 }
 
 .app_nav_friends {
+	display: block;
 	margin-top: 60px;
 }

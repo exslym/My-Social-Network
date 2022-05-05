@@ -1,3 +1,17 @@
-.sideBar {
-	margin-top: 40px;
+.app_sideBar {
+	display: block;
+	margin-top: 60px;
+	overflow: hidden;
+}
+.app_sideBar_items {
+	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	overflow-x: scroll;
+}
+.app_sideBar_item {
+	width: 100%;
+	margin-right: 10px;
 }

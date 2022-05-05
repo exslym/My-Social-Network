@@ -2,9 +2,9 @@
 	/* overflow: hidden; */
 	margin: 0 auto;
 	display: grid;
-	/* grid-template-columns: 20% calc(80% - 10px); */
+	grid-template-columns: 20% calc(80% - 10px);
 	/* grid-template-rows: 10% calc(90% - 10px); */
-	grid-template-columns: 2fr 8fr;
+	/* grid-template-columns: 2fr 8fr; */
 	grid-template-rows: 1fr 9fr;
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
