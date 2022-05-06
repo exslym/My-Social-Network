@@ -5,6 +5,7 @@ import styles from './Navbar.module.css';
 
 const Navbar = props => {
 	let activeLink = ({ isActive }) => (isActive ? styles.activelink : undefined);
+	// let sideBar = props.store.getState().sideBar;
 
 	return (
 		<nav className={styles.app_nav}>
@@ -31,7 +32,7 @@ const Navbar = props => {
 				</li>
 				<li className={styles.app_nav_li}>
 					<NavLink to='/friends' className={activeLink}>
-						<SideBar friends={props.sideBar.friends} />
+						{/* <SideBar friends={sideBar.friends} /> */}
 					</NavLink>
 				</li>
 			</ul>

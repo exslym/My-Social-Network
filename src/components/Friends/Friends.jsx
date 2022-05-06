@@ -3,7 +3,9 @@ import FriendsItem from './FriendsItem/FriendsItem';
 import styles from './Friends.module.css';
 
 const Friends = props => {
-	let friendsElements = props.friends.map(f => (
+	let sideBar = props.store.getState().sideBar;
+
+	let friendsElements = sideBar.friends.map(f => (
 		<FriendsItem avatar={f.avatar} name={f.name} id={f.id} key={f.id} />
 	));
 
