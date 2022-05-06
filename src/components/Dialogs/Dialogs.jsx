@@ -11,8 +11,11 @@ const Dialogs = props => {
 
 	let newMessageBody = props.newMessageBody;
 
+	// let newMessageElement = React.createRef();
+
 	let onNewMessageChange = e => {
 		let body = e.target.value;
+		// let body = newMessageElement.current.value;
 		props.updateNewMessageBody(body);
 	};
 	let onSendMessageClick = () => {
@@ -26,9 +29,10 @@ const Dialogs = props => {
 
 			<div className={styles.app_dialogs_newMessage}>
 				<textarea
-					value={newMessageBody}
-					onChange={onNewMessageChange}
 					placeholder='Enter your message'
+					onChange={onNewMessageChange}
+					// ref={newMessageElement}
+					value={newMessageBody}
 					className={styles.textarea}
 				/>
 				<button onClick={onSendMessageClick} className={styles.button}>

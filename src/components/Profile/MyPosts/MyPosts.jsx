@@ -7,29 +7,24 @@ const MyPosts = props => {
 		<Post message={p.post} count={p.likesCount} key={p.id} />
 	));
 
+	// let newPostElement = props.newPostElement;
+
 	// let onNewPostChange = e => {
 	// 	let text = e.target.value;
-	// 	props.store.dispatch(updateNewPostTextCreator(text));
+	// 	props.updateNewPostText(text);
 	// };
 	// let onAddPostClick = () => {
-	// 	props.store.dispatch(addPostCreator());
+	// 	props.addPost();
 	// };
 
 	let newPostElement = React.createRef();
 
-	let onAddPostClick = () => {
-		props.addPost();
-		// let text = newPostElement.current.value;
-		// props.dispatch(addPostCreator());
-	};
-
-	let onPostChange = () => {
+	let onNewPostChange = () => {
 		let text = newPostElement.current.value;
 		props.updateNewPostText(text);
-		// let action = { type: 'UPDATE-NEW-POST-TEXT', newText: text };
-		// props.updateNewPostText(text);
-		// let action = updateNewPostTextCreator(text);
-		// props.dispatch(action);
+	};
+	let onAddPostClick = () => {
+		props.addPost();
 	};
 
 	return (
@@ -38,18 +33,13 @@ const MyPosts = props => {
 			<div>
 				<textarea
 					// value={newPostElement}
-					// onChange={onNewPostChange}
-					// placeholder='Enter your message'
-					onChange={onPostChange}
+					onChange={onNewPostChange}
+					placeholder='Enter your message'
 					ref={newPostElement}
 					value={props.newPostText}
-					// className={styles.textarea}
+					className={styles.textarea}
 				/>
-				<button
-					// onClick={onAddPostClick}
-					onClick={onAddPostClick}
-					className={styles.button}
-				>
+				<button onClick={onAddPostClick} className={styles.button}>
 					Add post
 				</button>
 			</div>

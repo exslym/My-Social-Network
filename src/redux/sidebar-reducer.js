@@ -1,4 +1,4 @@
-import { createReducer } from '@reduxjs/toolkit';
+// import { createReducer } from '@reduxjs/toolkit';
 
 let initialState = {
 	friends: [
@@ -30,14 +30,14 @@ let initialState = {
 	],
 };
 
-const sidebarReducer = createReducer(initialState, builder => {
-	builder.addDefaultCase((state, action) => {
-		return state;
-	});
-});
+// const sidebarReducer = createReducer(initialState, builder => {
+// 	builder.addDefaultCase((state, action) => {
+// 		return state;
+// 	});
+// });
 
-// const sidebarReducer = (state = initialState, action) => {
-// 	return state;
-// };
+const sidebarReducer = (state = initialState, action) => {
+	return state;
+};
 
 export default sidebarReducer;
