@@ -1,9 +1,25 @@
 .app_profile {
-	overflow-y: scroll;
 	background: bisque;
 	padding: 10px;
 	margin: 0;
 	width: 100%;
 	/* height: calc(100% - 10px); */
 	height: 100%;
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+}
+.app_profile::-webkit-scrollbar {
+	border-radius: 50px;
+	width: 10px;
+}
+.app_profile::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-radius: 50px;
+}
+.app_profile::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 50px;
+	border: solid 3px transparent;
+	box-sizing: border-box;
+	background-clip: content-box;
 }

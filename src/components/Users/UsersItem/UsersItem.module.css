@@ -1,0 +1,78 @@
+.app_friends_item {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+}
+.app_friends_item:last-child {
+	margin-bottom: 0;
+}
+
+.app_friends_img {
+	display: block;
+	width: 100%;
+	max-width: 80px;
+	margin-bottom: 10px;
+}
+
+.app_friends_avatarBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin-right: 20px;
+	width: 100%;
+	max-width: 100px;
+}
+
+.app_friends_infoBlock {
+	padding: 8px 15px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 600px;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background: #fff;
+}
+
+.app_friends_statusBlock {
+	text-align: left;
+}
+.app_friends_locationBlock {
+	text-align: right;
+}
+.app_friends_name {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+.app_friends_status {
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+	font-size: 0.8em;
+}
+.app_friends_country {
+	margin: 0;
+	padding: 0;
+}
+.app_friends_city {
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+}
+.app_friends_followButton {
+	padding: 4px 8px;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background: rgb(176, 251, 255);
+}
+.app_friends_unfollowButton {
+	padding: 4px 8px;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background: rgb(255, 226, 233);
+}

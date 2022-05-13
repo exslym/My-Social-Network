@@ -1,6 +1,6 @@
 .app_dialogs {
 	background: rgb(169, 249, 253);
-	padding: 10px;
+	/* padding: 10px; */
 	width: 100%;
 	height: 100%;
 	display: grid;
@@ -12,9 +12,25 @@
 .app_dialogs_messages {
 	margin: 0;
 	padding: 0;
-	height: calc(100% - 51px);
+	height: calc(100% - 61px);
 	width: 100%;
-	overflow-y: scroll;
+	overflow-y: auto;
+	scrollbar-gutter: stable;
+}
+.app_dialogs_messages::-webkit-scrollbar {
+	border-radius: 50px;
+	width: 10px;
+}
+.app_dialogs_messages::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-radius: 50px;
+}
+.app_dialogs_messages::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 50px;
+	border: solid 3px transparent;
+	box-sizing: border-box;
+	background-clip: content-box;
 }
 .app_dialogs_items {
 	margin: 0;
@@ -62,8 +78,9 @@
 }
 .button {
 	height: 50px;
-	width: 50px;
-	border-radius: 50%;
+	/* width: 50px; */
+	/* border-radius: 50%; */
+	border-radius: 10px;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	color: white;
 	background: rgb(136, 187, 255);

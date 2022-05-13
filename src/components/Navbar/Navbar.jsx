@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SideBar from '../SideBar/SideBar';
 import styles from './Navbar.module.css';
+// import SideBar from '../SideBar/SideBar';
+// import SideBarContainer from '../SideBar/SideBarContainer';
 
 const Navbar = props => {
 	let activeLink = ({ isActive }) => (isActive ? styles.activelink : undefined);
@@ -31,7 +32,9 @@ const Navbar = props => {
 					</NavLink>
 				</li>
 				<li className={styles.app_nav_li}>
-					<NavLink to='/friends' className={activeLink}>
+					<NavLink to='/users' className={activeLink}>
+						Find users
+						{/* <SideBarContainer /> */}
 						{/* <SideBar friends={sideBar.friends} /> */}
 					</NavLink>
 				</li>
