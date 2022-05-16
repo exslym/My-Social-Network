@@ -1,15 +1,23 @@
 import React from 'react';
 import styles from './UsersItem.module.css';
+import defaultUserAvatar from '../../Dialogs/assets/avatar.png';
 
 const UsersItem = props => {
-	let avatarSrc = require(`../../Dialogs/assets/${props.avatar}`);
+	// let avatarErrSrc = require(`../../Dialogs/assets/avatar.png`);
+	// let avatarSrc = require(`../../Dialogs/assets/${props.avatar}`);
+
 	// let cityName = props.location.cityName;
 	// let countryName = props.location.countryName;
 
 	return (
 		<div className={styles.app_friends_item}>
 			<div className={styles.app_friends_avatarBlock}>
-				<img src={avatarSrc} alt='avatar' className={styles.app_friends_img} />
+				<img
+					src={props.avatar != null ? props.avatar : defaultUserAvatar}
+					alt='avatar'
+					className={styles.app_friends_img}
+				/>
+				{/* <img src={avatarSrc} alt='avatar' className={styles.app_friends_img} /> */}
 				{/* <button
 					onClick={() => {
 						props.followedStatus === true ? props.unfollow(props.id) : props.follow(props.id);

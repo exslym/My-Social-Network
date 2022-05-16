@@ -1,0 +1,61 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"avatar": "https://raw.githubusercontent.com/exslym/React-learning_social-network_userData/main/avatars/avatar1.png",
+			"followed": false,
+			"status": "learning react",
+			"firstName": "Andrey",
+			"location": {
+				"cityName": "Moscow",
+				"countryName": "Russia"
+			}
+		},
+		{
+			"id": 2,
+			"avatar": "https://raw.githubusercontent.com/exslym/React-learning_social-network_userData/main/avatars/avatar2.png",
+			"followed": true,
+			"status": "shopping",
+			"firstName": "Michael",
+			"location": {
+				"cityName": "New York",
+				"countryName": "USA"
+			}
+		},
+		{
+			"id": 3,
+			"avatar": "https://raw.githubusercontent.com/exslym/React-learning_social-network_userData/main/avatars/avatar3.png",
+			"followed": false,
+			"status": "looking for job",
+			"firstName": "John",
+			"location": {
+				"cityName": "Minsk",
+				"countryName": "Belarus"
+			}
+		},
+		{
+			"id": 4,
+			"avatar": "https://raw.githubusercontent.com/exslym/React-learning_social-network_userData/main/avatars/avatar4.png",
+			"followed": true,
+			"status": "slow riding",
+			"firstName": "Vika",
+			"location": {
+				"cityName": "Saint-Petersburg",
+				"countryName": "Russia"
+			}
+		},
+		{
+			"id": 5,
+			"avatar": null,
+			"followed": true,
+			"status": "coffee",
+			"firstName": "Viktor",
+			"location": {
+				"cityName": "Rome",
+				"countryName": "Italy"
+			}
+		}
+	],
+	"error": null,
+	"totalCount": 44
+}
