@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';

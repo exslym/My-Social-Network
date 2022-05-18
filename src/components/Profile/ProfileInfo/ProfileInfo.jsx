@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import avatar from '../assets/avatar.jpg';
 import styles from './ProfileInfo.module.css';

@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React from 'react';
 import avatar from '../../assets/avatar.jpg';
-import likes from './assets/likes.svg';
+import likes from '../../assets/likes.svg';
 import styles from './Post.module.css';
 
 const Post = props => {

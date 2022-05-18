@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import styles from './UsersItem.module.css';
-import defaultUserAvatar from '../../Dialogs/assets/avatar.png';
+import defaultUserAvatar from '../../../assets/avatar.png';
 
 const UsersItem = props => {
 	return (

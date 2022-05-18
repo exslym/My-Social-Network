@@ -1,10 +1,11 @@
+// @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './DialogItem.module.css';
 
 const DialogItem = props => {
 	let path = `/dialogs/${props.id}`;
-	let avatarSrc = require(`../assets/${props.avatar}`);
+	let avatarSrc = require(`../../../assets/${props.avatar}`);
 
 	return (
 		<div className={styles.app_dialogs_item}>

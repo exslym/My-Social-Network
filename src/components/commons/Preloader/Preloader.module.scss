@@ -1,0 +1,16 @@
+.preloader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	// background: rgb(235, 169, 253, 0.6);
+	background: rgba(100, 100, 100, 0.3);
+	width: 100%;
+	height: 100%;
+	&_spinner {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 60px;
+	}
+}

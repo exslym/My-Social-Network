@@ -8,7 +8,9 @@ import {
 	setUsersActionCreator,
 	setCurrentPageActionCreator,
 	setUsersTotalCountActionCreator,
+	toggleIsFetchingActionCreator,
 } from '../../redux/users-reducer';
+import Preloader from '../commons/Preloader/Preloader';
 
 const mapStateToProps = state => {
 	return {
@@ -16,6 +18,7 @@ const mapStateToProps = state => {
 		pageSize: state.usersPage.pageSize,
 		usersTotalCount: state.usersPage.usersTotalCount,
 		currentPage: state.usersPage.currentPage,
+		isFetching: state.usersPage.isFetching,
 	};
 };
 
@@ -36,16 +39,21 @@ const mapDispatchToProps = dispatch => {
 		setUsersTotalCount: totalCount => {
 			dispatch(setUsersTotalCountActionCreator(totalCount));
 		},
+		toggleIsFetching: isFetching => {
+			dispatch(toggleIsFetchingActionCreator(isFetching));
+		},
 	};
 };
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
+		this.props.toggleIsFetching(true);
 		axios
 			.get(
 				`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
 			)
 			.then(response => {
+				this.props.toggleIsFetching(false);
 				this.props.setUsers(response.data.items);
 				this.props.setUsersTotalCount(response.data.totalCount);
 			});
@@ -53,26 +61,44 @@ class UsersContainer extends React.Component {
 
 	onPageChanged = pageNumber => {
 		this.props.setCurrentPage(pageNumber);
+		this.props.toggleIsFetching(true);
 		axios
 			.get(
 				`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
 			)
 			.then(response => {
+				this.props.toggleIsFetching(false);
 				this.props.setUsers(response.data.items);
 			});
 	};
 
 	render() {
 		return (
-			<Users
-				users={this.props.users}
-				usersTotalCount={this.props.usersTotalCount}
-				pageSize={this.props.pageSize}
-				currentPage={this.props.currentPage}
-				follow={this.props.follow}
-				unfollow={this.props.unfollow}
-				onPageChanged={this.onPageChanged}
-			/>
+			<div>
+				{/* {this.props.isFetching ? <Preloader /> : null}
+				<Users
+					users={this.props.users}
+					usersTotalCount={this.props.usersTotalCount}
+					pageSize={this.props.pageSize}
+					currentPage={this.props.currentPage}
+					follow={this.props.follow}
+					unfollow={this.props.unfollow}
+					onPageChanged={this.onPageChanged}
+				/> */}
+				{this.props.isFetching ? (
+					<Preloader />
+				) : (
+					<Users
+						users={this.props.users}
+						usersTotalCount={this.props.usersTotalCount}
+						pageSize={this.props.pageSize}
+						currentPage={this.props.currentPage}
+						follow={this.props.follow}
+						unfollow={this.props.unfollow}
+						onPageChanged={this.onPageChanged}
+					/>
+				)}
+			</div>
 		);
 	}
 }
