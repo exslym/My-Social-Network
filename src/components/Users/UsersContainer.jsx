@@ -1,49 +1,25 @@
 import React from 'react';
 import Users from './Users';
+import Preloader from '../commons/Preloader/Preloader';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {
-	followActionCreator,
-	unfollowActionCreator,
-	setUsersActionCreator,
-	setCurrentPageActionCreator,
-	setUsersTotalCountActionCreator,
-	toggleIsFetchingActionCreator,
+	follow,
+	unfollow,
+	setUsers,
+	setCurrentPage,
+	setUsersTotalCount,
+	toggleIsFetching,
 } from '../../redux/users-reducer';
-import Preloader from '../commons/Preloader/Preloader';
-
-const mapStateToProps = state => {
-	return {
-		users: state.usersPage.users,
-		pageSize: state.usersPage.pageSize,
-		usersTotalCount: state.usersPage.usersTotalCount,
-		currentPage: state.usersPage.currentPage,
-		isFetching: state.usersPage.isFetching,
-	};
-};
-
-const mapDispatchToProps = dispatch => {
-	return {
-		follow: userId => {
-			dispatch(followActionCreator(userId));
-		},
-		unfollow: userId => {
-			dispatch(unfollowActionCreator(userId));
-		},
-		setUsers: users => {
-			dispatch(setUsersActionCreator(users));
-		},
-		setCurrentPage: pageNumber => {
-			dispatch(setCurrentPageActionCreator(pageNumber));
-		},
-		setUsersTotalCount: totalCount => {
-			dispatch(setUsersTotalCountActionCreator(totalCount));
-		},
-		toggleIsFetching: isFetching => {
-			dispatch(toggleIsFetchingActionCreator(isFetching));
-		},
-	};
-};
+// REFACTORED:
+// import {
+// 	followActionCreator,
+// 	unfollowActionCreator,
+// 	setUsersActionCreator,
+// 	setCurrentPageActionCreator,
+// 	setUsersTotalCountActionCreator,
+// 	toggleIsFetchingActionCreator,
+// } from '../../redux/users-reducer';
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
@@ -103,4 +79,47 @@ class UsersContainer extends React.Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+const mapStateToProps = state => {
+	return {
+		users: state.usersPage.users,
+		pageSize: state.usersPage.pageSize,
+		usersTotalCount: state.usersPage.usersTotalCount,
+		currentPage: state.usersPage.currentPage,
+		isFetching: state.usersPage.isFetching,
+	};
+};
+
+// REFACTORED:
+// const mapDispatchToProps = dispatch => {
+// 	return {
+// 		follow: userId => {
+// 			dispatch(followActionCreator(userId));
+// 		},
+// 		unfollow: userId => {
+// 			dispatch(unfollowActionCreator(userId));
+// 		},
+// 		setUsers: users => {
+// 			dispatch(setUsersActionCreator(users));
+// 		},
+// 		setCurrentPage: pageNumber => {
+// 			dispatch(setCurrentPageActionCreator(pageNumber));
+// 		},
+// 		setUsersTotalCount: totalCount => {
+// 			dispatch(setUsersTotalCountActionCreator(totalCount));
+// 		},
+// 		toggleIsFetching: isFetching => {
+// 			dispatch(toggleIsFetchingActionCreator(isFetching));
+// 		},
+// 	};
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
+export default connect(mapStateToProps, {
+	follow: follow,
+	unfollow: unfollow,
+	setUsers: setUsers,
+	setCurrentPage: setCurrentPage,
+	setUsersTotalCount: setUsersTotalCount,
+	toggleIsFetching: toggleIsFetching,
+})(UsersContainer);
