@@ -3,17 +3,15 @@
 	padding: 10px;
 	width: 100%;
 	height: 100%;
-	overflow-y: scroll;
+	// overflow-y: scroll;
 	&_title {
 		margin: 0;
 		padding: 0;
 	}
-	&_items {
-		margin-top: 40px;
-	}
 	&_pages {
 		display: block;
 		margin: 0 auto;
+		padding: 5px 0;
 		text-align: center;
 		span {
 			margin: 0 10px;
@@ -26,19 +24,25 @@
 	&_selectedPage {
 		font-weight: bold;
 	}
-	&::-webkit-scrollbar {
-		border-radius: 50px;
-		width: 10px;
-	}
-	&::-webkit-scrollbar-track {
-		background-color: transparent;
-		border-radius: 50px;
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: rgba(0, 0, 0, 0.3);
-		border-radius: 50px;
-		border: solid 3px transparent;
-		box-sizing: border-box;
-		background-clip: content-box;
+	&_items {
+		margin-top: 15px;
+		height: calc(100% - 50px);
+		overflow-y: scroll;
+		scrollbar-gutter: stable;
+		&::-webkit-scrollbar {
+			border-radius: 50px;
+			width: 10px;
+		}
+		&::-webkit-scrollbar-track {
+			background-color: transparent;
+			border-radius: 50px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(0, 0, 0, 0.3);
+			border-radius: 50px;
+			border: solid 3px transparent;
+			box-sizing: border-box;
+			background-clip: content-box;
+		}
 	}
 }

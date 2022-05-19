@@ -29,7 +29,7 @@ const MyPosts = props => {
 	};
 
 	return (
-		<div>
+		<>
 			<p className={styles.title}>My posts</p>
 			<div>
 				<textarea
@@ -45,7 +45,7 @@ const MyPosts = props => {
 				</button>
 			</div>
 			<div className={styles.posts}>{postElements}</div>
-		</div>
+		</>
 	);
 };
 

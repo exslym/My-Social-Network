@@ -4,9 +4,9 @@
 	justify-content: flex-start;
 	margin-bottom: 20px;
 }
-.app_friends_item:last-child {
+/* .app_friends_item:last-child {
 	margin-bottom: 0;
-}
+} */
 
 .app_friends_img {
 	display: block;
