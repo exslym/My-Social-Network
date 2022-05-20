@@ -11,6 +11,13 @@
 	max-width: -moz-fit-content;
 	max-width: -webkit-fit-content;
 	max-width: fit-content;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	white-space: -moz-pre-wrap !important;
+	white-space: -webkit-pre-wrap;
+	white-space: pre-wrap;
+	white-space: normal;
+	word-break: break-all;
 }
 .app_dialogs_messageIn {
 	margin: 10px 0;

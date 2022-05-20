@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from './components/Users/UsersContainer';
-// import Users from './components/Users/Users';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // import store from './redux/store';
@@ -17,16 +16,17 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<div className='app_wrapper'>
-				<Header />
+				<HeaderContainer />
 				<Navbar />
 				<div className='app_wrapper_content'>
 					<Routes>
-						<Route path='/' element={<Profile />} />
-						<Route path='/profile' element={<Profile />} />
+						<Route path='/' element={<ProfileContainer />} />
+						<Route path='/profile/' element={<ProfileContainer />} />
+						<Route path='/profile/:userId' element={<ProfileContainer />} />
 						<Route path='/dialogs/*' element={<DialogsContainer />} />
+						<Route path='/users/*' element={<UsersContainer />} />
 						<Route path='/news' element={<News />} />
 						<Route path='/settings' element={<Settings />} />
-						<Route path='/users/*' element={<UsersContainer />} />
 						{/* <Route path='/users/*' element={<Users store={props.store} />} /> */}
 					</Routes>
 				</div>

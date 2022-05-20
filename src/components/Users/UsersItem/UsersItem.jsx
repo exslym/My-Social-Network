@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './UsersItem.module.css';
 import defaultUserAvatar from '../../../assets/avatar.png';
 
@@ -7,11 +8,13 @@ const UsersItem = props => {
 	return (
 		<div className={styles.app_friends_item}>
 			<div className={styles.app_friends_avatarBlock}>
-				<img
-					src={props.avatar != null ? props.avatar : defaultUserAvatar}
-					alt='avatar'
-					className={styles.app_friends_img}
-				/>
+				<NavLink to={`/profile/${props.id}`}>
+					<img
+						src={props.avatar != null ? props.avatar : defaultUserAvatar}
+						alt='avatar'
+						className={styles.app_friends_img}
+					/>
+				</NavLink>
 				<div>
 					{props.followed ? (
 						<button

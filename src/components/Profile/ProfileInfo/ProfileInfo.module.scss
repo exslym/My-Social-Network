@@ -1,0 +1,40 @@
+.avatar {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	border-radius: 6px;
+	margin-right: 20px;
+}
+.app_profile_content {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.info {
+	&_username {
+		padding: 0;
+		margin: 0;
+		font-weight: bold;
+		font-size: clamp(1em, 2.5vw, 1.8em);
+	}
+	&_status {
+		padding: 0;
+		margin: 0;
+		margin-top: 20px;
+		font-weight: bold;
+		font-size: clamp(0.8em, 2vw, 1.6em);
+	}
+	&_employmentStatus {
+		padding: 0;
+		margin: 0;
+		margin-top: 20px;
+		font-size: clamp(0.8em, 2.2vw, 1.6em);
+	}
+	&_employment {
+		padding: 0;
+		margin: 0;
+		margin-top: 10px;
+		font-style: italic;
+		font-size: clamp(0.8em, 2.2vw, 1.6em);
+	}
+}

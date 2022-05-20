@@ -12,7 +12,7 @@ let initialState = {
 	pageSize: 10,
 	usersTotalCount: 0,
 	currentPage: 1,
-	isFetching: false,
+	isFetching: true,
 };
 
 /* let initialState = {

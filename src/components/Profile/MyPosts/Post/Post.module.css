@@ -5,11 +5,19 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
+	overflow-y: auto;
 }
 .item p {
 	margin: 0;
 	padding: 0;
 	font-weight: bold;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	white-space: -moz-pre-wrap !important;
+	white-space: -webkit-pre-wrap;
+	white-space: pre-wrap;
+	white-space: normal;
+	word-break: break-all;
 }
 .avatar {
 	margin-right: clamp(10px, 2vw, 15px);

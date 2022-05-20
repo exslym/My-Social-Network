@@ -1,0 +1,93 @@
+.app_dialogs {
+	background: rgb(169, 249, 253);
+	/* padding: 10px; */
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 30% calc(70% - 10px);
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	position: relative;
+	&_messages {
+		margin: 0;
+		padding: 0;
+		height: calc(100% - 61px);
+		width: 100%;
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+		&::-webkit-scrollbar {
+			border-radius: 50px;
+			width: 10px;
+		}
+		&::-webkit-scrollbar-track {
+			background-color: transparent;
+			border-radius: 50px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(0, 0, 0, 0.3);
+			border-radius: 50px;
+			border: solid 3px transparent;
+			box-sizing: border-box;
+			background-clip: content-box;
+		}
+	}
+	&_items {
+		margin: 0;
+		padding: 0;
+		padding-left: 10px;
+		width: 96%;
+		position: relative;
+		&::after {
+			position: absolute;
+			content: '';
+			right: -5%;
+			top: 0;
+			width: 2px;
+			height: 100%;
+			border-radius: 50%;
+			background: rgb(255, 254, 247);
+			/* background: linear-gradient(
+				0deg,
+				rgba(255, 255, 255, 0) 0%,
+				rgba(255, 255, 255, 1) 20%,
+				rgba(255, 255, 255, 1) 80%,
+				rgba(255, 255, 255, 0) 100%
+			); */
+		}
+	}
+	&_newMessage {
+		position: absolute;
+		bottom: 10px;
+		left: calc(30% + 15px);
+		max-height: 50px;
+		width: 100%;
+		max-width: calc(70% - 24px);
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	&_textarea {
+		border-radius: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		resize: none;
+		width: calc(100% - 10px);
+		padding: 8px 15px;
+		margin-right: 10px;
+		max-height: 50px;
+		height: 100%;
+	}
+	&_button {
+		height: 50px;
+		/* width: 50px; */
+		/* border-radius: 50%; */
+		border-radius: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		color: white;
+		background: rgb(136, 187, 255);
+		text-align: center;
+		align-items: center;
+		font-size: 80%;
+		font-weight: bold;
+		cursor: pointer;
+	}
+}

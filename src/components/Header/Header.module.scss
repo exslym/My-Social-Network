@@ -1,0 +1,49 @@
+.app_header {
+	grid-area: app_header;
+	margin: 0;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: rgba(115, 151, 169);
+	// background: rgb(127, 255, 202);
+	width: 100%;
+	// p {
+	// 	margin: 0;
+	// 	padding: 0;
+	// 	display: inline-block;
+	// 	vertical-align: middle;
+	// 	width: 90%;
+	// 	text-align: center;
+	// 	margin-left: calc(0px - 100px / 2);
+	// 	font-weight: bold;
+	// 	font-size: clamp(1.5em, 5vw, 2.5em);
+	// }
+	&_logo {
+		margin: 0;
+		padding: 0;
+		display: block;
+		max-width: 80px;
+	}
+	&_loginBlock {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		text-align: center;
+		color: #fff;
+		font-weight: bold;
+
+		img {
+			max-width: 40px;
+			width: 100%;
+			margin-right: 10px;
+		}
+		a {
+			text-decoration: none;
+			color: inherit;
+			line-height: 100%;
+		}
+	}
+}

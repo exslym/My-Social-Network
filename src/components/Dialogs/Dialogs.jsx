@@ -2,7 +2,7 @@
 import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import styles from './Dialogs.module.css';
+import styles from './Dialogs.module.scss';
 
 const Dialogs = props => {
 	let dialogsElements = props.dialogs.map(d => (
@@ -34,9 +34,9 @@ const Dialogs = props => {
 					onChange={onNewMessageChange}
 					// ref={newMessageElement}
 					value={newMessageBody}
-					className={styles.textarea}
+					className={styles.app_dialogs_textarea}
 				/>
-				<button onClick={onSendMessageClick} className={styles.button}>
+				<button onClick={onSendMessageClick} className={styles.app_dialogs_button}>
 					Send
 				</button>
 			</div>
