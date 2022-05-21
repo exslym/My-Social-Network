@@ -15,23 +15,33 @@ let Users = props => {
 	let curPL = curP + 5;
 	let slicedPages = pages.slice(curPF, curPL);
 
-	let usersElements = props.users.map(user => (
-		<UsersItem
-			key={user.id}
-			id={user.id}
-			status={user.status}
-			avatar={user.photos.small}
-			name={user.name}
-			followed={user.followed}
-			follow={props.follow}
-			unfollow={props.unfollow}
-			// avatar={user.avatar}
-			// firstName={user.firstName}
-			// location={user.location}
-			// cityName={user.location.cityName}
-			// countryName={user.location.countryName}
-		/>
-	));
+	let follow = props.follow;
+	let unfollow = props.unfollow;
+	let followingInProgress = props.followingInProgress;
+	let toggleFollowingProgress = props.toggleFollowingProgress;
+
+	let usersElements = props.users.map(user => {
+		return (
+			<UsersItem
+				key={user.id}
+				id={user.id}
+				status={user.status}
+				avatar={user.photos.small}
+				name={user.name}
+				followed={user.followed}
+				follow={follow}
+				unfollow={unfollow}
+				followingInProgress={followingInProgress}
+				toggleFollowingProgress={toggleFollowingProgress}
+
+				// avatar={user.avatar}
+				// firstName={user.firstName}
+				// location={user.location}
+				// cityName={user.location.cityName}
+				// countryName={user.location.countryName}
+			/>
+		);
+	});
 
 	return (
 		<div className={styles.app_friends}>

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/logo300.png';
+import logo from '../../assets/logo-black.png';
 import avatar from '../../assets/avatar.png';
 import styles from './Header.module.scss';
 

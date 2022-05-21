@@ -32,7 +32,9 @@
 }
 .app_dialogs_item a.active {
 	color: rgb(35, 35, 29);
-	background: rgb(255, 254, 247);
+	// background: rgb(255, 254, 247);
+	background: rgb(220, 235, 255);
+	// outline: 1px solid rgba(0, 0, 0, 0.2);
 	width: 100%;
 	border-radius: 5px;
 }

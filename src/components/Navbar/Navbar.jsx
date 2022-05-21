@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Navbar.module.css';
+import styles from './Navbar.module.scss';
 // import SideBar from '../SideBar/SideBar';
 // import SideBarContainer from '../SideBar/SideBarContainer';
 

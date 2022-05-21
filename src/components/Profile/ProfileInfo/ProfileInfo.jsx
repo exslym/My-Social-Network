@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import Preloader from '../../commons/Preloader/Preloader';
-import avatar from '../../../assets/avatar.png';
+import avatar from '../../../assets/avatar-wh.png';
 import styles from './ProfileInfo.module.scss';
 
 const ProfileInfo = props => {

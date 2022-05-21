@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
 import Post from './Post/Post';
-import styles from './MyPosts.module.css';
+import styles from './MyPosts.module.scss';
 
 const MyPosts = props => {
 	let postElements = props.posts.map(p => (
