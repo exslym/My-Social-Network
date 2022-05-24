@@ -12,14 +12,18 @@ export const usersAPI = {
 			return response.data;
 		});
 	},
-	follow(id) {
-		return instance.post(`follow/${id}`).then(response => {
-			return response.data;
-		});
+	follow(userId) {
+		return instance.post(`follow/${userId}`);
 	},
-	unfollow(id) {
-		return instance.delete(`follow/${id}`).then(response => {
-			return response.data;
-		});
+	unfollow(userId) {
+		return instance.delete(`follow/${userId}`);
+	},
+	getProfile(userId) {
+		return instance.get(`profile/${userId}`);
+	},
+};
+export const authAPI = {
+	me() {
+		return instance.get(`auth/me`);
 	},
 };

@@ -34,7 +34,7 @@ const Navbar = props => {
 				</li>
 				<li className={styles.app_nav_li}>
 					<NavLink to='/users' className={activeLink}>
-						Find users
+						Users
 						{/* <SideBarContainer /> */}
 						{/* <SideBar friends={sideBar.friends} /> */}
 					</NavLink>

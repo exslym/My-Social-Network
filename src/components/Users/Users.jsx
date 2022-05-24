@@ -18,7 +18,7 @@ let Users = props => {
 	let follow = props.follow;
 	let unfollow = props.unfollow;
 	let followingInProgress = props.followingInProgress;
-	let toggleFollowingProgress = props.toggleFollowingProgress;
+	// let toggleFollowingProgress = props.toggleFollowingProgress;
 
 	let usersElements = props.users.map(user => {
 		return (
@@ -32,7 +32,7 @@ let Users = props => {
 				follow={follow}
 				unfollow={unfollow}
 				followingInProgress={followingInProgress}
-				toggleFollowingProgress={toggleFollowingProgress}
+				// toggleFollowingProgress={toggleFollowingProgress}
 
 				// avatar={user.avatar}
 				// firstName={user.firstName}

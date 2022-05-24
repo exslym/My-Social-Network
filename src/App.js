@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
@@ -7,7 +8,7 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from './components/Users/UsersContainer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from './components/Login/Login';
 
 // import store from './redux/store';
 // import store from './redux/redux-store';
@@ -21,6 +22,7 @@ const App = () => {
 				<div className='app_wrapper_content'>
 					<Routes>
 						<Route path='/' element={<ProfileContainer />} />
+						<Route path='/login' element={<LoginPage />} />
 						<Route path='/profile/' element={<ProfileContainer />} />
 						<Route path='/profile/:userId' element={<ProfileContainer />} />
 						<Route path='/dialogs/*' element={<DialogsContainer />} />
