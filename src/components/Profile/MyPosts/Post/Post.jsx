@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React from 'react';
-import avatar from '../../assets/avatar.jpg';
-import likes from '../../assets/likes.svg';
-import styles from './Post.module.css';
+import avatar from '../../../../assets/avatar_own.jpg';
+import likes from '../../../../assets/icon_liked.svg';
+import styles from './Post.module.scss';
 
 const Post = props => {
 	return (
