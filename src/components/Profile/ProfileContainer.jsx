@@ -1,22 +1,9 @@
 import React from 'react';
-// import axios from 'axios';
 import { connect } from 'react-redux';
-import Profile from './Profile';
 import { getUserProfile } from '../../redux/profile-reducer';
-import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
-// import { usersAPI } from '../../api/api';
-
-// wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
-function withRouter(Component) {
-	function ComponentWithRouterProp(props) {
-		let location = useLocation();
-		let navigate = useNavigate();
-		let params = useParams();
-		return <Component {...props} router={{ location, navigate, params }} />;
-	}
-
-	return ComponentWithRouterProp;
-}
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import withRouter from '../../hoc/withRouter';
+import Profile from './Profile';
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
@@ -32,17 +19,17 @@ class ProfileContainer extends React.Component {
 		// 	this.props.setUserProfile(response.data);
 		// });
 	}
-
 	render() {
-		if (!this.props.isAuth) return <Navigate to={'/login'} />;
 		return <Profile {...this.props} />;
 	}
 }
 
-let mapStateToProps = state => ({
+const mapStateToProps = state => ({
 	profile: state.profilePage.profile,
-	isAuth: state.auth.isAuth,
 });
 
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
+
 // export default connect(mapStateToProps, { setUserProfile })(ProfileContainer);
-export default connect(mapStateToProps, { getUserProfile })(withRouter(ProfileContainer));
+export default connect(mapStateToProps, { getUserProfile })(WithUrlDataContainerComponent);

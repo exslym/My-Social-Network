@@ -9,6 +9,7 @@ import {
 	toggleFollowingProgress,
 	getUsers,
 } from '../../redux/users-reducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 // import { usersAPI } from '../../api/api';
 // REFACTORED:
 // import {
@@ -116,10 +117,13 @@ const mapStateToProps = state => {
 
 // export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
 
-export default connect(mapStateToProps, {
-	follow,
-	unfollow,
-	setCurrentPage,
-	toggleFollowingProgress,
-	getUsers,
-})(UsersContainer);
+// let withRedirect = withAuthRedirect(UsersContainer);
+export default withAuthRedirect(
+	connect(mapStateToProps, {
+		follow,
+		unfollow,
+		setCurrentPage,
+		toggleFollowingProgress,
+		getUsers,
+	})(UsersContainer),
+);
