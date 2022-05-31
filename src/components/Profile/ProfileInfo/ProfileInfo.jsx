@@ -1,8 +1,9 @@
 // @ts-nocheck
 import React from 'react';
 import Preloader from '../../commons/Preloader/Preloader';
-import avatar from '../../../assets/avatar-wh.png';
+import ProfileStatus from './ProfileStatus';
 import styles from './ProfileInfo.module.scss';
+import avatar from '../../../assets/avatar-wh.png';
 
 const ProfileInfo = props => {
 	if (!props.profile) {
@@ -16,13 +17,12 @@ const ProfileInfo = props => {
 				src={props.profile.photos.large ? props.profile.photos.large : avatar}
 				alt='avatar'
 			/>
+
 			<div className={styles.info}>
 				<p className={styles.info_username}>{props.profile.fullName}</p>
 				<p className={styles.info_status}>{props.profile.aboutMe}</p>
-				<p className={styles.info_employmentStatus}>
-					{props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
-				</p>
 				<p className={styles.info_employment}>{props.profile.lookingForAJobDescription}</p>
+				<ProfileStatus profile={props.profile} status={'hello!'} />
 			</div>
 		</div>
 	);

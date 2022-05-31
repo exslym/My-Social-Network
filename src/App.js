@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -9,6 +8,7 @@ import Settings from './components/Settings/Settings';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
+import './App.css';
 
 // import store from './redux/store';
 // import store from './redux/redux-store';
@@ -22,13 +22,13 @@ const App = () => {
 				<div className='app_wrapper_content'>
 					<Routes>
 						<Route path='/' element={<ProfileContainer />} />
-						<Route path='/login' element={<LoginPage />} />
 						<Route path='/profile/' element={<ProfileContainer />} />
 						<Route path='/profile/:userId' element={<ProfileContainer />} />
 						<Route path='/dialogs/*' element={<DialogsContainer />} />
 						<Route path='/users/*' element={<UsersContainer />} />
 						<Route path='/news' element={<News />} />
 						<Route path='/settings' element={<Settings />} />
+						<Route path='/login' element={<LoginPage />} />
 						{/* <Route path='/users/*' element={<Users store={props.store} />} /> */}
 					</Routes>
 				</div>
