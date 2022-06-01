@@ -20,17 +20,30 @@ import styles from './ProfileInfo.module.scss';
 class ProfileStatus extends React.Component {
 	state = {
 		editMode: false,
+		status: this.props.status,
 	};
 
-	activateEditMode() {
+	activateEditMode = () => {
 		this.setState({
 			editMode: true,
 		});
-	}
-	deactivateEditMode() {
+	};
+	deactivateEditMode = () => {
 		this.setState({
 			editMode: false,
 		});
+		this.props.updateUserStatus(this.state.status);
+	};
+	onStatusChange = e => {
+		this.setState({
+			status: e.currentTarget.value,
+		});
+	};
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.status !== this.props.status) {
+			this.setState({ status: this.props.status });
+		}
 	}
 
 	render() {
@@ -41,23 +54,32 @@ class ProfileStatus extends React.Component {
 						{this.props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
 					</div>
 					{!this.state.editMode ? (
-						<div className={styles.info_status} onDoubleClick={this.activateEditMode.bind(this)}>
-							{this.props.status}
+						<div className={styles.info_status} onDoubleClick={this.activateEditMode}>
+							{this.props.status || 'write something'}
 						</div>
 					) : (
 						<input
+							className={styles.info_status}
+							onChange={this.onStatusChange}
+							onBlur={this.deactivateEditMode}
+							defaultValue={this.state.status}
 							autoFocus
-							onBlur={this.deactivateEditMode.bind(this)}
-							type='text'
-							value={this.props.status}
 						/>
 					)}
 					{/* {!this.state.editMode && (
-						<div className={styles.info_status} onDoubleClick={this.activateEditMode.bind(this)}>
-							{this.props.status}
+						<div className={styles.info_status} onDoubleClick={this.activateEditMode}>
+							{this.props.status || 'write something'}
 						</div>
 					)}
-					{this.state.editMode && <input type='text' value={this.props.status} />} */}
+					{this.state.editMode && (
+						<input
+							className={styles.info_status}
+							onChange={this.onStatusChange}
+							onBlur={this.deactivateEditMode}
+							value={this.state.status}
+							autoFocus
+						/>
+					)} */}
 				</div>
 			</div>
 		);

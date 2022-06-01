@@ -1,5 +1,5 @@
 .app_dialogs {
-	// background: rgb(169, 249, 253);
+	/* 	background: rgb(169, 249, 253); */
 	padding: 10px;
 	padding-right: 0;
 	width: 100%;
@@ -91,7 +91,7 @@
 		font-size: 0.8em;
 		line-height: 120%;
 		background: #edeef0;
-		&::-moz-placeholder {
+		/* 		&::-moz-placeholder {
 			transform: translateY(33%);
 		}
 		&::-webkit-input-placeholder {
@@ -99,7 +99,7 @@
 		}
 		&:-ms-input-placeholder {
 			transform: translateY(33%);
-		}
+		} */
 		&::-webkit-scrollbar {
 			border-radius: 50px;
 			width: 11px;
@@ -125,10 +125,10 @@
 		/* border-radius: 50%; */
 		border-radius: 5px;
 		border: 1px solid rgba(0, 0, 0, 0.25);
-		// color: white;
-		// background: rgb(136, 187, 255);
+		/* 		color: white;
+		background: rgb(136, 187, 255);
+		background: rgb(220, 255, 185); */
 		background: rgb(220, 235, 255);
-		// background: rgb(220, 255, 185);
 		font-size: 0.8em;
 		text-align: center;
 		align-items: center;

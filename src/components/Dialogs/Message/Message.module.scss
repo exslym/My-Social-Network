@@ -39,9 +39,9 @@
 .app_dialogs_messageOut {
 	margin: 10px 0;
 	margin-left: auto;
-	// background: rgb(236, 255, 212);
+	/* 	background: rgb(236, 255, 212);
+	background: rgb(220, 255, 185); */
 	background: rgb(220, 235, 255);
-	// background: rgb(220, 255, 185);
 	position: relative;
 }
 .app_dialogs_messageOut::after {
@@ -51,8 +51,8 @@
 	bottom: 0px;
 	width: 10px;
 	height: 10px;
-	// background: rgb(236, 255, 212);
+	/* 	background: rgb(236, 255, 212);
+		background: rgb(220, 255, 185); */
 	background: rgb(220, 235, 255);
-	// background: rgb(220, 255, 185);
 	border-radius: 50%;
 }
