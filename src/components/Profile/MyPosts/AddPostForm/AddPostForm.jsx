@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from '../MyPosts.module.scss';
 import { reduxForm, Field } from 'redux-form';
-import { CustomFormValidator } from '../../../commons/FormsControl/FormsControl';
+import { FormValidator } from '../../../commons/FormControl/FormControl';
 import { maxLengthCreator, required } from '../../../../utils/validators/validators';
 
 const AddNewPostForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<Field
-				component={CustomFormValidator}
+				component={FormValidator}
 				// component={Textarea}
 				name='newPostText'
 				placeholder='Enter your message'

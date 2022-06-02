@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { maxLengthCreator, required } from '../../utils/validators/validators';
-import { CustomFormValidator } from '../commons/FormsControl/FormsControl';
+import { FormValidator } from '../commons/FormControl/FormControl';
 import styles from './Login.module.scss';
 
 const LoginForm = props => {
@@ -9,7 +9,7 @@ const LoginForm = props => {
 		<form onSubmit={props.handleSubmit}>
 			<div className={styles.app_login_name}>
 				<Field
-					component={CustomFormValidator}
+					component={FormValidator}
 					name='login'
 					placeholder='login'
 					validate={[required, maxLengthCreator(30)]}
@@ -18,7 +18,7 @@ const LoginForm = props => {
 			</div>
 			<div className={styles.app_login_pass}>
 				<Field
-					component={CustomFormValidator}
+					component={FormValidator}
 					name='password'
 					placeholder='password'
 					validate={[required, maxLengthCreator(30)]}
