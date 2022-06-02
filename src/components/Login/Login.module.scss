@@ -1,34 +1,40 @@
 .app_login {
-	// display: flex;
-	// align-items: flex-start;
-	// justify-content: center;
-	padding: 20px;
-
 	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 42% 42% 16%;
-	/* grid-template-rows: 10% calc(90% - 10px); */
-	/* grid-template-columns: 2fr 8fr; */
-	grid-template-rows: 1fr;
-	grid-column-gap: 10px;
-	grid-template-areas: 'app_login_name app_login_pass app_login_button';
-	height: 100%;
-	width: 100%;
-	max-height: 70px;
-	max-width: 700px;
+	padding: 10px;
+	h1 {
+		margin-top: 0;
+		font-size: 1em;
+	}
 	input,
 	button {
 		border-radius: 5px;
 		border: 1px solid rgba(0, 0, 0, 0.3);
-		padding: 10px;
-		font-family: Arial, Helvetica, sans-serif;
+		padding: 4px 8px;
 		font-size: 0.8em;
 	}
 	button {
+		display: block;
 		background: rgb(220, 235, 255);
 		text-align: center;
 		cursor: pointer;
 	}
-	&_name {
+	&_name,
+	&_pass {
+		font-size: 1em;
+		line-height: 100%;
+		margin-bottom: 10px;
+		max-width: 260px;
+		width: 100%;
+		input {
+			width: 100%;
+		}
+	}
+	&_checkbox {
+		margin-bottom: 10px;
+		font-size: 0.8em;
+		input {
+			padding: 0;
+			margin: 0;
+		}
 	}
 }
