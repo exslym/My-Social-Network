@@ -4,6 +4,7 @@ import { maxLengthCreator, required } from '../../utils/validators/validators';
 // import { FormValidator } from '../commons/FormControl/FormControl';
 import { Input } from '../commons/FormControl/FormControl';
 import styles from './Login.module.scss';
+import errorStyles from '../commons/FormControl/FormControl.module.scss';
 
 const maxLength30 = maxLengthCreator(30);
 
@@ -50,6 +51,7 @@ const LoginForm = props => {
 				<Field component='input' name='rememberMe' type='checkbox' />
 				&ensp;Remember me
 			</div>
+			{props.error && <div className={errorStyles.formSummaryError}>{props.error}</div>}
 			<button className={styles.app_login_button}>Login</button>
 		</form>
 	);
