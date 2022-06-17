@@ -1,28 +1,49 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { maxLengthCreator, required } from '../../utils/validators/validators';
-import { FormValidator } from '../commons/FormControl/FormControl';
+// import { FormValidator } from '../commons/FormControl/FormControl';
+import { Input } from '../commons/FormControl/FormControl';
 import styles from './Login.module.scss';
+
+const maxLength30 = maxLengthCreator(30);
 
 const LoginForm = props => {
 	return (
 		<form onSubmit={props.handleSubmit}>
+			{/* <div className={styles.app_login_name}>
+				<Field
+					placeholder='email'
+					name='email'
+					type='input'
+					validate={[required, maxLength30]}
+					component={FormValidator}
+				/>
+			</div>
+			<div className={styles.app_login_pass}>
+				<Field
+					placeholder='password'
+					name='password'
+					type='password'
+					validate={[required, maxLength30]}
+					component={FormValidator}
+				/>
+			</div> */}
 			<div className={styles.app_login_name}>
 				<Field
-					component={FormValidator}
-					name='login'
-					placeholder='login'
-					validate={[required, maxLengthCreator(30)]}
+					component={Input}
+					name='email'
+					placeholder='email'
+					validate={[required, maxLength30]}
 					type='input'
 				/>
 			</div>
 			<div className={styles.app_login_pass}>
 				<Field
-					component={FormValidator}
+					component={Input}
 					name='password'
 					placeholder='password'
-					validate={[required, maxLengthCreator(30)]}
-					type='input'
+					validate={[required, maxLength30]}
+					type='password'
 				/>
 			</div>
 			<div className={styles.app_login_checkbox}>

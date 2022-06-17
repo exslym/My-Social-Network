@@ -31,7 +31,10 @@
 	}
 }
 .error {
-	border: 1px solid red !important;
+	input,
+	textarea {
+		border: 1px solid red !important;
+	}
 }
 .errorMessage {
 	font-size: 0.8em;

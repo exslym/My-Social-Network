@@ -31,7 +31,7 @@
 		display: block;
 		max-width: 50px;
 	}
-	&_loginBlock {
+	&_loginBlock a {
 		margin: 0;
 		padding: 0;
 		display: flex;
@@ -39,17 +39,36 @@
 		justify-content: flex-start;
 		text-align: center;
 		font-weight: bold;
-
-		img {
-			max-width: 40px;
-			width: 100%;
-			margin-right: 10px;
-			border-radius: 50%;
-		}
-		a {
-			text-decoration: none;
-			color: inherit;
-			line-height: 100%;
+		text-decoration: none;
+		color: inherit;
+		line-height: 100%;
+	}
+	&_loginTrue {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	.avatar {
+		display: block;
+		margin: 0;
+		padding: 0;
+		max-width: 40px;
+		width: 100%;
+		margin-right: 10px;
+		border-radius: 50%;
+	}
+	.logout {
+		display: block;
+		margin: 0;
+		padding: 0;
+		max-width: 18px;
+		width: 100%;
+		margin-left: 10px;
+		margin-top: 3px;
+		cursor: pointer;
+		opacity: 0.5;
+		&:hover {
+			opacity: 1;
 		}
 	}
 }
