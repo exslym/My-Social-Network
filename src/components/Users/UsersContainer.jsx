@@ -6,8 +6,16 @@ import {
 	unfollow,
 	setCurrentPage,
 	toggleFollowingProgress,
-	getUsers,
+	requestUsers,
 } from '../../redux/users-reducer';
+import {
+	getUsers,
+	getPageSize,
+	getUsersTotalCount,
+	getCurrentPage,
+	getIsFetching,
+	getFollowingInProgress,
+} from '../../redux/users-selectors';
 // import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import Preloader from '../commons/Preloader/Preloader';
 import Users from './Users';
@@ -25,7 +33,7 @@ import Users from './Users';
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
-		this.props.getUsers(this.props.currentPage, this.props.pageSize);
+		this.props.requestUsers(this.props.currentPage, this.props.pageSize);
 		// REFACTORED:
 		// this.props.toggleIsFetching(true);
 		// usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
@@ -36,7 +44,7 @@ class UsersContainer extends React.Component {
 	}
 
 	onPageChanged = pageNumber => {
-		this.props.getUsers(pageNumber, this.props.pageSize);
+		this.props.requestUsers(pageNumber, this.props.pageSize);
 		this.props.setCurrentPage(pageNumber);
 		// this.props.setCurrentPage(this.props.currentPage, this.props.pageSize);
 
@@ -82,7 +90,7 @@ class UsersContainer extends React.Component {
 	}
 }
 
-const mapStateToProps = state => {
+/* const mapStateToProps = state => {
 	return {
 		users: state.usersPage.users,
 		pageSize: state.usersPage.pageSize,
@@ -90,6 +98,17 @@ const mapStateToProps = state => {
 		currentPage: state.usersPage.currentPage,
 		isFetching: state.usersPage.isFetching,
 		followingInProgress: state.usersPage.followingInProgress,
+	};
+}; */
+
+const mapStateToProps = state => {
+	return {
+		users: getUsers(state),
+		pageSize: getPageSize(state),
+		usersTotalCount: getUsersTotalCount(state),
+		currentPage: getCurrentPage(state),
+		isFetching: getIsFetching(state),
+		followingInProgress: getFollowingInProgress(state),
 	};
 };
 
@@ -135,6 +154,6 @@ export default compose(
 		unfollow,
 		setCurrentPage,
 		toggleFollowingProgress,
-		getUsers,
+		requestUsers,
 	}),
 )(UsersContainer);
