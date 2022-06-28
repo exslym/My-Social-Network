@@ -86,24 +86,24 @@ class ProfileStatus extends React.Component {
 	}
 }
 
-// const ProfileStatus = props => {
-// 	const [editMode, activateEditMode] = useState(null);
-// 	return (
-// 		<div className={styles.app_profile_content}>
-// 			<div className={styles.info}>
-// 				<div className={styles.info_employmentStatus}>
-// 					{this.props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
-// 				</div>
-// 				{!this.state.editMode ? (
-// 					<div className={styles.info_status} onDoubleClick={this.activateEditMode.bind(this)}>
-// 						{this.props.status}
-// 					</div>
-// 				) : (
-// 					<input type='text' value={this.props.status} />
-// 				)}
-// 			</div>
-// 		</div>
-// 	);
-// };
+/* const ProfileStatus = props => {
+	const [editMode, activateEditMode] = useState(null);
+	return (
+		<div className={styles.app_profile_content}>
+			<div className={styles.info}>
+				<div className={styles.info_employmentStatus}>
+					{this.props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
+				</div>
+				{!this.state.editMode ? (
+					<div className={styles.info_status} onDoubleClick={this.activateEditMode.bind(this)}>
+						{this.props.status}
+					</div>
+				) : (
+					<input type='text' value={this.props.status} />
+				)}
+			</div>
+		</div>
+	);
+}; */
 
 export default ProfileStatus;
