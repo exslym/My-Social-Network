@@ -1,7 +1,4 @@
 // import { createAction, createReducer } from '@reduxjs/toolkit';
-// const SEND_MESSAGE = createAction('SEND_MESSAGE');
-// const UPDATE_NEW_MESSAGE_BODY = createAction('UPDATE_NEW_MESSAGE_BODY');
-
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {

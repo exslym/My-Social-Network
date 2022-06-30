@@ -1,12 +1,12 @@
 // @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './UsersItem.module.scss';
+import styles from './User.module.scss';
 import defaultUserAvatar from '../../../assets/avatar.png';
 // import axios from 'axios';
 // import { usersAPI } from '../../../api/api';
 
-const UsersItem = props => {
+const User = props => {
 	return (
 		<div className={styles.app_friends_item}>
 			<div className={styles.app_friends_avatarBlock}>
@@ -25,25 +25,25 @@ const UsersItem = props => {
 							// disabled={props.followingInProgress.some(id => id === props.id)}
 							onClick={() => {
 								props.unfollow(props.id);
-								// props.toggleFollowingProgress(true, props.id);
-								// usersAPI.unfollow(props.id).then(response => {
-								// 	if (response.data.resultCode === 0) {
-								// 		props.unfollow(props.id);
-								// 	}
-								// 	props.toggleFollowingProgress(false, props.id);
-								// });
+								/* 								props.toggleFollowingProgress(true, props.id);
+								usersAPI.unfollow(props.id).then(response => {
+									if (response.data.resultCode === 0) {
+										props.unfollow(props.id);
+									}
+									props.toggleFollowingProgress(false, props.id);
+								});
 
-								// axios
-								// 	.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {
-								// 		withCredentials: true,
-								// 		headers: { 'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645' },
-								// 	})
-								// 	.then(response => {
-								// 		if (response.data.resultCode === 0) {
-								// 			props.unfollow(props.id);
-								// 		}
-								// 		props.toggleFollowingProgress(false, props.id);
-								// 	});
+								axios
+									.delete(`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`, {
+										withCredentials: true,
+										headers: { 'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645' },
+									})
+									.then(response => {
+										if (response.data.resultCode === 0) {
+											props.unfollow(props.id);
+										}
+										props.toggleFollowingProgress(false, props.id);
+									}); */
 							}}
 						>
 							Unfollow
@@ -55,29 +55,29 @@ const UsersItem = props => {
 							// disabled={props.followingInProgress.some(id => id === props.id)}
 							onClick={() => {
 								props.follow(props.id);
-								// props.toggleFollowingProgress(true, props.id);
-								// usersAPI.follow(props.id).then(response => {
-								// 	if (response.data.resultCode === 0) {
-								// 		props.follow(props.id);
-								// 	}
-								// 	props.toggleFollowingProgress(false, props.id);
-								// });
+								/* 								props.toggleFollowingProgress(true, props.id);
+								usersAPI.follow(props.id).then(response => {
+									if (response.data.resultCode === 0) {
+										props.follow(props.id);
+									}
+									props.toggleFollowingProgress(false, props.id);
+								});
 
-								// axios
-								// 	.post(
-								// 		`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
-								// 		{},
-								// 		{
-								// 			withCredentials: true,
-								// 			headers: { 'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645' },
-								// 		},
-								// 	)
-								// 	.then(response => {
-								// 		if (response.data.resultCode === 0) {
-								// 			props.follow(props.id);
-								// 		}
-								// 		props.toggleFollowingProgress(false, props.id);
-								// 	});
+								axios
+									.post(
+										`https://social-network.samuraijs.com/api/1.0/follow/${props.id}`,
+										{},
+										{
+											withCredentials: true,
+											headers: { 'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645' },
+										},
+									)
+									.then(response => {
+										if (response.data.resultCode === 0) {
+											props.follow(props.id);
+										}
+										props.toggleFollowingProgress(false, props.id);
+									}); */
 							}}
 						>
 							Follow
@@ -103,4 +103,4 @@ const UsersItem = props => {
 	);
 };
 
-export default UsersItem;
+export default User;

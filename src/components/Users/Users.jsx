@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import UsersItem from './UsersItem/UsersItem';
+import User from './User/User';
 import styles from './Users.module.scss';
 
 let Users = props => {
@@ -22,7 +22,7 @@ let Users = props => {
 
 	let usersElements = props.users.map(user => {
 		return (
-			<UsersItem
+			<User
 				key={user.id}
 				id={user.id}
 				status={user.status}
@@ -33,7 +33,6 @@ let Users = props => {
 				unfollow={unfollow}
 				followingInProgress={followingInProgress}
 				// toggleFollowingProgress={toggleFollowingProgress}
-
 				// avatar={user.avatar}
 				// firstName={user.firstName}
 				// location={user.location}

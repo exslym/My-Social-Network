@@ -1,4 +1,4 @@
-import profileReducer, { addPostActionCreator } from './profile-reducer';
+import profileReducer, { addPostActionCreator } from '../profile-reducer';
 
 test('length of posts should be incremented', () => {
 	// 1. test data

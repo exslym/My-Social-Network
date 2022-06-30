@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { login } from '../../redux/auth-reducer';
 import { LoginReduxForm } from './LoginForm';
 import styles from './Login.module.scss';
-import { login } from '../../redux/auth-reducer';
 
 const Login = props => {
 	const onSubmit = formData => {
