@@ -5,10 +5,9 @@ import styles from './MyPosts.module.scss';
 import { AddNewPostReduxForm } from './AddPostForm/AddPostForm';
 
 const MyPosts = memo(props => {
-	console.log('RENDER');
-	let postElements = props.posts.map(p => (
-		<Post message={p.post} count={p.likesCount} key={p.id} />
-	));
+	let postElements = [...props.posts]
+		.reverse()
+		.map(p => <Post message={p.post} count={p.likesCount} key={p.id} />);
 
 	let onAddPostClick = values => {
 		props.addPost(values.newPostText);

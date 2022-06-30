@@ -1,14 +1,15 @@
 import { profileAPI, usersAPI } from '../api/api';
 
 const ADD_POST = 'ADD_POST';
+const DELETE_POST = 'DELETE_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
 let initialState = {
 	posts: [
-		{ id: 1, post: 'Hey, how r u doin?', likesCount: 5 },
-		{ id: 2, post: 'My first post', likesCount: 10 },
-		{ id: 3, post: 'My second post', likesCount: 25 },
+		{ id: 1, post: 'My first post', likesCount: 25 },
+		{ id: 2, post: 'My second post', likesCount: 18 },
+		{ id: 3, post: 'My third post', likesCount: 6 },
 	],
 	profile: null,
 	status: '',
@@ -23,6 +24,14 @@ const profileReducer = (state = initialState, action) => {
 				likesCount: 0,
 			};
 			return { ...state, newPostText: '', posts: [...state.posts, newPost] };
+
+		// case DELETE_POST:
+		// 	return {
+		// 		...state,
+		// 		posts: state.posts.filter(p => {
+		// 			p.id !== action.postId;
+		// 		}),
+		// 	};
 
 		case SET_USER_PROFILE: {
 			return { ...state, profile: action.profile };
@@ -41,6 +50,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = newPostText => ({ type: ADD_POST, newPostText });
 export const setUserProfile = profile => ({ type: SET_USER_PROFILE, profile });
 export const setUserStatus = status => ({ type: SET_USER_STATUS, status });
+export const deletePost = postId => ({ type: DELETE_POST, postId });
 
 // THUNKS:
 export const getUserProfile = userId => dispatch => {
@@ -53,7 +63,6 @@ export const getUserStatus = userId => dispatch => {
 		// if (response.data === null) {
 		// 	return;
 		// }
-
 		dispatch(setUserStatus(response.data));
 	});
 };
