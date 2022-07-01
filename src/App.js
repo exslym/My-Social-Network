@@ -54,7 +54,7 @@ class App extends React.Component {
 			return <Preloader />;
 		}
 		return (
-			<div className='app_wrapper'>
+			<div className='app_wrapper' role={'main'}>
 				<HeaderContainer />
 				<Navbar />
 				<div className='app_wrapper_content'>

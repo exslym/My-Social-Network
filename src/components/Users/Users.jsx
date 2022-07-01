@@ -1,9 +1,10 @@
 // @ts-nocheck
 import React from 'react';
+import Paginator from '../commons/Paginator/Paginator';
 import User from './User/User';
 import styles from './Users.module.scss';
 
-let Users = props => {
+/* let Users = props => {
 	let pagesCount = Math.ceil(props.usersTotalCount / props.pageSize);
 	let pages = [];
 	for (let i = 1; i <= pagesCount; i++) {
@@ -12,7 +13,7 @@ let Users = props => {
 
 	let curP = props.currentPage;
 	let curPF = curP - 5 < 0 ? 0 : curP - 5;
-	let curPL = curP + 5;
+	let curPL = curP + 4;
 	let slicedPages = pages.slice(curPF, curPL);
 
 	let follow = props.follow;
@@ -41,7 +42,6 @@ let Users = props => {
 			/>
 		);
 	});
-
 	return (
 		<div className={styles.app_friends}>
 			<div className={styles.app_friends_pages}>
@@ -59,6 +59,41 @@ let Users = props => {
 					);
 				})}
 			</div>
+			<div className={styles.app_friends_items}>{usersElements}</div>
+		</div>
+	);
+}; */
+//Refactored
+
+let Users = ({ currentPage, usersTotalCount, pageSize, onPageChanged, ...props }) => {
+	let follow = props.follow;
+	let unfollow = props.unfollow;
+	let followingInProgress = props.followingInProgress;
+
+	let usersElements = props.users.map(user => {
+		return (
+			<User
+				key={user.id}
+				id={user.id}
+				status={user.status}
+				avatar={user.photos.small}
+				name={user.name}
+				followed={user.followed}
+				follow={follow}
+				unfollow={unfollow}
+				followingInProgress={followingInProgress}
+			/>
+		);
+	});
+
+	return (
+		<div className={styles.app_friends}>
+			<Paginator
+				itemsTotalCount={usersTotalCount}
+				pageSize={pageSize}
+				currentPage={currentPage}
+				onPageChanged={onPageChanged}
+			/>
 			<div className={styles.app_friends_items}>{usersElements}</div>
 		</div>
 	);
