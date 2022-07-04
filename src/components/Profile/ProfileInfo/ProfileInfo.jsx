@@ -13,6 +13,7 @@ const ProfileInfo = props => {
 	return (
 		<div className={styles.app_profile_content}>
 			{/* <img className={styles.avatar} src={avatar} alt='avatar' /> */}
+
 			<img
 				className={styles.avatar}
 				src={props.profile.photos.large ? props.profile.photos.large : avatar}
