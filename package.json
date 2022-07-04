@@ -1,7 +1,7 @@
 {
 	"name": "my-app",
 	"version": "0.1.0",
-	"homepage": "https://gitname.github.io/React-social-network_GHPages-Deploy",
+	"homepage": "https://exslym.github.io/React-learning_social-network",
 	"private": true,
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.1",
