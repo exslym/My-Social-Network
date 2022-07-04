@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-learning_social-network/static/css/main.ab60581a.css",
-    "main.js": "/React-learning_social-network/static/js/main.b286cfb6.js",
+    "main.js": "/React-learning_social-network/static/js/main.86a40f81.js",
     "static/css/578.0b0df0d2.chunk.css": "/React-learning_social-network/static/css/578.0b0df0d2.chunk.css",
     "static/js/578.70b70ee4.chunk.js": "/React-learning_social-network/static/js/578.70b70ee4.chunk.js",
     "static/css/627.ba80bc60.chunk.css": "/React-learning_social-network/static/css/627.ba80bc60.chunk.css",
@@ -28,7 +28,7 @@
     "index.html": "/React-learning_social-network/index.html",
     "static/media/logout.svg": "/React-learning_social-network/static/media/logout.2e52c57bb25b591b2c67b5ef019dcf1a.svg",
     "main.ab60581a.css.map": "/React-learning_social-network/static/css/main.ab60581a.css.map",
-    "main.b286cfb6.js.map": "/React-learning_social-network/static/js/main.b286cfb6.js.map",
+    "main.86a40f81.js.map": "/React-learning_social-network/static/js/main.86a40f81.js.map",
     "578.0b0df0d2.chunk.css.map": "/React-learning_social-network/static/css/578.0b0df0d2.chunk.css.map",
     "578.70b70ee4.chunk.js.map": "/React-learning_social-network/static/js/578.70b70ee4.chunk.js.map",
     "627.ba80bc60.chunk.css.map": "/React-learning_social-network/static/css/627.ba80bc60.chunk.css.map",
@@ -43,6 +43,6 @@
   },
   "entrypoints": [
     "static/css/main.ab60581a.css",
-    "static/js/main.b286cfb6.js"
+    "static/js/main.86a40f81.js"
   ]
 }
