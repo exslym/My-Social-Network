@@ -17,6 +17,11 @@ const ProfileInfo = props => {
 		}
 	};
 
+	const uploadPhoto = e => {
+		e.preventDefault();
+		document.getElementById('avatarInput').click();
+	};
+
 	return (
 		<div className={styles.app_profile_content}>
 			{/* <img className={styles.avatar} src={avatar} alt='avatar' /> */}
@@ -37,7 +42,17 @@ const ProfileInfo = props => {
 					updateUserStatus={props.updateUserStatus}
 				/>
 				{props.isOwner && (
-					<input className={styles.fileloader} type={'file'} onChange={onAvatarSelected} />
+					<>
+						<input
+							id='avatarInput'
+							className={styles.fileloader}
+							type={'file'}
+							onChange={onAvatarSelected}
+						/>
+						<div className={styles.fileloaderButton} onClick={uploadPhoto}>
+							&#10047; <span className={styles.tooltip}>Upload photo</span>
+						</div>
+					</>
 				)}
 			</div>
 		</div>
