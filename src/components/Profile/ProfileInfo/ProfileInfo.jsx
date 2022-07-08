@@ -10,6 +10,13 @@ const ProfileInfo = props => {
 	if (!props.profile) {
 		return <Preloader />;
 	}
+
+	const onAvatarSelected = e => {
+		if (e.target.files.length) {
+			props.savePhoto(e.target.files[0]);
+		}
+	};
+
 	return (
 		<div className={styles.app_profile_content}>
 			{/* <img className={styles.avatar} src={avatar} alt='avatar' /> */}
@@ -29,6 +36,9 @@ const ProfileInfo = props => {
 					status={props.status}
 					updateUserStatus={props.updateUserStatus}
 				/>
+				{props.isOwner && (
+					<input className={styles.fileloader} type={'file'} onChange={onAvatarSelected} />
+				)}
 			</div>
 		</div>
 	);
