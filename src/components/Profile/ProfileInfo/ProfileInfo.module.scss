@@ -102,15 +102,16 @@
 	top: 0;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	color: rgba(0, 0, 0, 0.5);
-	background: #edeef0;
+	background-color: #edeef0;
 	border-radius: 5px;
 	text-align: center;
-	transition: color 0.2s linear, border 0.2s linear;
+	transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
 
 	&:hover {
 		border: 1px solid rgba(0, 0, 0, 0.6);
 		color: rgba(0, 0, 0, 1);
-		transition: color 0.2s linear, border 0.2s linear;
+		background-color: rgb(220, 235, 255);
+		transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
 	}
 }
 
