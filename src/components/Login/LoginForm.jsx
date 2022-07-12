@@ -48,7 +48,7 @@ const LoginForm = props => {
 				/>
 			</div>
 			<div className={styles.app_login_checkbox}>
-				<Field component='input' name='rememberMe' type='checkbox' />
+				<Field component={Input} name='rememberMe' type='checkbox' />
 				&ensp;Remember me
 			</div>
 			{props.error && <div className={errorStyles.formSummaryError}>{props.error}</div>}

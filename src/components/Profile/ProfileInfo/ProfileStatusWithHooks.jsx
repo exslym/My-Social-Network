@@ -12,6 +12,9 @@ const ProfileStatusWithHooks = props => {
 
 	const activateEditMode = () => {
 		setEditMode(true);
+		setTimeout(function () {
+			document.querySelector('#mainStatusInput').select();
+		}, 300);
 	};
 
 	const deactivateEditMode = () => {
@@ -24,26 +27,22 @@ const ProfileStatusWithHooks = props => {
 	};
 
 	return (
-		<div className={styles.app_profile_content}>
-			<div className={styles.info}>
-				<div className={styles.info_employmentStatus}>
-					{props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
+		<>
+			{!editMode ? (
+				<div className={styles.info_status} onClick={activateEditMode}>
+					<b>status:</b> {props.status || 'write something'}
 				</div>
-				{!editMode ? (
-					<div className={styles.info_status} onDoubleClick={activateEditMode}>
-						{props.status || 'write something'}
-					</div>
-				) : (
-					<input
-						className={styles.info_status}
-						autoFocus
-						onChange={onStatusChange}
-						onBlur={deactivateEditMode}
-						defaultValue={status}
-					/>
-				)}
-			</div>
-		</div>
+			) : (
+				<input
+					id='mainStatusInput'
+					className={styles.info_status}
+					autoFocus
+					onChange={onStatusChange}
+					onBlur={deactivateEditMode}
+					defaultValue={status}
+				/>
+			)}
+		</>
 	);
 };
 
