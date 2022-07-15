@@ -1,6 +1,9 @@
 // @ts-nocheck
 import React, { useState, useEffect } from 'react';
+import { maxLengthCreator } from '../../../utils/validators/validators';
 import styles from './ProfileInfo.module.scss';
+
+const maxLength40 = maxLengthCreator(40);
 
 const ProfileStatusWithHooks = props => {
 	let [editMode, setEditMode] = useState(false);
@@ -37,6 +40,7 @@ const ProfileStatusWithHooks = props => {
 					id='mainStatusInput'
 					className={styles.info_status}
 					autoFocus
+					validate={[maxLength40]}
 					onChange={onStatusChange}
 					onBlur={deactivateEditMode}
 					defaultValue={status}
