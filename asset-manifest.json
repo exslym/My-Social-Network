@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/React-learning_social-network/static/css/main.103eee4d.css",
-    "main.js": "/React-learning_social-network/static/js/main.4de1bfa8.js",
-    "static/css/698.905bf6d5.chunk.css": "/React-learning_social-network/static/css/698.905bf6d5.chunk.css",
-    "static/js/698.ad43eb28.chunk.js": "/React-learning_social-network/static/js/698.ad43eb28.chunk.js",
-    "static/css/627.ba80bc60.chunk.css": "/React-learning_social-network/static/css/627.ba80bc60.chunk.css",
-    "static/js/627.c4fe5c76.chunk.js": "/React-learning_social-network/static/js/627.c4fe5c76.chunk.js",
+    "main.css": "/React-learning_social-network/static/css/main.e8bd1975.css",
+    "main.js": "/React-learning_social-network/static/js/main.8d41fc29.js",
+    "static/css/351.e1ec5a33.chunk.css": "/React-learning_social-network/static/css/351.e1ec5a33.chunk.css",
+    "static/js/351.d92f749c.chunk.js": "/React-learning_social-network/static/js/351.d92f749c.chunk.js",
+    "static/css/981.23832ae8.chunk.css": "/React-learning_social-network/static/css/981.23832ae8.chunk.css",
+    "static/js/981.dbfd568a.chunk.js": "/React-learning_social-network/static/js/981.dbfd568a.chunk.js",
     "static/css/92.ea3199ed.chunk.css": "/React-learning_social-network/static/css/92.ea3199ed.chunk.css",
     "static/js/92.771429d7.chunk.js": "/React-learning_social-network/static/js/92.771429d7.chunk.js",
     "static/css/9.b35627f6.chunk.css": "/React-learning_social-network/static/css/9.b35627f6.chunk.css",
@@ -28,12 +28,12 @@
     "static/media/icon_liked.svg": "/React-learning_social-network/static/media/icon_liked.43de9c4003eb317a4ca47f5771d2d0e7.svg",
     "index.html": "/React-learning_social-network/index.html",
     "static/media/logout.svg": "/React-learning_social-network/static/media/logout.2e52c57bb25b591b2c67b5ef019dcf1a.svg",
-    "main.103eee4d.css.map": "/React-learning_social-network/static/css/main.103eee4d.css.map",
-    "main.4de1bfa8.js.map": "/React-learning_social-network/static/js/main.4de1bfa8.js.map",
-    "698.905bf6d5.chunk.css.map": "/React-learning_social-network/static/css/698.905bf6d5.chunk.css.map",
-    "698.ad43eb28.chunk.js.map": "/React-learning_social-network/static/js/698.ad43eb28.chunk.js.map",
-    "627.ba80bc60.chunk.css.map": "/React-learning_social-network/static/css/627.ba80bc60.chunk.css.map",
-    "627.c4fe5c76.chunk.js.map": "/React-learning_social-network/static/js/627.c4fe5c76.chunk.js.map",
+    "main.e8bd1975.css.map": "/React-learning_social-network/static/css/main.e8bd1975.css.map",
+    "main.8d41fc29.js.map": "/React-learning_social-network/static/js/main.8d41fc29.js.map",
+    "351.e1ec5a33.chunk.css.map": "/React-learning_social-network/static/css/351.e1ec5a33.chunk.css.map",
+    "351.d92f749c.chunk.js.map": "/React-learning_social-network/static/js/351.d92f749c.chunk.js.map",
+    "981.23832ae8.chunk.css.map": "/React-learning_social-network/static/css/981.23832ae8.chunk.css.map",
+    "981.dbfd568a.chunk.js.map": "/React-learning_social-network/static/js/981.dbfd568a.chunk.js.map",
     "92.ea3199ed.chunk.css.map": "/React-learning_social-network/static/css/92.ea3199ed.chunk.css.map",
     "92.771429d7.chunk.js.map": "/React-learning_social-network/static/js/92.771429d7.chunk.js.map",
     "9.b35627f6.chunk.css.map": "/React-learning_social-network/static/css/9.b35627f6.chunk.css.map",
@@ -43,7 +43,7 @@
     "787.28cb0dcd.chunk.js.map": "/React-learning_social-network/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.103eee4d.css",
-    "static/js/main.4de1bfa8.js"
+    "static/css/main.e8bd1975.css",
+    "static/js/main.8d41fc29.js"
   ]
 }
