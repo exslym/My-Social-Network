@@ -11,6 +11,7 @@ import {
 // import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { withRouter } from '../../hoc/withRouter';
 import Profile from './Profile';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 // import { Navigate } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
@@ -83,5 +84,5 @@ export default compose(
 		saveProfile,
 	}),
 	withRouter,
-	/* 	withAuthRedirect, */
+	withAuthRedirect,
 )(ProfileContainer);

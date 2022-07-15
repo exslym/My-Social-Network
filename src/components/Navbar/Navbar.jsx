@@ -10,29 +10,29 @@ const Navbar = props => {
 	// let sideBar = props.store.getState().sideBar;
 
 	return (
-		<nav className={styles.app_nav}>
+		<nav className={styles.navbar}>
 			<ul>
-				<li className={styles.app_nav_li}>
+				<li className={styles.navbar_li}>
 					<NavLink to='/profile' className={activeLink}>
 						Profile
 					</NavLink>
 				</li>
-				<li className={styles.app_nav_li}>
+				<li className={styles.navbar_li}>
 					<NavLink to='/dialogs' className={activeLink}>
 						Messages
 					</NavLink>
 				</li>
-				<li className={styles.app_nav_li}>
+				<li className={styles.navbar_li}>
 					<NavLink to='/news' className={activeLink}>
 						News
 					</NavLink>
 				</li>
-				<li className={styles.app_nav_li}>
+				<li className={styles.navbar_li}>
 					<NavLink to='/settings' className={activeLink}>
 						Settings
 					</NavLink>
 				</li>
-				<li className={styles.app_nav_li}>
+				<li className={styles.navbar_li}>
 					<NavLink to='/users' className={activeLink}>
 						Users
 						{/* <SideBarContainer /> */}

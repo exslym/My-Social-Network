@@ -6,7 +6,7 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 const Profile = props => {
 	return (
-		<div className={styles.app_profile}>
+		<div className={styles.profile}>
 			<ProfileInfo
 				isOwner={props.isOwner}
 				profile={props.profile}

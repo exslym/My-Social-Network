@@ -1,4 +1,4 @@
-.app_wrapper {
+.wrapper {
 	/* overflow: hidden; */
 	margin: 0 auto;
 	display: grid;
@@ -9,19 +9,25 @@
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
 	grid-template-areas:
-		'app_header app_header'
-		'app_nav app_profile';
+		'area_header area_header'
+		'area_navbar area_profile';
 	height: 100vh;
 	width: 100%;
 	max-width: 1000px;
+	&_content {
+		grid-area: area_profile;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
 }
 
-.app_wrapper_content {
-	overflow: hidden;
-	grid-area: app_profile;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	position: relative;
+.notFound {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 18px;
 }
