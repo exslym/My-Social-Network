@@ -5,24 +5,10 @@
 		margin-top: 0;
 		font-size: 1em;
 	}
-	input,
-	button {
-		border-radius: 5px;
-		border: 1px solid rgba(0, 0, 0, 0.3);
-		padding: 4px 8px;
-		font-size: 0.8em;
-	}
-	button {
-		display: block;
-		background: rgb(220, 235, 255);
-		text-align: center;
-		cursor: pointer;
-	}
 	&_name,
 	&_pass {
 		font-size: 1em;
 		line-height: 100%;
-		margin-bottom: 10px;
 		max-width: 260px;
 		width: 100%;
 		input {
@@ -30,11 +16,62 @@
 		}
 	}
 	&_checkbox {
-		margin-bottom: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
 		font-size: 0.8em;
 		input {
-			padding: 0;
-			margin: 0;
+			cursor: pointer;
 		}
 	}
+	&_captchaImg {
+		display: block;
+		margin: 0;
+		padding: 0;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		max-width: 200px;
+		width: 100%;
+		border-radius: 5px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+	}
+}
+
+input,
+button {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	display: block;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	padding: 4px 8px;
+	font-family: inherit;
+	font-size: 0.79em;
+	line-height: 100%;
+}
+input::placeholder {
+	color: rgba(0, 0, 0, 0.4);
+}
+input[type='checkbox'] {
+	cursor: pointer;
+	margin-bottom: 0;
+}
+input[name='captcha'] {
+	font-size: 0.79em;
+	line-height: 100%;
+	max-width: 200px;
+	width: 100%;
+	margin-bottom: 0;
+}
+button {
+	margin-top: 10px;
+	margin-bottom: 0;
+	background: rgb(220, 235, 255);
+	text-align: center;
+	cursor: pointer;
+}
+label {
+	margin-left: 10px;
+	cursor: pointer;
 }

@@ -148,6 +148,9 @@ input {
 		color: rgba(0, 0, 0, 0.4);
 	}
 }
+input[type='checkbox'] {
+	cursor: pointer;
+}
 button {
 	background: rgb(220, 235, 255);
 	text-align: center;
@@ -155,6 +158,7 @@ button {
 }
 label {
 	margin-left: 10px;
+	cursor: pointer;
 }
 /* .checkbox {
 	position: absolute;
