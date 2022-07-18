@@ -1,5 +1,12 @@
 // import { createReducer } from '@reduxjs/toolkit';
 
+//Type
+type FriendType = {
+	id: number;
+	name: string;
+	avatar: string;
+};
+
 let initialState = {
 	friends: [
 		{
@@ -27,8 +34,11 @@ let initialState = {
 			name: 'Viktor',
 			avatar: 'avatar5.png',
 		},
-	],
+	] as Array<FriendType>,
 };
+
+//type
+type initialStateType = typeof initialState;
 
 // const sidebarReducer = createReducer(initialState, builder => {
 // 	builder.addDefaultCase((state, action) => {
@@ -36,7 +46,7 @@ let initialState = {
 // 	});
 // });
 
-const sidebarReducer = (state = initialState, action) => {
+const sidebarReducer = (state = initialState, action: any): initialStateType => {
 	return state;
 };
 

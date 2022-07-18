@@ -1,3 +1,4 @@
+import type { PostType, PhotosType, ProfileType } from './../types/types';
 import { stopSubmit } from 'redux-form';
 import { profileAPI, usersAPI } from '../api/api';
 
@@ -12,12 +13,15 @@ let initialState = {
 		{ id: 1, post: 'My first post', likesCount: 25 },
 		{ id: 2, post: 'My second post', likesCount: 18 },
 		{ id: 3, post: 'My third post', likesCount: 6 },
-	],
-	profile: null,
+	] as Array<PostType>,
+	profile: null as ProfileType | null,
 	status: '',
+	newPostText: '',
 };
 
-const profileReducer = (state = initialState, action) => {
+export type initialStateType = typeof initialState;
+
+const profileReducer = (state = initialState, action: any): initialStateType => {
 	switch (action.type) {
 		case ADD_POST:
 			let newPost = {
@@ -44,7 +48,7 @@ const profileReducer = (state = initialState, action) => {
 		}
 
 		case SAVE_PHOTO_SUCCESS: {
-			return { ...state, profile: { ...state.profile, photos: action.photos } };
+			return { ...state, profile: { ...state.profile, photos: action.photos } as ProfileType };
 		}
 
 		default:
@@ -53,20 +57,56 @@ const profileReducer = (state = initialState, action) => {
 };
 
 // ACTION_CREATORS:
-export const addPostActionCreator = newPostText => ({ type: ADD_POST, newPostText });
-export const setUserProfile = profile => ({ type: SET_USER_PROFILE, profile });
-export const setUserStatus = status => ({ type: SET_USER_STATUS, status });
-export const deletePost = postId => ({ type: DELETE_POST, postId });
-export const savePhotoSuccess = photos => ({ type: SAVE_PHOTO_SUCCESS, photos });
+//type
+type AddPostActionCreatorActionType = {
+	type: typeof ADD_POST;
+	newPostText: string;
+};
+type SetUserProfileActionType = {
+	type: typeof SET_USER_PROFILE;
+	profile: ProfileType;
+};
+type SetUserStatusActionType = {
+	type: typeof SET_USER_STATUS;
+	status: string;
+};
+type DeletePostActionType = {
+	type: typeof DELETE_POST;
+	postId: number;
+};
+type SavePhotoSuccessActionType = {
+	type: typeof SAVE_PHOTO_SUCCESS;
+	photos: PhotosType;
+};
+
+export const addPostActionCreator = (newPostText: string): AddPostActionCreatorActionType => ({
+	type: ADD_POST,
+	newPostText,
+});
+export const setUserProfile = (profile: ProfileType): SetUserProfileActionType => ({
+	type: SET_USER_PROFILE,
+	profile,
+});
+export const setUserStatus = (status: string): SetUserStatusActionType => ({
+	type: SET_USER_STATUS,
+	status,
+});
+export const deletePost = (postId: number): DeletePostActionType => ({ type: DELETE_POST, postId });
+export const savePhotoSuccess = (photos: PhotosType): SavePhotoSuccessActionType => ({
+	type: SAVE_PHOTO_SUCCESS,
+	photos,
+});
 
 // THUNKS:
+//type
+
 /* export const getUserProfile = userId => dispatch => {
 	usersAPI.getProfile(userId).then(response => {
 		dispatch(setUserProfile(response.data));
 	});
 }; */
 //refactored:
-export const getUserProfile = userId => async dispatch => {
+export const getUserProfile = (userId: number) => async (dispatch: any) => {
 	const response = await usersAPI.getProfile(userId);
 	dispatch(setUserProfile(response.data));
 };
@@ -80,7 +120,7 @@ export const getUserProfile = userId => async dispatch => {
 	});
 }; */
 //refactored:
-export const getUserStatus = userId => async dispatch => {
+export const getUserStatus = (userId: number) => async (dispatch: any) => {
 	const response = await profileAPI.getStatus(userId);
 	dispatch(setUserStatus(response.data));
 };
@@ -93,21 +133,21 @@ export const getUserStatus = userId => async dispatch => {
 	});
 }; */
 //refactored:
-export const updateUserStatus = status => async dispatch => {
+export const updateUserStatus = (status: string) => async (dispatch: any) => {
 	const response = await profileAPI.updateStatus(status);
 	if (response.data.resultCode === 0) {
 		dispatch(setUserStatus(status));
 	}
 };
 
-export const savePhoto = file => async dispatch => {
+export const savePhoto = (file: any) => async (dispatch: any) => {
 	const response = await profileAPI.savePhoto(file);
 	if (response.data.resultCode === 0) {
 		dispatch(savePhotoSuccess(response.data.data.photos));
 	}
 };
 
-export const saveProfile = profile => async (dispatch, getState) => {
+export const saveProfile = (profile: ProfileType) => async (dispatch: any, getState: any) => {
 	const userId = getState().auth.userId;
 	const response = await profileAPI.saveProfile(profile);
 	if (response.data.resultCode === 0) {
@@ -125,7 +165,7 @@ export const saveProfile = profile => async (dispatch, getState) => {
 		);
 		return Promise.reject(response.data.messages[0]); */
 		let error = response.data.messages[0];
-		let errorObj = { _error: error };
+		let errorObj = { _error: error } as any;
 		let match = error.match(/Invalid url format \(Contacts->(.+)\)/);
 		if (match) {
 			let fieldName = match[1].toLowerCase();
