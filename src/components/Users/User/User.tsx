@@ -1,12 +1,26 @@
 // @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import type { UserType } from '../../../types/types';
 import styles from './User.module.scss';
 import defaultUserAvatar from '../../../assets/avatar.png';
 // import axios from 'axios';
 // import { usersAPI } from '../../../api/api';
 
-const User = props => {
+//Type
+type PropsType = {
+	follow: (userId: number) => void;
+	unfollow: (userId: number) => void;
+	followingInProgress: Array<number>;
+	user: UserType;
+	id: number;
+	followed: boolean;
+	avatar: string | null;
+	status: string;
+	name: string;
+};
+
+const User: React.FC<PropsType> = props => {
 	return (
 		<div className={styles.app_friends_item}>
 			<div className={styles.app_friends_avatarBlock}>

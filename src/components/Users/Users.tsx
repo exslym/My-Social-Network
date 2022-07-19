@@ -1,8 +1,21 @@
 // @ts-nocheck
 import React from 'react';
+import type { UserType } from '../../types/types';
 import Paginator from '../commons/Paginator/Paginator';
 import User from './User/User';
 import styles from './Users.module.scss';
+
+//Type
+type PropsType = {
+	currentPage: number;
+	usersTotalCount: number;
+	pageSize: number;
+	onPageChanged: (pageNumber: number) => void;
+	follow: (userId: number) => void;
+	unfollow: (userId: number) => void;
+	followingInProgress: Array<number>;
+	users: Array<UserType>;
+};
 
 /* let Users = props => {
 	let pagesCount = Math.ceil(props.usersTotalCount / props.pageSize);
@@ -64,8 +77,13 @@ import styles from './Users.module.scss';
 	);
 }; */
 //Refactored
-
-let Users = ({ currentPage, usersTotalCount, pageSize, onPageChanged, ...props }) => {
+let Users: React.FC<PropsType> = ({
+	currentPage,
+	usersTotalCount,
+	pageSize,
+	onPageChanged,
+	...props
+}) => {
 	let follow = props.follow;
 	let unfollow = props.unfollow;
 	let followingInProgress = props.followingInProgress;

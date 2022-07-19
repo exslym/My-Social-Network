@@ -1,23 +1,31 @@
 // @ts-nocheck
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 // import Preloader from '../../commons/Preloader/Preloader';
 import styles from './ProfileInfo.module.scss';
 
-// const ProfileStatus = props => {
-// 	return (
-// 		<div className={styles.app_profile_content}>
-// 			<div className={styles.info}>
-// 				<p className={styles.info_employmentStatus}>
-// 					{props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
-// 				</p>
-// 				<p className={styles.info_status}>{props.status}</p>
-// 				<input type='text' value={props.status} />
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-class ProfileStatus extends React.Component {
+//Type
+type PropsType = {
+	status: string;
+	updateUserStatus: (newStatus: string) => void;
+};
+type StateType = {
+	editMode: boolean;
+	status: string;
+};
+/* const ProfileStatus = props => {
+	return (
+		<div className={styles.app_profile_content}>
+			<div className={styles.info}>
+				<p className={styles.info_employmentStatus}>
+					{props.profile.lookingForAJob ? 'трудоустроен' : 'ищу работу'}
+				</p>
+				<p className={styles.info_status}>{props.status}</p>
+				<input type='text' value={props.status} />
+			</div>
+		</div>
+	);
+}; */
+class ProfileStatus extends React.Component<PropsType, StateType> {
 	state = {
 		editMode: false,
 		status: this.props.status,
@@ -34,13 +42,13 @@ class ProfileStatus extends React.Component {
 		});
 		this.props.updateUserStatus(this.state.status);
 	};
-	onStatusChange = e => {
+	onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
 		this.setState({
 			status: e.currentTarget.value,
 		});
 	};
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate(prevProps: PropsType, prevState: StateType) {
 		if (prevProps.status !== this.props.status) {
 			this.setState({ status: this.props.status });
 		}
