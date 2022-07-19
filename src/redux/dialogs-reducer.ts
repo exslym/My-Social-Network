@@ -1,7 +1,9 @@
 // import { createAction, createReducer } from '@reduxjs/toolkit';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
-//Type
+//* TYPES:
+export type initialStateType = typeof initialState;
+
 type DialogType = {
 	id: number;
 	name: string;
@@ -10,6 +12,10 @@ type DialogType = {
 type MessageType = {
 	id: number;
 	message: string;
+};
+type sendMessageActionCreatorActionType = {
+	type: typeof SEND_MESSAGE;
+	newMessageBody: string;
 };
 
 let initialState = {
@@ -29,9 +35,6 @@ let initialState = {
 	] as Array<MessageType>,
 };
 
-//Type
-export type initialStateType = typeof initialState;
-
 const dialogsReducer = (
 	state = initialState,
 	action: sendMessageActionCreatorActionType,
@@ -46,19 +49,12 @@ const dialogsReducer = (
 				...state,
 				messages: [...state.messages, newMessage],
 			};
-
 		default:
 			return state;
 	}
 };
 
-//Type
-type sendMessageActionCreatorActionType = {
-	type: typeof SEND_MESSAGE;
-	newMessageBody: string;
-};
-
-// ActionCreator:
+//* ACTION_CREATORS:
 export const sendMessageActionCreator = (
 	newMessageBody: string,
 ): sendMessageActionCreatorActionType => ({

@@ -8,10 +8,15 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-	requestUsers(currentPage = 1, pageSize = 10) {
+	/* requestUsers(currentPage = 1, pageSize = 10) {
 		return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => {
 			return response.data;
 		});
+	}, */
+	//* refactored
+	async requestUsers(currentPage = 1, pageSize = 10) {
+		const response = await instance.get(`users?page=${currentPage}&count=${pageSize}`);
+		return response.data;
 	},
 	follow(userId: number) {
 		return instance.post(`follow/${userId}`);
@@ -49,7 +54,7 @@ export const profileAPI = {
 	},
 };
 
-//Type
+//* ENUMS:
 export enum ResultCodesEnum {
 	Success = 0,
 	Error = 1,
@@ -58,6 +63,7 @@ export enum ResultCodesForCaptcha {
 	CaptchaIsRequired = 10,
 }
 
+//* TYPES:
 type MeResponseType = {
 	data: {
 		id: number;
@@ -79,6 +85,7 @@ export const authAPI = {
 	/* 	me() {
 		return instance.get<MeResponseType>(`auth/me`).then(res => res.data);
 	}, */
+	//* refactored
 	async me() {
 		const res = await instance.get<MeResponseType>(`auth/me`);
 		return res.data;
@@ -88,6 +95,7 @@ export const authAPI = {
 			.post<LoginResponseType>(`auth/login`, { email, password, rememberMe, captcha })
 			.then(res => res.data);
 	}, */
+	//* refactored
 	async login(email: string, password: string, rememberMe = false, captcha: null | string = null) {
 		const res = await instance.post<LoginResponseType>(`auth/login`, {
 			email,

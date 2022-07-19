@@ -24,14 +24,14 @@ let rootReducer = combineReducers({
 	app: appReducer,
 });
 
-//Type
-type RootReducerType = typeof rootReducer; // (globalState: AppStateType) => AppStateType
+//* TYPES:
+type RootReducerType = typeof rootReducer; //* (globalState: AppStateType) => AppStateType
 export type AppStateType = ReturnType<RootReducerType>;
 
-// @ts-ignore
+// @ts-ignore //! @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
-// @ts-ignore
+// @ts-ignore //! @ts-ignore
 window.__store__ = store;
 
 /* let reducer = {

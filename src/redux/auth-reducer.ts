@@ -5,14 +5,6 @@ import { authAPI, ResultCodesEnum, ResultCodesForCaptcha, securityAPI } from '..
 const SET_USER_DATA = 'SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS';
 
-// export type InitialStateType2 = {
-// 	userId: number | null;
-// 	email: string | null;
-// 	login: string | null;
-// 	isAuth: boolean | false;
-// 	captchaUrl: string | null;
-// };
-
 let initialState = {
 	userId: null as number | null,
 	email: null as string | null,
@@ -20,9 +12,6 @@ let initialState = {
 	isAuth: false,
 	captchaUrl: null as string | null, // if null then captcha is not required
 };
-
-//Type
-export type InitialStateType = typeof initialState;
 
 const authReducer = (state = initialState, action: any): InitialStateType => {
 	switch (action.type) {
@@ -38,10 +27,9 @@ const authReducer = (state = initialState, action: any): InitialStateType => {
 	}
 };
 
-//Type
+//* TYPES:
+export type InitialStateType = typeof initialState;
 // type ActionTypes = setAuthUserDataActionPayloadType | setAuthUserDataActionType;
-
-//Type
 type setAuthUserDataActionPayloadType = {
 	userId: number | null;
 	email: string | null;
@@ -52,9 +40,12 @@ type setAuthUserDataActionType = {
 	type: typeof SET_USER_DATA;
 	payload: setAuthUserDataActionPayloadType;
 };
+type getCaptchaUrlSuccessActionType = {
+	type: typeof GET_CAPTCHA_URL_SUCCESS;
+	payload: { captchaUrl: string };
+};
 
-//Type
-// ACTION_CREATORS:
+//* ACTION_CREATORS:
 export const setAuthUserData = (
 	userId: number | null,
 	email: string | null,
@@ -64,19 +55,12 @@ export const setAuthUserData = (
 	type: SET_USER_DATA,
 	payload: { userId, email, login, isAuth },
 });
-
-//Type
-type getCaptchaUrlSuccessActionType = {
-	type: typeof GET_CAPTCHA_URL_SUCCESS;
-	payload: { captchaUrl: string };
-};
-
 export const getCaptchaUrlSuccess = (captchaUrl: string): getCaptchaUrlSuccessActionType => ({
 	type: GET_CAPTCHA_URL_SUCCESS,
 	payload: { captchaUrl },
 });
 
-//THUNKS:
+//* THUNKS:
 /* export const getAuthUserData = () => dispatch => {
 	return authAPI.me().then(response => {
 		if (response.data.resultCode === 0) {
@@ -85,7 +69,7 @@ export const getCaptchaUrlSuccess = (captchaUrl: string): getCaptchaUrlSuccessAc
 		}
 	});
 }; */
-//refactored:
+//* refactored:
 export const getAuthUserData = () => async (dispatch: any) => {
 	const meData = await authAPI.me();
 
@@ -106,9 +90,10 @@ export const getAuthUserData = () => async (dispatch: any) => {
 		}
 	});
 }; */
-//refactored:
+//* refactored:
 export const login =
-	(email: string, password: string, rememberMe: boolean, captcha: any) => async (dispatch: any) => {
+	(email: string, password: string, rememberMe: boolean, captcha: string) =>
+	async (dispatch: any) => {
 		const loginData = await authAPI.login(email, password, rememberMe, captcha);
 		if (loginData.resultCode === ResultCodesEnum.Success) {
 			// success, get auth data
@@ -135,7 +120,7 @@ export const getCaptchaUrl = () => async (dispatch: any) => {
 		}
 	});
 }; */
-//refactored:
+//* refactored:
 export const logout = () => async (dispatch: any) => {
 	const response = await authAPI.logout();
 	if (response.data.resultCode === ResultCodesEnum.Success) {

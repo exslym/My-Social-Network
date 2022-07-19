@@ -1,9 +1,9 @@
 import type { PostType, PhotosType, ProfileType } from './../types/types';
+import type { ThunkAction } from 'redux-thunk';
+import type { AppStateType } from './redux-store';
 import { stopSubmit } from 'redux-form';
 import { profileAPI, usersAPI } from '../api/api';
 // import { Dispatch } from 'redux';
-import { ThunkAction } from 'redux-thunk';
-import { AppStateType } from './redux-store';
 
 const ADD_POST = 'ADD_POST';
 const DELETE_POST = 'DELETE_POST';
@@ -21,8 +21,6 @@ let initialState = {
 	status: '',
 	newPostText: '',
 };
-
-export type initialStateType = typeof initialState;
 
 const profileReducer = (state = initialState, action: ActionTypes): initialStateType => {
 	switch (action.type) {
@@ -59,7 +57,9 @@ const profileReducer = (state = initialState, action: ActionTypes): initialState
 	}
 };
 
-//Type
+//* TYPES:
+export type initialStateType = typeof initialState;
+
 type ActionTypes =
 	| AddPostActionCreatorActionType
 	| SetUserProfileActionType
@@ -67,8 +67,6 @@ type ActionTypes =
 	| DeletePostActionType
 	| SavePhotoSuccessActionType;
 
-// ACTION_CREATORS:
-//type
 type AddPostActionCreatorActionType = {
 	type: typeof ADD_POST;
 	newPostText: string;
@@ -90,6 +88,7 @@ type SavePhotoSuccessActionType = {
 	photos: PhotosType;
 };
 
+//* ACTION_CREATORS:
 export const addPostActionCreator = (newPostText: string): AddPostActionCreatorActionType => ({
 	type: ADD_POST,
 	newPostText,
@@ -108,18 +107,18 @@ export const savePhotoSuccess = (photos: PhotosType): SavePhotoSuccessActionType
 	photos,
 });
 
-// THUNKS:
-//Type
+//* TYPES:
 // type GetStateType = () => AppStateType;
 // type DispatchType = Dispatch<ActionTypes>;
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>;
 
+//* THUNKS:
 /* export const getUserProfile = userId => dispatch => {
 	usersAPI.getProfile(userId).then(response => {
 		dispatch(setUserProfile(response.data));
 	});
 }; */
-//refactored:
+//* refactored:
 export const getUserProfile =
 	(userId: number): ThunkType =>
 	async dispatch => {
@@ -135,7 +134,7 @@ export const getUserProfile =
 		dispatch(setUserStatus(response.data));
 	});
 }; */
-//refactored:
+//* refactored:
 export const getUserStatus =
 	(userId: number): ThunkType =>
 	async dispatch => {
@@ -150,7 +149,7 @@ export const getUserStatus =
 		}
 	});
 }; */
-//refactored:
+//* refactored:
 export const updateUserStatus =
 	(status: string): ThunkType =>
 	async dispatch => {

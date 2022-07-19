@@ -1,12 +1,29 @@
 import React from 'react';
+import type { AppStateType } from '../../redux/redux-store';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
 import { LoginReduxForm } from './LoginForm';
 import styles from './Login.module.scss';
 
-const Login = props => {
-	const onSubmit = formData => {
+//* TYPES:
+export type LoginFormValuesTypeKeys = Extract<keyof LoginFormValuesType, string>;
+export type LoginFormValuesType = {
+	email: string;
+	password: string;
+	rememberMe: boolean;
+	captcha: string;
+};
+type MapStatePropsType = {
+	captchaUrl: string | null;
+	isAuth: boolean;
+};
+type MapDispatchPropsType = {
+	login: (email: string, password: string, rememberMe: boolean, captcha: string) => void;
+};
+
+const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = props => {
+	const onSubmit = (formData: LoginFormValuesType) => {
 		props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
 	};
 
@@ -22,7 +39,7 @@ const Login = props => {
 	);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 	captchaUrl: state.auth.captchaUrl,
 	isAuth: state.auth.isAuth,
 });
