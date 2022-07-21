@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import {
 	follow,
 	unfollow,
-	setCurrentPage,
-	toggleFollowingProgress,
 	requestUsers,
+	// setCurrentPage,
+	// toggleFollowingProgress,
 } from '../../redux/users-reducer';
 import {
 	getUsersSelector,
@@ -45,9 +45,9 @@ type MapStatePropsType = {
 type MapDispatchPropsType = {
 	follow: (userId: number) => void;
 	unfollow: (userId: number) => void;
-	setCurrentPage: (pageNumber: number) => void;
-	toggleFollowingProgress: (isFetching: boolean, userId: number) => void;
 	requestUsers: (currentPage: number, pageSize: number) => void;
+	// setCurrentPage: (pageNumber: number) => void;
+	// toggleFollowingProgress: (isFetching: boolean, userId: number) => void;
 };
 type OwnPropsType = {
 	pageTitle: string;
@@ -77,7 +77,7 @@ class UsersContainer extends React.Component<PropsType> {
 		}); */
 		// REFACTORED:
 		this.props.requestUsers(pageNumber, this.props.pageSize);
-		this.props.setCurrentPage(pageNumber);
+		// this.props.setCurrentPage(pageNumber);
 		// this.props.setCurrentPage(this.props.currentPage, this.props.pageSize);
 	};
 
@@ -178,8 +178,8 @@ export default compose<React.Component>(
 	connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
 		follow,
 		unfollow,
-		setCurrentPage,
-		toggleFollowingProgress,
 		requestUsers,
+		// setCurrentPage,
+		// toggleFollowingProgress,
 	}),
 )(UsersContainer);

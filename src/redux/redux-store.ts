@@ -1,12 +1,12 @@
-// import { configureStore } from '@reduxjs/toolkit';
 import {
+	Action,
 	compose,
 	combineReducers,
 	applyMiddleware,
 	legacy_createStore as createStore,
 } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import thunkMiddleware from 'redux-thunk';
+import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import profileReducer from './profile-reducer';
 import dialogsReducer from './dialogs-reducer';
 import usersReducer from './users-reducer';
@@ -26,19 +26,23 @@ let rootReducer = combineReducers({
 
 //* TYPES:
 type RootReducerType = typeof rootReducer; //* (globalState: AppStateType) => AppStateType
+type PropertiesType<T> = T extends { [key: string]: infer U } ? U : never;
+
 export type AppStateType = ReturnType<RootReducerType>;
+export type BaseThunkType<A extends Action, R = Promise<void>> = ThunkAction<
+	R,
+	AppStateType,
+	unknown,
+	A
+>;
+export type InferActionsTypes<T extends { [key: string]: (...args: any[]) => any }> = ReturnType<
+	PropertiesType<T>
+>;
 
 // @ts-ignore //! @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleware)));
 // @ts-ignore //! @ts-ignore
 window.__store__ = store;
-
-/* let reducer = {
-	profilePage: profileReducer,
-	dialogsPage: dialogsReducer,
-	sideBar: sidebarReducer,
-};
-let store = configureStore({ reducer }); */
 
 export default store;
