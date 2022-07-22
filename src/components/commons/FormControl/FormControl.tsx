@@ -7,6 +7,7 @@ import styles from './FormControl.module.scss';
 type FormControlPropsType = {
 	children?: React.ReactNode;
 };
+export type GetStringKeys<T> = Extract<keyof T, string>;
 
 const FormControl: React.FC<WrappedFieldProps & FormControlPropsType> = ({
 	meta: { touched, error },

@@ -1,9 +1,15 @@
-// @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './DialogItem.module.scss';
 
-const DialogItem = props => {
+//* TYPES:
+type PropsType = {
+	avatar: string | null;
+	name: string;
+	id: number;
+};
+
+const DialogItem: React.FC<PropsType> = props => {
 	let path = `/dialogs/${props.id}`;
 	let avatarSrc = require(`../../../assets/${props.avatar}`);
 

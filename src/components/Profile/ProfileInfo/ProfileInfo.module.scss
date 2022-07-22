@@ -105,7 +105,8 @@
 	top: 0;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	color: rgba(0, 0, 0, 0.5);
-	background-color: #edeef0;
+	background: #edeef0;
+	background: #fbfcfd;
 	border-radius: 5px;
 	text-align: center;
 	transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
@@ -119,15 +120,19 @@
 }
 
 textarea {
+	background: #fbfcfd;
 	margin: 0;
 	padding: 0;
 	display: block;
 	border-radius: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	padding: 4px 8px;
+	padding: 8px;
 	font-family: inherit;
 	font-size: 0.79em;
+	line-height: 100%;
 	width: 100%;
+	max-height: 50px;
 	resize: none;
 	&::placeholder {
 		color: rgba(0, 0, 0, 0.4);

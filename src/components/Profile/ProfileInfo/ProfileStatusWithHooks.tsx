@@ -1,11 +1,18 @@
-// @ts-nocheck
-import React, { useState, useEffect } from 'react';
-import { maxLengthCreator } from '../../../utils/validators/validators';
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { ProfileType } from '../../../types/types';
+// import { maxLengthCreator } from '../../../utils/validators/validators';
 import styles from './ProfileInfo.module.scss';
 
-const maxLength40 = maxLengthCreator(40);
+//* TYPES:
+type PropsType = {
+	profile: ProfileType;
+	status: string;
+	updateUserStatus: (status: string) => void;
+};
 
-const ProfileStatusWithHooks = props => {
+// const maxLength40 = maxLengthCreator(40);
+
+const ProfileStatusWithHooks: React.FC<PropsType> = props => {
 	let [editMode, setEditMode] = useState(false);
 	let [status, setStatus] = useState(props.status);
 
@@ -15,9 +22,9 @@ const ProfileStatusWithHooks = props => {
 
 	const activateEditMode = () => {
 		setEditMode(true);
-		setTimeout(function () {
-			document.querySelector('#mainStatusInput').select();
-		}, 300);
+		// setTimeout(() => {
+		// 	document.querySelector('#mainStatusInput')?.select();
+		// }, 300);
 	};
 
 	const deactivateEditMode = () => {
@@ -25,7 +32,7 @@ const ProfileStatusWithHooks = props => {
 		props.updateUserStatus(status);
 	};
 
-	const onStatusChange = e => {
+	const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setStatus(e.currentTarget.value);
 	};
 
@@ -40,7 +47,7 @@ const ProfileStatusWithHooks = props => {
 					id='mainStatusInput'
 					className={styles.info_status}
 					autoFocus
-					validate={[maxLength40]}
+					// validate={[maxLength40]}
 					onChange={onStatusChange}
 					onBlur={deactivateEditMode}
 					defaultValue={status}

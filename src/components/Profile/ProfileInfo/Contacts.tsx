@@ -1,14 +1,20 @@
 import React from 'react';
 import styles from './ProfileInfo.module.scss';
 
-const Contacts = props => {
-	let path = `https://${props.contactValue}`;
+//* TYPES:
+type ContactsPropsType = {
+	contactTitle: string;
+	contactValue: string;
+};
+
+const Contacts: React.FC<ContactsPropsType> = ({ contactValue }) => {
+	let path = `https://${contactValue}`;
 	return (
 		<>
-			{props.contactValue && (
+			{contactValue && (
 				<div className={styles.contacts_item}>
 					<a href={path} target='_blank' rel='noreferrer' className={styles.contacts_link}>
-						{props.contactValue}
+						{contactValue}
 					</a>
 				</div>
 			)}

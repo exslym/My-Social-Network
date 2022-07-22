@@ -1,10 +1,15 @@
-// @ts-nocheck
 import React from 'react';
 import avatar from '../../../../assets/avatar_own.jpg';
 import likes from '../../../../assets/icon_liked.svg';
 import styles from './Post.module.scss';
 
-const Post = props => {
+//* TYPES:
+type PropsType = {
+	message: string;
+	count: number | null;
+};
+
+const Post: React.FC<PropsType> = props => {
 	return (
 		<div className={styles.item}>
 			<div className={styles.post_wrap}>

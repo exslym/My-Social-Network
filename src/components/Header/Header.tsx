@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo-black.png';
@@ -6,7 +5,16 @@ import avatar from '../../assets/avatar.png';
 import logout from '../../assets/logout.svg';
 import styles from './Header.module.scss';
 
-const Header = props => {
+//* TYPES:
+export type MapStatePropsType = {
+	isAuth: boolean;
+	login: string | null;
+};
+export type DispatchPropsType = {
+	logout: () => void;
+};
+
+const Header: React.FC<MapStatePropsType & DispatchPropsType> = props => {
 	return (
 		<header className={styles.header}>
 			<img className={styles.header_logo} src={logo} alt='logo' />

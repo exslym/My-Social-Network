@@ -1,11 +1,10 @@
-// @ts-nocheck
 import React from 'react';
 import type { UserType } from '../../types/types';
 import Paginator from '../commons/Paginator/Paginator';
 import User from './User/User';
 import styles from './Users.module.scss';
 
-//Type
+//* TYPES:
 type PropsType = {
 	currentPage: number;
 	usersTotalCount: number;
@@ -76,7 +75,7 @@ type PropsType = {
 		</div>
 	);
 }; */
-//Refactored
+//* Refactored
 let Users: React.FC<PropsType> = ({
 	currentPage,
 	usersTotalCount,
@@ -92,14 +91,11 @@ let Users: React.FC<PropsType> = ({
 		return (
 			<User
 				key={user.id}
-				id={user.id}
-				status={user.status}
+				user={user}
 				avatar={user.photos.small}
-				name={user.name}
-				followed={user.followed}
+				followingInProgress={followingInProgress}
 				follow={follow}
 				unfollow={unfollow}
-				followingInProgress={followingInProgress}
 			/>
 		);
 	});
@@ -107,10 +103,10 @@ let Users: React.FC<PropsType> = ({
 	return (
 		<div className={styles.app_friends}>
 			<Paginator
-				itemsTotalCount={usersTotalCount}
-				pageSize={pageSize}
 				currentPage={currentPage}
 				onPageChanged={onPageChanged}
+				itemsTotalCount={usersTotalCount}
+				pageSize={pageSize}
 			/>
 			<div className={styles.app_friends_items}>{usersElements}</div>
 		</div>

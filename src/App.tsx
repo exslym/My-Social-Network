@@ -4,7 +4,7 @@ import { withRouter } from './hoc/withRouter';
 import { Provider, connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/app-reducer';
-import store from './redux/redux-store';
+import store, { AppStateType } from './redux/redux-store';
 import Preloader from './components/commons/Preloader/Preloader';
 import LoginPage from './components/Login/Login';
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -27,8 +27,14 @@ const UsersContainer = React.lazy(() => import('./components/Users/UsersContaine
 const News = React.lazy(() => import('./components/News/News'));
 const Settings = React.lazy(() => import('./components/Settings/Settings'));
 
-class App extends React.Component {
-	catchAllUnhandledErrors = (reason, promiseRejectionEvent) => {
+//* TYPES:
+type MapPropsType = ReturnType<typeof mapStateToProps>;
+type DispatchPropsType = {
+	initializeApp: () => void;
+};
+
+class App extends React.Component<MapPropsType & DispatchPropsType> {
+	catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
 		alert('some error');
 		// console.log(promiseRejectionEvent);
 	};
@@ -107,7 +113,7 @@ class App extends React.Component {
 							<Route path='/profile' element={<ProfileContainer />} />
 							<Route path='/profile/:userId' element={<ProfileContainer />} />
 							<Route path='/dialogs/*' element={<DialogsContainer />} />
-							<Route path='/users/*' element={<UsersContainer pageTitle={'Title'} />} />
+							<Route path='/users/*' element={<UsersContainer />} />
 							<Route path='/news' element={<News />} />
 							<Route path='/settings' element={<Settings />} />
 							<Route path='/login' element={<LoginPage />} />
@@ -143,16 +149,19 @@ class App extends React.Component {
 	);
 }; */
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: AppStateType) => ({
 	initialized: state.app.initialized,
 });
 
 // export default compose(connect(mapStateToProps, { initializeApp }))(App);
 
-let AppContainer = compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
+let AppContainer = compose<React.ComponentType>(
+	withRouter,
+	connect(mapStateToProps, { initializeApp }),
+)(App);
 // let AppContainer = compose(connect(mapStateToProps, { initializeApp }))(App);
 
-const ExslymApp = props => {
+const ExslymApp: React.FC = () => {
 	return (
 		<HashRouter>
 			<Provider store={store}>

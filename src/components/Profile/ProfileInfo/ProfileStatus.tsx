@@ -1,5 +1,5 @@
-// @ts-nocheck
 import React, { ChangeEvent } from 'react';
+import type { ProfileType } from '../../../types/types';
 // import Preloader from '../../commons/Preloader/Preloader';
 import styles from './ProfileInfo.module.scss';
 
@@ -7,6 +7,7 @@ import styles from './ProfileInfo.module.scss';
 type PropsType = {
 	status: string;
 	updateUserStatus: (newStatus: string) => void;
+	profile: ProfileType;
 };
 type StateType = {
 	editMode: boolean;

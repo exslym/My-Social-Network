@@ -1,19 +1,32 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
+import { InjectedFormProps, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
 import { createField, Input, Textarea } from '../../commons/FormControl/FormControl';
 import styles from './ProfileInfo.module.scss';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+import type { ProfileType } from '../../../types/types';
+import type { GetStringKeys } from '../../commons/FormControl/FormControl';
 // import Contacts from './Contacts';
 
 const maxLength50 = maxLengthCreator(50);
 const maxLength100 = maxLengthCreator(100);
 const maxLength200 = maxLengthCreator(200);
 
-const ProfileDataReduxForm = props => {
+//* TYPES:
+type ProfileTypeKeys = GetStringKeys<ProfileType>;
+type ProfileDataFormPropsType = {
+	profile: ProfileType;
+	isOwner: boolean;
+	status: string;
+	updateUserStatus: (status: string) => void;
+};
+
+const ProfileDataForm: React.FC<
+	InjectedFormProps<ProfileType, ProfileDataFormPropsType> & ProfileDataFormPropsType
+> = ({ handleSubmit, isOwner, profile, status, updateUserStatus, error }) => {
 	return (
-		<form className={styles.info} onSubmit={props.handleSubmit}>
-			{props.isOwner && <button className={styles.editButton}>save</button>}
+		<form className={styles.info} onSubmit={handleSubmit}>
+			{isOwner && <button className={styles.editButton}>save</button>}
 			<div className={styles.info_username}>
 				{/* <Field
 						component={Input}
@@ -22,12 +35,12 @@ const ProfileDataReduxForm = props => {
 						validate={[required, maxLength50]}
 						type='input'
 					/> */}
-				{createField('edit name', 'fullName', [required, maxLength50], Input)}
+				{createField<ProfileTypeKeys>('edit name', 'fullName', [required, maxLength50], Input)}
 			</div>
 			<ProfileStatusWithHooks
-				profile={props.profile}
-				status={props.status}
-				updateUserStatus={props.updateUserStatus}
+				profile={profile}
+				status={status}
+				updateUserStatus={updateUserStatus}
 			/>
 			<div className={styles.info_employmentStatus}>
 				{/* <Field
@@ -37,7 +50,9 @@ const ProfileDataReduxForm = props => {
 						id='lookingForAJob'
 						className={styles.checkbox}
 					/> */}
-				{createField('', 'lookingForAJob', [], Input, { type: 'checkbox' })}
+				{createField<ProfileTypeKeys>('', 'lookingForAJob', [], Input, {
+					type: 'checkbox',
+				})}
 				<label htmlFor='lookingForAJob'>Looking for a job!</label>
 			</div>
 			<div className={styles.info_skills}>
@@ -48,7 +63,12 @@ const ProfileDataReduxForm = props => {
 						validate={[required, maxLength100]}
 						type='textarea'
 					/> */}
-				{createField('my skills', 'lookingForAJobDescription', [required, maxLength100], Textarea)}
+				{createField<ProfileTypeKeys>(
+					'my skills',
+					'lookingForAJobDescription',
+					[required, maxLength100],
+					Textarea,
+				)}
 			</div>
 			<div className={styles.info_aboutMe}>
 				{/* <Field
@@ -58,15 +78,16 @@ const ProfileDataReduxForm = props => {
 						validate={[required, maxLength200]}
 						type='Textarea'
 					/> */}
-				{createField('about me', 'aboutMe', [required, maxLength200], Textarea)}
+				{createField<ProfileTypeKeys>('about me', 'aboutMe', [required, maxLength200], Textarea)}
 			</div>
 			<div className={styles.contacts}>
 				<div className={styles.contacts_title}>Contacts:</div>
-				{props.error && <div className={styles.formSummaryError}>{props.error}</div>}
+				{error && <div className={styles.formSummaryError}>{error}</div>}
 				<div className={styles.contacts_block}>
-					{Object.keys(props.profile.contacts).map(key => {
+					{Object.keys(profile.contacts).map(key => {
 						return (
 							<div key={key} className={styles.contacts_item}>
+								{/* //! todo: create some solution for embedded objects */}
 								{createField(`${key}.com`, 'contacts.' + key.toLocaleLowerCase(), [], Input)}
 							</div>
 						);
@@ -78,10 +99,10 @@ const ProfileDataReduxForm = props => {
 };
 
 // export default ProfileDataForm;
-const ProfileDataForm = reduxForm({
+export default reduxForm<ProfileType, ProfileDataFormPropsType>({
 	form: 'edit-profile',
 	enableReinitialize: true,
 	destroyOnUnmount: false,
-})(ProfileDataReduxForm);
+})(ProfileDataForm);
 
-export default ProfileDataForm;
+// export default ProfileDataForm;

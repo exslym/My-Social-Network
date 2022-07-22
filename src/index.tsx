@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom';
 // import { HashRouter } from 'react-router-dom';
 // import { Provider } from 'react-redux';
 // import store from './redux/redux-store';
@@ -9,7 +10,14 @@ import ExslymApp from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// for React 17:
+// ReactDOM.render(<ExslymApp />, document.getElementById('root'));
+
+//* for React 18:
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = ReactDOM.createRoot(rootElement);
+root.render(<ExslymApp />);
 
 /* root.render(
 	<React.StrictMode>
@@ -18,8 +26,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 		</Provider>
 	</React.StrictMode>,
 ); */
-
-root.render(<ExslymApp />);
 
 /* root.render(
 	<HashRouter>

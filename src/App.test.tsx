@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import App from './App';
+import ExslymApp from './App';
 import store from './redux/redux-store';
 
 test('renders app without crashing 1', () => {
 	render(
 		<BrowserRouter>
 			<Provider store={store}>
-				<App />
+				<ExslymApp />
 			</Provider>
 		</BrowserRouter>,
 	);
@@ -32,13 +32,6 @@ test('renders app without crashing 1', () => {
 
 test('renders app without crashing 3', () => {
 	const div = document.createElement('div');
-	render(
-		<BrowserRouter>
-			<Provider store={store}>
-				<App />
-			</Provider>
-		</BrowserRouter>,
-		div,
-	);
+	ReactDOM.render(<ExslymApp />, div);
 	ReactDOM.unmountComponentAtNode(div);
 });

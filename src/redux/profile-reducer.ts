@@ -4,7 +4,7 @@ import { FormAction, stopSubmit } from 'redux-form';
 import { profileAPI } from '../api/profile-api';
 
 //* TYPES:
-export type initialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 type ActionsTypes = InferActionsTypes<typeof actions>;
 type ThunkType = BaseThunkType<ActionsTypes | FormAction>;
 
@@ -16,10 +16,10 @@ let initialState = {
 	] as Array<PostType>,
 	profile: null as ProfileType | null,
 	status: '',
-	newPostText: '',
+	// newPostText: '',
 };
 
-const profileReducer = (state = initialState, action: ActionsTypes): initialStateType => {
+const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
 	switch (action.type) {
 		case 'SN/PROFILE/ADD_POST':
 			let newPost = {
@@ -27,7 +27,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): initialStat
 				post: action.newPostText,
 				likesCount: 0,
 			};
-			return { ...state, newPostText: '', posts: [...state.posts, newPost] };
+			return { ...state, posts: [...state.posts, newPost] };
 		case 'SN/PROFILE/DELETE_POST':
 			return {
 				...state,

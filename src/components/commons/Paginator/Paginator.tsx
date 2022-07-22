@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import styles from './Paginator.module.scss';
 
-//Type
+//* TYPES:
 type PropsType = {
 	itemsTotalCount: number;
 	pageSize: number;

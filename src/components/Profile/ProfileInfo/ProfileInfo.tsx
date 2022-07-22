@@ -1,15 +1,32 @@
-// @ts-nocheck
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Preloader from '../../commons/Preloader/Preloader';
-// import ProfileStatus from './ProfileStatus';
 import styles from './ProfileInfo.module.scss';
 import avatar from '../../../assets/avatar-wh.png';
-// import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileDataForm from './ProfileDataForm';
 import ProfileData from './ProfileData';
+import type { ProfileType } from '../../../types/types';
+// import ProfileStatus from './ProfileStatus';
+// import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 // import Contacts from './Contacts';
 
-const ProfileInfo = props => {
+//* TYPES:
+type PropsType = {
+	profile: ProfileType | null;
+	status: string;
+	updateUserStatus: (status: string) => void;
+	isOwner: boolean;
+	savePhoto: (file: File) => void;
+	saveProfile: (profile: ProfileType) => Promise<any>;
+};
+
+const ProfileInfo: React.FC<PropsType> = ({
+	profile,
+	status,
+	updateUserStatus,
+	isOwner,
+	savePhoto,
+	saveProfile,
+}) => {
 	let [editMode, setEditMode] = useState(false);
 
 	// let [initialValue, setValues] = useState(props.profile);
@@ -18,22 +35,26 @@ const ProfileInfo = props => {
 	// 	setValues(props.profile);
 	// }, [props.profile]);
 
-	if (!props.profile) {
+	if (!profile) {
 		return <Preloader />;
 	}
 
-	const onAvatarSelected = e => {
-		if (e.target.files.length) {
-			props.savePhoto(e.target.files[0]);
+	const onAvatarSelected = (e: ChangeEvent<HTMLInputElement>) => {
+		// if (e.target.files && e.target.files.length) {
+		// 	savePhoto(e.target.files[0]);
+		// }
+		if (e.target.files?.length) {
+			savePhoto(e.target.files[0]);
 		}
 	};
-	const uploadPhoto = e => {
+	const uploadPhoto = (e: ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
-		document.getElementById('avatarInput').click();
+		document.getElementById('avatarInput')?.click();
 	};
 
-	const onSubmit = formData => {
-		props.saveProfile(formData).then(() => {
+	const onSubmit = (formData: ProfileType) => {
+		//! todo: remove then
+		saveProfile(formData).then(() => {
 			setEditMode(false);
 		});
 	};
@@ -42,10 +63,10 @@ const ProfileInfo = props => {
 		<div className={styles.content}>
 			<img
 				className={styles.avatar}
-				src={props.profile.photos.large ? props.profile.photos.large : avatar}
+				src={profile.photos.large ? profile.photos.large : avatar}
 				alt='avatar'
 			/>
-			{props.isOwner && (
+			{isOwner && (
 				<>
 					<input
 						id='avatarInput'
@@ -53,7 +74,10 @@ const ProfileInfo = props => {
 						type={'file'}
 						onChange={onAvatarSelected}
 					/>
-					<div className={styles.fileloaderButton} onClick={uploadPhoto}>
+					<div
+						className={styles.fileloaderButton}
+						onClick={uploadPhoto as unknown as React.MouseEventHandler<HTMLDivElement>}
+					>
 						&#10047; <span className={styles.tooltip}>Upload photo</span>
 					</div>
 				</>
@@ -61,19 +85,19 @@ const ProfileInfo = props => {
 
 			{editMode ? (
 				<ProfileDataForm
-					initialValues={props.profile}
-					profile={props.profile}
-					status={props.status}
-					updateUserStatus={props.updateUserStatus}
-					isOwner={props.isOwner}
+					initialValues={profile}
+					profile={profile}
+					status={status}
+					updateUserStatus={updateUserStatus}
+					isOwner={isOwner}
 					onSubmit={onSubmit}
 				/>
 			) : (
 				<ProfileData
-					profile={props.profile}
-					status={props.status}
-					updateUserStatus={props.updateUserStatus}
-					isOwner={props.isOwner}
+					profile={profile}
+					status={status}
+					updateUserStatus={updateUserStatus}
+					isOwner={isOwner}
 					goToEditMode={() => {
 						setEditMode(true);
 					}}

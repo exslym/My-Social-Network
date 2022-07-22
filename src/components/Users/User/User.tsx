@@ -1,45 +1,40 @@
-// @ts-nocheck
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import type { UserType } from '../../../types/types';
+import { NavLink } from 'react-router-dom';
 import styles from './User.module.scss';
 import defaultUserAvatar from '../../../assets/avatar.png';
 // import axios from 'axios';
 // import { usersAPI } from '../../../api/api';
 
-//Type
+//* TYPES:
 type PropsType = {
+	user: UserType;
+	avatar: string | null;
+	followingInProgress: Array<number>;
 	follow: (userId: number) => void;
 	unfollow: (userId: number) => void;
-	followingInProgress: Array<number>;
-	user: UserType;
-	id: number;
-	followed: boolean;
-	avatar: string | null;
-	status: string;
-	name: string;
 };
 
-const User: React.FC<PropsType> = props => {
+const User: React.FC<PropsType> = ({ user, avatar, followingInProgress, follow, unfollow }) => {
 	return (
 		<div className={styles.app_friends_item}>
 			<div className={styles.app_friends_avatarBlock}>
-				<NavLink to={`/profile/${props.id}`}>
+				<NavLink to={`/profile/${user.id}`}>
 					<img
-						src={props.avatar != null ? props.avatar : defaultUserAvatar}
+						src={avatar != null ? avatar : defaultUserAvatar}
 						alt='avatar'
 						className={styles.app_friends_img}
 					/>
 				</NavLink>
 				<div>
-					{props.followed ? (
+					{user.followed ? (
 						<button
 							className={styles.app_friends_unfollowButton}
-							disabled={props.followingInProgress.includes(props.id)}
-							// disabled={props.followingInProgress.some(id => id === props.id)}
+							disabled={followingInProgress.includes(user.id)}
+							// disabled={followingInProgress.some(id => id === user.id)}
 							onClick={() => {
-								props.unfollow(props.id);
-								/* 								props.toggleFollowingProgress(true, props.id);
+								unfollow(user.id);
+								/* props.toggleFollowingProgress(true, props.id);
 								usersAPI.unfollow(props.id).then(response => {
 									if (response.data.resultCode === 0) {
 										props.unfollow(props.id);
@@ -65,11 +60,11 @@ const User: React.FC<PropsType> = props => {
 					) : (
 						<button
 							className={styles.app_friends_followButton}
-							disabled={props.followingInProgress.includes(props.id)}
-							// disabled={props.followingInProgress.some(id => id === props.id)}
+							disabled={followingInProgress.includes(user.id)}
+							// disabled={followingInProgress.some(id => id === user.id)}
 							onClick={() => {
-								props.follow(props.id);
-								/* 								props.toggleFollowingProgress(true, props.id);
+								follow(user.id);
+								/* props.toggleFollowingProgress(true, props.id);
 								usersAPI.follow(props.id).then(response => {
 									if (response.data.resultCode === 0) {
 										props.follow(props.id);
@@ -101,9 +96,9 @@ const User: React.FC<PropsType> = props => {
 			</div>
 			<div className={styles.app_friends_infoBlock}>
 				<div className={styles.app_friends_statusBlock}>
-					<p className={styles.app_friends_name}>{props.name}</p>
+					<p className={styles.app_friends_name}>{user.name}</p>
 					<p className={styles.app_friends_status}>
-						{props.status != null ? props.status : 'no status'}
+						{user.status != null ? user.status : 'no status'}
 					</p>
 				</div>
 				<div className={styles.app_friends_locationBlock}>

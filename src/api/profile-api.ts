@@ -8,6 +8,9 @@ type SavePhotoResponseDataType = {
 };
 
 export const profileAPI = {
+	// getProfile(userId: number) {
+	// 	return instance.get<ProfileType>(`profile/${userId}`).then(res => res.data);
+	// },
 	async getProfile(userId: number) {
 		const res = await instance.get<ProfileType>(`profile/${userId}`);
 		return res.data;

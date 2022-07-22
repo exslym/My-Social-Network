@@ -80,6 +80,6 @@ const LoginForm: React.FC<
 	);
 };
 
-export const LoginReduxForm = reduxForm<LoginFormValuesType, LoginFormOwnPropsType>({
+export default reduxForm<LoginFormValuesType, LoginFormOwnPropsType>({
 	form: 'login',
 })(LoginForm);

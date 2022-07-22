@@ -3,11 +3,12 @@ import type { AppStateType } from '../../redux/redux-store';
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../redux/auth-reducer';
-import { LoginReduxForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import styles from './Login.module.scss';
+import type { GetStringKeys } from '../commons/FormControl/FormControl';
 
 //* TYPES:
-export type LoginFormValuesTypeKeys = Extract<keyof LoginFormValuesType, string>;
+export type LoginFormValuesTypeKeys = GetStringKeys<LoginFormValuesType>;
 export type LoginFormValuesType = {
 	email: string;
 	password: string;
@@ -34,7 +35,7 @@ const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = props => {
 	return (
 		<div className={styles.app_login}>
 			<h1>Login</h1>
-			<LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
+			<LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
 		</div>
 	);
 };
