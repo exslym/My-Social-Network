@@ -14,24 +14,31 @@ test('renders app without crashing 1', () => {
 			</Provider>
 		</BrowserRouter>,
 	);
-	const div = screen.getByRole(/main/i);
-	expect(div).toBeInTheDocument();
+	const div1 = document.createElement('div');
+	expect(div1).toBeInTheDocument();
 });
 
-// test('renders app without crashing 2', () => {
-// 	const { getByRole } = render(
-// 		<BrowserRouter>
-// 			<Provider store={store}>
-// 				<App />
-// 			</Provider>
-// 		</BrowserRouter>,
-// 	);
-// 	const div = screen.getByRole(/main/i);
-// 	expect(div).toBeInTheDocument();
-// });
+test('renders app without crashing 2', () => {
+	render(
+		<BrowserRouter>
+			<Provider store={store}>
+				<ExslymApp />
+			</Provider>
+		</BrowserRouter>,
+	);
+	const div2 = screen.getByRole(/main/i);
+	expect(div2).toBeInTheDocument();
+});
 
 test('renders app without crashing 3', () => {
-	const div = document.createElement('div');
-	ReactDOM.render(<ExslymApp />, div);
-	ReactDOM.unmountComponentAtNode(div);
+	const div3 = document.createElement('div');
+	ReactDOM.render(
+		<BrowserRouter>
+			<Provider store={store}>
+				<ExslymApp />
+			</Provider>
+		</BrowserRouter>,
+		div3,
+	);
+	ReactDOM.unmountComponentAtNode(div3);
 });
