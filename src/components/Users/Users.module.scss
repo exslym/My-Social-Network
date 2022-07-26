@@ -9,6 +9,55 @@
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
 	// overflow-y: scroll;
+	input,
+	select,
+	button {
+		padding: 4px 8px;
+		border-radius: 5px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		font-size: 0.8em;
+		height: 28px;
+		width: max-content;
+	}
+
+	&_search {
+		display: block;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 20px;
+		form {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			margin: 0 auto;
+			max-width: 60%;
+			width: 100%;
+			input,
+			select,
+			button {
+				margin: 0;
+			}
+			input {
+				width: 100%;
+				background: #fbfcfd;
+			}
+			select {
+				padding: 4px;
+				-moz-appearance: none; /* Firefox */
+				-webkit-appearance: none; /* Safari and Chrome */
+				appearance: none;
+				background: #fbfcfd;
+				background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+				background-repeat: no-repeat;
+				background-position-x: 100%;
+				background-position-y: 50%;
+			}
+			button {
+				background: #dcebff;
+			}
+		}
+	}
 	&_title {
 		margin: 0;
 		padding: 0;
