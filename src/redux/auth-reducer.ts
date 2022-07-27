@@ -1,13 +1,19 @@
+import { useDispatch } from 'react-redux';
 import { FormAction, stopSubmit } from 'redux-form';
+import { ThunkDispatch } from 'redux-thunk';
 import { ResultCodesEnum, ResultCodesForCaptchaEnum } from '../api/api';
 import { authAPI } from '../api/auth-api';
 import { securityAPI } from '../api/security-api';
-import type { BaseThunkType, InferActionsTypes } from './redux-store';
+import type { AppStateType, BaseThunkType, InferActionsTypes } from './redux-store';
 
 //* TYPES:
 export type InitialStateType = typeof initialState;
 type ActionsTypes = InferActionsTypes<typeof actions>;
 type ThunkType = BaseThunkType<ActionsTypes | FormAction>;
+
+//* Typed DISPATCH:
+export type TypedDispatch = ThunkDispatch<AppStateType, any, ActionsTypes>;
+export const useTypedDispatch = () => useDispatch<TypedDispatch>();
 
 let initialState = {
 	userId: null as number | null,

@@ -1,8 +1,8 @@
 import React from 'react';
 import type { AppStateType } from '../../redux/redux-store';
 import { Navigate } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { login } from '../../redux/auth-reducer';
+import { useSelector } from 'react-redux';
+import { login, useTypedDispatch } from '../../redux/auth-reducer';
 import LoginForm from './LoginForm';
 import styles from './Login.module.scss';
 import type { GetStringKeys } from '../commons/FormControl/FormControl';
@@ -15,33 +15,28 @@ export type LoginFormValuesType = {
 	rememberMe: boolean;
 	captcha: string;
 };
-type MapStatePropsType = {
-	captchaUrl: string | null;
-	isAuth: boolean;
-};
-type MapDispatchPropsType = {
-	login: (email: string, password: string, rememberMe: boolean, captcha: string) => void;
-};
+// type MapDispatchPropsType = {
+// 	login: (email: string, password: string, rememberMe: boolean, captcha: string) => void;
+// };
 
-const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = props => {
+export const LoginPage: React.FC = () => {
+	const captchaUrl = useSelector((state: AppStateType) => state.auth.captchaUrl);
+	const isAuth = useSelector((state: AppStateType) => state.auth.isAuth);
+	// const dispatch = useDispatch();
+	const dispatch = useTypedDispatch();
+
 	const onSubmit = (formData: LoginFormValuesType) => {
-		props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
+		dispatch(login(formData.email, formData.password, formData.rememberMe, formData.captcha));
 	};
 
-	if (props.isAuth) {
+	if (isAuth) {
 		return <Navigate to={'/profile'} />;
 	}
 
 	return (
 		<div className={styles.app_login}>
 			<h1>Login</h1>
-			<LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
+			<LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
 		</div>
 	);
 };
-
-const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
-	captchaUrl: state.auth.captchaUrl,
-	isAuth: state.auth.isAuth,
-});
-export default connect(mapStateToProps, { login })(Login);

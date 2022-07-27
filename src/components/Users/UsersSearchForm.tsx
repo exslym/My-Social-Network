@@ -91,7 +91,7 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo(props => {
 			>
 				{({ isSubmitting }) => (
 					<Form>
-						<Field type='text' name='term' />
+						<Field type='text' name='term' placeholder='search...' />
 
 						<Field name='friend' as='select'>
 							<option value='null'>All</option>

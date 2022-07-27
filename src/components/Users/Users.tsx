@@ -1,24 +1,21 @@
-import React from 'react';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';
-import type { UserType } from '../../types/types';
+import React, { useEffect } from 'react';
+import { FilterType, useTypedDispatch } from '../../redux/users-reducer';
+import { requestUsers, follow, unfollow } from '../../redux/users-reducer';
+import {
+	getCurrentPageSelector,
+	getFollowingInProgressSelector,
+	getPageSizeSelector,
+	getUsersFilter,
+	getUsersSelector,
+	getUsersTotalCountSelector,
+} from '../../redux/users-selectors';
 import { UsersSearchForm } from './UsersSearchForm';
+import { useSelector } from 'react-redux';
 import Paginator from '../commons/Paginator/Paginator';
 import User from './User/User';
 import styles from './Users.module.scss';
-import type { FilterType } from '../../redux/users-reducer';
 
 //* TYPES:
-type PropsType = {
-	currentPage: number;
-	usersTotalCount: number;
-	pageSize: number;
-	onPageChanged: (pageNumber: number) => void;
-	onFilterChanged: (filter: FilterType) => void;
-	follow: (userId: number) => void;
-	unfollow: (userId: number) => void;
-	followingInProgress: Array<number>;
-	users: Array<UserType>;
-};
 
 /* let Users = props => {
 	let pagesCount = Math.ceil(props.usersTotalCount / props.pageSize);
@@ -80,17 +77,34 @@ type PropsType = {
 	);
 }; */
 //* Refactored
-let Users: React.FC<PropsType> = ({
-	users,
-	usersTotalCount,
-	pageSize,
-	currentPage,
-	onPageChanged,
-	...props
-}) => {
-	let follow = props.follow;
-	let unfollow = props.unfollow;
-	let followingInProgress = props.followingInProgress;
+export const Users = () => {
+	const users = useSelector(getUsersSelector);
+	const usersTotalCount = useSelector(getUsersTotalCountSelector);
+	const currentPage = useSelector(getCurrentPageSelector);
+	const pageSize = useSelector(getPageSizeSelector);
+	const filter = useSelector(getUsersFilter);
+	const followingInProgress = useSelector(getFollowingInProgressSelector);
+
+	// const dispatch = useDispatch();
+	const dispatch = useTypedDispatch();
+
+	useEffect(() => {
+		dispatch(requestUsers(currentPage, pageSize, filter));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const onPageChanged = (pageNumber: number) => {
+		dispatch(requestUsers(pageNumber, pageSize, filter));
+	};
+	const onFilterChanged = (filter: FilterType) => {
+		dispatch(requestUsers(1, pageSize, filter));
+	};
+	const _follow = (userId: number) => {
+		dispatch(follow(userId));
+	};
+	const _unfollow = (userId: number) => {
+		dispatch(unfollow(userId));
+	};
 
 	const usersElements = users.map(user => {
 		return (
@@ -99,15 +113,15 @@ let Users: React.FC<PropsType> = ({
 				user={user}
 				avatar={user.photos.small}
 				followingInProgress={followingInProgress}
-				follow={follow}
-				unfollow={unfollow}
+				follow={_follow}
+				unfollow={_unfollow}
 			/>
 		);
 	});
 
 	return (
 		<div className={styles.app_friends}>
-			<UsersSearchForm onFilterChanged={props.onFilterChanged} />
+			<UsersSearchForm onFilterChanged={onFilterChanged} />
 			<Paginator
 				currentPage={currentPage}
 				onPageChanged={onPageChanged}
@@ -118,5 +132,3 @@ let Users: React.FC<PropsType> = ({
 		</div>
 	);
 };
-
-export default Users;
