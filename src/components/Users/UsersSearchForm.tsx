@@ -1,7 +1,7 @@
+import { Field, Form, Formik } from 'formik';
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import type { FilterType } from '../../redux/users-reducer';
 import { useSelector } from 'react-redux';
+import type { FilterType } from '../../redux/users-reducer';
 import { getUsersFilter } from '../../redux/users-selectors';
 import styles from './Users.module.scss';
 
@@ -59,9 +59,10 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo(props => {
 }); */
 
 //* TYPES:
+type FriendFormType = 'true' | 'false' | 'null';
 type FormType = {
 	term: string;
-	friend: string;
+	friend: FriendFormType;
 };
 type SetSubmittingType = {
 	setSubmitting: (isSubmitting: boolean) => void;
@@ -86,7 +87,7 @@ export const UsersSearchForm: React.FC<PropsType> = React.memo(props => {
 		<div className={styles.app_friends_search}>
 			<Formik
 				enableReinitialize
-				initialValues={{ term: filter.term, friend: String(filter.friend) }}
+				initialValues={{ term: filter.term, friend: String(filter.friend) as FriendFormType }}
 				onSubmit={submit}
 			>
 				{({ isSubmitting }) => (
