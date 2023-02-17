@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/logo-black.png';
 import avatar from '../../assets/avatar.png';
+import logo from '../../assets/logo-black.png';
 import logout from '../../assets/logout.svg';
-import styles from './Header.module.scss';
+import styles from '../../Styles.module.scss';
+// import styles from './Header.module.scss';
 
 //* TYPES:
 export type MapStatePropsType = {
@@ -16,8 +17,8 @@ export type DispatchPropsType = {
 
 const Header: React.FC<MapStatePropsType & DispatchPropsType> = props => {
 	return (
-		<header className={styles.header}>
-			<img className={styles.header_logo} src={logo} alt='logo' />
+		<header className={styles.Header}>
+			<img className={styles.Header_logo} src={logo} alt='logo' />
 			{/* <div className={styles.header_loginBlock}>
 				<NavLink to={'/profile'}>
 					<img className={styles.avatar} src={avatar} alt='avatar' />
@@ -34,17 +35,22 @@ const Header: React.FC<MapStatePropsType & DispatchPropsType> = props => {
 				)}
 			</div> */}
 			{props.isAuth ? (
-				<div className={styles.header_loginBlock}>
+				<div className={styles.Header_loginBlock}>
 					<NavLink to={'/profile'}>
-						<img className={styles.avatar} src={avatar} alt='avatar' />
-						<div className={styles.header_loginTrue}>
+						<img className={styles.Header_avatar} src={avatar} alt='avatar' />
+						<div className={styles.Header_loginTrue}>
 							{props.login}
-							<img onClick={props.logout} className={styles.logout} src={logout} alt='logout' />
+							<img
+								onClick={props.logout}
+								className={styles.Header_logout}
+								src={logout}
+								alt='logout'
+							/>
 						</div>
 					</NavLink>
 				</div>
 			) : (
-				<div className={styles.header_loginBlock}>
+				<div className={styles.Header_loginBlock}>
 					<NavLink to={'/login'}>Login</NavLink>
 				</div>
 			)}

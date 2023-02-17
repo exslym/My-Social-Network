@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from '../../Dialogs/Dialogs.module.scss';
+// import styles from '../../Dialogs/Dialogs.module.scss';
 import { InjectedFormProps, reduxForm } from 'redux-form';
-import { createField, Textarea } from '../../commons/FormControl/FormControl';
+import styles from '../../../Styles.module.scss';
 import { maxLengthCreator, required } from '../../../utils/validators/validators';
+import { createField, Textarea } from '../../commons/FormControl/FormControl';
 import type { AddMessageFormValuesType } from '../Dialogs';
 
 //* TYPES:
@@ -14,7 +15,7 @@ const AddMessageForm: React.FC<
 	InjectedFormProps<AddMessageFormValuesType, PropsType> & PropsType
 > = props => {
 	return (
-		<form onSubmit={props.handleSubmit} className={styles.app_dialogs_newMessage}>
+		<form onSubmit={props.handleSubmit} className={styles.Dialogs_newMessage}>
 			{createField<AddMessageFormValuesTypeKeys>(
 				'Enter your message',
 				'newMessageBody',
@@ -32,7 +33,7 @@ const AddMessageForm: React.FC<
 				validate={[required, maxLength300]}
 				type='textarea'
 			/> */}
-			<button className={styles.app_dialogs_button}>Send</button>
+			<button className={styles.Dialogs_button}>Send</button>
 		</form>
 	);
 };

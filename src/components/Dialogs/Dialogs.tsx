@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from '../../Styles.module.scss';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import styles from './Dialogs.module.scss';
+// import styles from './Dialogs.module.scss';
 // import { Navigate } from 'react-router-dom';
 // import AddMessageReduxForm  from './AddMessageForm/AddMessageForm';
-import AddMessageForm from './AddMessageForm/AddMessageForm';
 import type { InitialStateType } from '../../redux/dialogs-reducer';
+import AddMessageForm from './AddMessageForm/AddMessageForm';
 
 //* TYPES:
 type PropsType = {
@@ -30,9 +31,9 @@ const Dialogs: React.FC<PropsType> = props => {
 
 	// if (!props.isAuth) return <Navigate to={'/login'} />;
 	return (
-		<div className={styles.app_dialogs}>
-			<div className={styles.app_dialogs_items}>{dialogsElements}</div>
-			<div className={styles.app_dialogs_messages}>{messagesElements}</div>
+		<div className={styles.Dialogs}>
+			<div className={styles.Dialogs_items}>{dialogsElements}</div>
+			<div className={styles.Dialogs_messages}>{messagesElements}</div>
 			<AddMessageForm onSubmit={addNewMessage} />
 			{/* <AddMessageReduxForm onSubmit={addNewMessage} /> */}
 		</div>

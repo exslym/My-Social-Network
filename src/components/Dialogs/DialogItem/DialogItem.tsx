@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './DialogItem.module.scss';
+import styles from '../../../Styles.module.scss';
+// import styles from './DialogItem.module.scss';
 
 //* TYPES:
 type PropsType = {
@@ -14,10 +15,10 @@ const DialogItem: React.FC<PropsType> = props => {
 	let avatarSrc = require(`../../../assets/${props.avatar}`);
 
 	return (
-		<div className={styles.app_dialogs_item}>
+		<div className={styles.Dialogs_item}>
 			<NavLink to={path} className={({ isActive }) => (isActive ? styles.active : undefined)}>
-				<img className={styles.app_dialogs_avatar} src={avatarSrc} alt='avatar'></img>
-				<p className={styles.app_dialogs_name}>{props.name}</p>
+				<img className={styles.Dialogs_avatar} src={avatarSrc} alt='avatar'></img>
+				<p className={styles.Dialogs_name}>{props.name}</p>
 			</NavLink>
 		</div>
 	);

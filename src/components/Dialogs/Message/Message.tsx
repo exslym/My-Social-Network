@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Message.module.scss';
+import styles from '../../../Styles.module.scss';
+// import styles from './Message.module.scss';
 
 //* TYPES:
 type PropsType = {
@@ -8,9 +9,9 @@ type PropsType = {
 
 const Message: React.FC<PropsType> = props => {
 	return (
-		<div className={styles.app_dialogs_message}>
+		<div className={styles.Dialogs_message}>
 			{/* <p className={styles.app_dialogs_messageIn}>{props.message}</p> */}
-			<p className={styles.app_dialogs_messageOut}>{props.message}</p>
+			<p className={styles.Dialogs_messageOut}>{props.message}</p>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { connect, Provider } from 'react-redux';
 import { HashRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
-import './App.scss';
+// import './App.scss';
 import Preloader from './components/commons/Preloader/Preloader';
 import HeaderContainer from './components/Header/HeaderContainer';
 import { LoginPage } from './components/Login/Login';
@@ -10,6 +10,7 @@ import { UsersPage } from './components/Users/UsersContainer';
 import { withRouter } from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
 import store, { AppStateType } from './redux/redux-store';
+import styles from './Styles.module.scss';
 
 //* ANTD imports:
 import { SettingOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
@@ -154,9 +155,9 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 		// 	</div>
 		// );
 		return (
-			<Layout style={{ height: '100vh', overflowY: 'hidden' }}>
+			<Layout className={styles.App_wrapper}>
 				<HeaderContainer />
-				<Content style={{ padding: '1em', height: '100%' }}>
+				<Content className={styles.App_content}>
 					{/* <Breadcrumb style={{ margin: '10px 0' }}>
 						<Breadcrumb.Item>
 							<Link to='/'>Home</Link>
@@ -188,6 +189,19 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 								}}
 								items={itemsSideMenu}
 							/>
+							<Footer style={{ textAlign: 'center', fontSize: '1em' }}>
+								<div className='created-by'>
+									Social Network ©2023 Created by
+									<a
+										href={`https://github.com/exslym`}
+										target='_blank'
+										rel='noopener noreferrer'
+										style={{ padding: '0 0 0 0.25em' }}
+									>
+										exslym
+									</a>
+								</div>
+							</Footer>
 						</Sider>
 						<Content
 							style={{
@@ -208,25 +222,15 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 									<Route path='/news' element={<News />} />
 									<Route path='/settings' element={<Settings />} />
 									<Route path='/login' element={<LoginPage />} />
-									<Route path='*' element={<div className='notFound'>404 NOT FOUND</div>} />
+									<Route
+										path='*'
+										element={<div className={styles.App_notFound}>404 NOT FOUND</div>}
+									/>
 								</Routes>
 							</Suspense>
 						</Content>
 					</Layout>
 				</Content>
-				{/* <Footer style={{ textAlign: 'center' }}>
-					<div className='created-by'>
-						Social Network ©2023 Created by
-						<a
-							href={`https://github.com/exslym`}
-							target='_blank'
-							rel='noopener noreferrer'
-							style={{ padding: '0 0 0 0.25em' }}
-						>
-							exslym
-						</a>
-					</div>
-				</Footer> */}
 			</Layout>
 		);
 	}
