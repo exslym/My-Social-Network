@@ -15,7 +15,7 @@ import styles from './Styles.module.scss';
 //* ANTD imports:
 import { SettingOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import 'antd/dist/reset.css';
 
 // const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
@@ -158,15 +158,6 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 			<Layout className={styles.App_wrapper}>
 				<HeaderContainer />
 				<Content className={styles.App_content}>
-					{/* <Breadcrumb style={{ margin: '10px 0' }}>
-						<Breadcrumb.Item>
-							<Link to='/'>Home</Link>
-						</Breadcrumb.Item>
-						<Breadcrumb.Item>
-							<Link to='/users'>List</Link>
-						</Breadcrumb.Item>
-						<Breadcrumb.Item>App</Breadcrumb.Item>
-					</Breadcrumb> */}
 					<Layout
 						className='site-layout-background'
 						style={{ padding: '0', gap: '1em', height: '100%' }}
