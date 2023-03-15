@@ -1,10 +1,9 @@
-# Getting Started with Create React App
+## [https://exslym.github.io/React-learning_social-network](https://exslym.github.io/React-learning_social-network)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### for test using:
 
-## Available Scripts
-
-In the project directory, you can run:
+login: `000.exs@gmail.com`
+password: `$TUsnRe72`
 
 ### `npm start`
 
@@ -16,8 +15,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
@@ -26,8 +24,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
@@ -39,36 +35,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### `npm run deploy`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### npm run deploy
+This adds gh-pages branch to your project github repository, deploys built project there, hosts the site via GitHub Pages.
 
 GitHub Pages will automatically detect that a new commit has been added to the gh-pages branch of the GitHub repository. Once it detects that, it will begin serving the files that make up that commit — in this case, the distributable version of the React app — to anyone that visits the homepage URL
