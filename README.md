@@ -2,8 +2,10 @@
 
 #### for test using:
 
-login: `000.exs@gmail.com`
+login: `000.exs@gmail.com`\
 password: `$TUsnRe72`
+
+---
 
 ### `npm start`
 
