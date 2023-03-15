@@ -1,6 +1,22 @@
 .app_login {
 	margin: 0 auto;
 	padding: 10px;
+	&_testUserInfo {
+		margin: 0;
+		margin-top: 1rem;
+		font-size: 1em;
+		line-height: 1.4;
+		color: rgba(0, 0, 0, 0.6);
+		span {
+			font-weight: bold;
+		}
+		i {
+			display: block;
+			font-style: normal;
+			margin-bottom: 0.25em;
+			text-decoration: underline;
+		}
+	}
 	h1 {
 		margin-top: 0;
 		font-size: 1em;

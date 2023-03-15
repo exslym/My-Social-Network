@@ -1,11 +1,11 @@
 import React from 'react';
-import type { AppStateType } from '../../redux/redux-store';
-import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { login, useTypedDispatch } from '../../redux/auth-reducer';
-import LoginForm from './LoginForm';
-import styles from './Login.module.scss';
+import type { AppStateType } from '../../redux/redux-store';
 import type { GetStringKeys } from '../commons/FormControl/FormControl';
+import styles from './Login.module.scss';
+import LoginForm from './LoginForm';
 
 //* TYPES:
 export type LoginFormValuesTypeKeys = GetStringKeys<LoginFormValuesType>;
@@ -37,6 +37,12 @@ export const LoginPage: React.FC = () => {
 		<div className={styles.app_login}>
 			<h1>Login</h1>
 			<LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
+			<p className={styles.app_login_testUserInfo}>
+				<i>use info below for testing:</i>
+				login: <span>000.exs@gmail.com</span>
+				<br />
+				pass: <span>$TUsnRe72</span>
+			</p>
 		</div>
 	);
 };
