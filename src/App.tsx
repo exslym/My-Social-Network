@@ -23,6 +23,7 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const News = React.lazy(() => import('./components/News/News'));
 const Settings = React.lazy(() => import('./components/Settings/Settings'));
+const ChatPage = React.lazy(() => import('./pages/Chat/ChatPage'));
 
 //* TYPES:
 type MapPropsType = ReturnType<typeof mapStateToProps>;
@@ -56,6 +57,7 @@ const itemsSideMenu: MenuItem[] = [
 
 	getItem('Developers', 'Developers', <TeamOutlined />, [
 		getItem(<Link to='/users'>Users</Link>, 'Users'),
+		getItem(<Link to='/chat'>Chat</Link>, 'Chat'),
 	]),
 
 	getItem('Settings', 'Settings', <SettingOutlined />, [
@@ -213,6 +215,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 									<Route path='/news' element={<News />} />
 									<Route path='/settings' element={<Settings />} />
 									<Route path='/login' element={<LoginPage />} />
+									<Route path='/chat' element={<ChatPage />} />
 									<Route
 										path='*'
 										element={<div className={styles.App_notFound}>404 NOT FOUND</div>}
