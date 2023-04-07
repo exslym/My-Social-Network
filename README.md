@@ -1,10 +1,5 @@
 ## [https://exslym.github.io/React-learning_social-network](https://exslym.github.io/React-learning_social-network)
 
-#### for test using:
-
-login: `000.exs@gmail.com`\
-password: `$TUsnRe72`
-
 ---
 
 ### `npm start`

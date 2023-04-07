@@ -37,12 +37,12 @@ export const LoginPage: React.FC = () => {
 		<div className={styles.app_login}>
 			<h1>Login</h1>
 			<LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
-			<p className={styles.app_login_testUserInfo}>
+			{/* <p className={styles.app_login_testUserInfo}>
 				<i>use info below for testing:</i>
 				login: <span>000.exs@gmail.com</span>
 				<br />
 				pass: <span>$TUsnRe72</span>
-			</p>
+			</p> */}
 		</div>
 	);
 };
