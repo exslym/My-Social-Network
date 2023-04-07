@@ -1,20 +1,20 @@
 import React from 'react';
 // import { RouteComponentProps } from 'react-router-dom';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import {
 	getUserProfile,
 	getUserStatus,
-	updateUserStatus,
 	savePhoto,
 	saveProfile,
+	updateUserStatus,
 } from '../../redux/profile-reducer';
 // import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import { withRouter } from '../../hoc/withRouter';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import Profile from './Profile';
-import type { AppStateType } from '../../redux/redux-store';
+import { withRouter } from '../../hoc/withRouter';
+import type { AppStateGlobalType } from '../../redux/redux-store';
 import type { ProfileType } from '../../types/types';
+import Profile from './Profile';
 // import { Navigate } from 'react-router-dom';
 
 //* TYPES:
@@ -86,7 +86,7 @@ class ProfileContainer extends React.Component<PropsType> {
 	}
 }
 
-const mapStateToProps = (state: AppStateType) => {
+const mapStateToProps = (state: AppStateGlobalType) => {
 	return {
 		profile: state.profilePage.profile,
 		status: state.profilePage.status,

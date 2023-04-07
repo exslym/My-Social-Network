@@ -4,7 +4,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { ResultCodesEnum, ResultCodesForCaptchaEnum } from '../api/api';
 import { authAPI } from '../api/auth-api';
 import { securityAPI } from '../api/security-api';
-import type { AppStateType, BaseThunkType, InferActionsTypes } from './redux-store';
+import type { AppStateGlobalType, BaseThunkType, InferActionsTypes } from './redux-store';
 
 //* TYPES:
 export type InitialStateType = typeof initialState;
@@ -12,7 +12,7 @@ type ActionsTypes = InferActionsTypes<typeof actions>;
 type ThunkType = BaseThunkType<ActionsTypes | FormAction>;
 
 //* Typed DISPATCH:
-export type TypedDispatch = ThunkDispatch<AppStateType, any, ActionsTypes>;
+export type TypedDispatch = ThunkDispatch<AppStateGlobalType, any, ActionsTypes>;
 export const useTypedDispatch = () => useDispatch<TypedDispatch>();
 
 let initialState = {

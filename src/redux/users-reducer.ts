@@ -1,11 +1,11 @@
-import type { UserType } from '../types/types';
-import type { InferActionsTypes, BaseThunkType, AppStateType } from './redux-store';
-import type { APIResponseType } from '../api/api';
-import { Dispatch } from 'redux';
-import { updateObjectInArray } from '../utils/object-helpers';
-import { usersAPI } from '../api/users-api';
 import { useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import type { APIResponseType } from '../api/api';
+import { usersAPI } from '../api/users-api';
+import type { UserType } from '../types/types';
+import { updateObjectInArray } from '../utils/object-helpers';
+import type { AppStateGlobalType, BaseThunkType, InferActionsTypes } from './redux-store';
 
 //* TYPES:
 export type initialStateType = typeof initialState;
@@ -15,7 +15,7 @@ type DispatchType = Dispatch<ActionsTypes>;
 type ActionsTypes = InferActionsTypes<typeof actions>;
 
 //* Typed DISPATCH:
-export type TypedDispatch = ThunkDispatch<AppStateType, any, ActionsTypes>;
+export type TypedDispatch = ThunkDispatch<AppStateGlobalType, any, ActionsTypes>;
 export const useTypedDispatch = () => useDispatch<TypedDispatch>();
 
 let initialState = {

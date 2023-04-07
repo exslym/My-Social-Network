@@ -10,7 +10,7 @@ import Navbar from './components/Navbar/Navbar';
 import { UsersPage } from './components/Users/UsersContainer';
 import { withRouter } from './hoc/withRouter';
 import { initializeApp } from './redux/app-reducer';
-import store, { AppStateType } from './redux/redux-store';
+import store, { AppStateGlobalType } from './redux/redux-store';
 
 //* ANTD imports:
 import 'antd/dist/reset.css';
@@ -143,7 +143,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 	);
 }; */
 
-const mapStateToProps = (state: AppStateType) => ({
+const mapStateToProps = (state: AppStateGlobalType) => ({
 	initialized: state.app.initialized,
 });
 

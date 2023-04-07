@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { login, useTypedDispatch } from '../../redux/auth-reducer';
-import type { AppStateType } from '../../redux/redux-store';
+import type { AppStateGlobalType } from '../../redux/redux-store';
 import type { GetStringKeys } from '../commons/FormControl/FormControl';
 import styles from './Login.module.scss';
 import LoginForm from './LoginForm';
@@ -20,8 +20,8 @@ export type LoginFormValuesType = {
 // };
 
 export const LoginPage: React.FC = () => {
-	const captchaUrl = useSelector((state: AppStateType) => state.auth.captchaUrl);
-	const isAuth = useSelector((state: AppStateType) => state.auth.isAuth);
+	const captchaUrl = useSelector((state: AppStateGlobalType) => state.auth.captchaUrl);
+	const isAuth = useSelector((state: AppStateGlobalType) => state.auth.isAuth);
 	// const dispatch = useDispatch();
 	const dispatch = useTypedDispatch();
 

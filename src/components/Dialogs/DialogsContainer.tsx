@@ -1,12 +1,12 @@
 import React from 'react';
-import Dialogs from './Dialogs';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { actions } from '../../redux/dialogs-reducer';
-import type { AppStateType } from '../../redux/redux-store';
+import type { AppStateGlobalType } from '../../redux/redux-store';
+import Dialogs from './Dialogs';
 
-const mapStateToProps = (state: AppStateType) => {
+const mapStateToProps = (state: AppStateGlobalType) => {
 	return {
 		dialogsPage: state.dialogsPage,
 		// dialogs: state.dialogsPage.dialogs,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import type { AppStateType } from '../redux/redux-store';
+import type { AppStateGlobalType } from '../redux/redux-store';
 
 //* TYPES:
 type MapPropsType = {
@@ -9,7 +9,7 @@ type MapPropsType = {
 };
 type DispatchPropsType = {};
 
-const mapStateToPropsForRedirect = (state: AppStateType) => ({
+const mapStateToPropsForRedirect = (state: AppStateGlobalType) => ({
 	isAuth: state.auth.isAuth,
 });
 
@@ -46,7 +46,12 @@ export function withAuthRedirect<WCP extends JSX.IntrinsicAttributes>(
 		return <WrappedComponent {...(restProps as WCP)} />;
 	};
 
-	let ConnectedAuthRedirectComponent = connect<MapPropsType, DispatchPropsType, WCP, AppStateType>(
+	let ConnectedAuthRedirectComponent = connect<
+		MapPropsType,
+		DispatchPropsType,
+		WCP,
+		AppStateGlobalType
+	>(
 		mapStateToPropsForRedirect,
 		{},
 	)(RedirectComponent);
@@ -56,7 +61,7 @@ export function withAuthRedirect<WCP extends JSX.IntrinsicAttributes>(
 //* TYPES:
 // type MapStatePropsType = ReturnType<typeof mapStateToPropsForRedirect>;
 
-// let mapStateToPropsForRedirect = (state: AppStateType) => ({
+// let mapStateToPropsForRedirect = (state: AppStateGlobalType) => ({
 // 	isAuth: state.auth.isAuth,
 // });
 
