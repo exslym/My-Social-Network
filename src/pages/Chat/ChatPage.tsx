@@ -83,13 +83,23 @@ const Messages: React.FC<{}> = () => {
 };
 
 const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({ message }) => {
+	let avatarSrc = require(`../../assets/avatar.png`);
 	return (
 		<div>
-			<img
-				src={message.photo}
-				alt=''
-				style={{ width: '30px', borderRadius: '50%', marginRight: '10px' }}
-			/>
+			{message.photo ? (
+				<img
+					src={message.photo}
+					alt=''
+					style={{ width: '30px', borderRadius: '50%', marginRight: '10px' }}
+				/>
+			) : (
+				<img
+					src={avatarSrc}
+					alt=''
+					style={{ width: '30px', borderRadius: '50%', marginRight: '10px' }}
+				/>
+			)}
+
 			<span style={{ fontSize: '1.2em' }}>
 				<strong>{message.userName}</strong>
 			</span>
