@@ -1,6 +1,7 @@
 ## Social Network
 
-### [https://exslym.github.io/React-learning_social-network](https://exslym.github.io/React-learning_social-network)
+### GitHub Pages: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
+### Vercel: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
 
 ---
 
