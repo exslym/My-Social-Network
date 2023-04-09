@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import avatar from '../../assets/avatar.png';
-import logo from '../../assets/logo-black.png';
+// import logo from '../../assets/logo-black.png';
+import logo from '../../assets/logo_rgb.png';
 import logout from '../../assets/logout.svg';
 import styles from '../../Styles.module.scss';
 // import styles from './Header.module.scss';

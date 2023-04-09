@@ -1,6 +1,6 @@
 import React from 'react';
-import avatar from '../../../../assets/avatar_own.jpg';
 import likes from '../../../../assets/icon_liked.svg';
+import avatar from '../../../../assets/logo_rgb.png';
 import styles from './Post.module.scss';
 
 //* TYPES:
