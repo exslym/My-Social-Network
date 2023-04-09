@@ -1,25 +1,28 @@
 ### My Social Network
----
-### GitHub Pages: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
-### Vercel: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
----
-#### Authorization and other functional works.
 
-For test use:  
+---
+
+### GitHub Pages: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
+
+<!-- ### Vercel: [https://my-social-network-five.vercel.app](https://my-social-network-five.vercel.app) -->
+
+---
+
+#### Authorization for test use:
+
 Login: `free@samuraijs.com`  
 Password: `free`
 
-If some functional works incorrectly in test account,  
-or if you have some questions, or you want full access, write me
-in [Linkedin](https://www.linkedin.com/in/exlsym/) or [Telegram](https://t.me/exslym/)   
+If some errors appear during work or you want to ask me questions, then write to me:  
+[Linkedin](https://www.linkedin.com/in/exlsym/) or [Telegram](https://t.me/exslym/)  
+GitHub project source code: [https://github.com/exslym/My-Social-Network](https://github.com/exslym/My-Social-Network)
 
-[Link to MY profile in this project](https://exslym.github.io/My-Social-Network/#/profile/24070)   
+[Link to MY profile in this project](https://exslym.github.io/My-Social-Network/#/profile/24070)  
 [Link to TEST profile in this project](https://exslym.github.io/My-Social-Network/#/profile/1079)
 
-GitHub project source code: [https://github.com/exslym/My-Social-Network](https://github.com/exslym/My-Social-Network)   
-My Portfolio: [https://01dev.ru](https://01dev.ru)
+##### My Portfolio: [https://01dev.ru](https://01dev.ru)
 
-### Project tech stack:
+#### Project tech stack:
 
 - React, TypeScript
 - Ant Design, Formik, SCSS
