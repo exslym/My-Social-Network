@@ -1,4 +1,32 @@
-## [https://exslym.github.io/React-learning_social-network](https://exslym.github.io/React-learning_social-network)
+## Social Network
+
+### [https://exslym.github.io/React-learning_social-network](https://exslym.github.io/React-learning_social-network)
+
+---
+
+#### Authorization and other functional works.
+
+For test use:  
+Login: `free@samuraijs.com`  
+Password: `free`
+If some functional works incorrectly in test account,  
+or if you have some questions, or you want full access, write me
+in [Linkedin](https://www.linkedin.com/in/exlsym/)  
+I will give you my own login and password.
+
+[My profile in this project](https://exslym.github.io/My-Social-Network/#/profile/24070)
+
+My Portfolio: [https://01dev.ru](https://01dev.ru)
+
+### Project tech stack:
+
+- React, TypeScript
+- Ant Design, Formik, SCSS
+- Responsive Design
+- React Hooks, Redux Thunk, HOC, Reselect, React Router
+- social-network.samuraijs.com API, Axios
+- Authorization, Captcha, Pagination, Chat with WebSocket
+- Git, GitHub
 
 ---
 

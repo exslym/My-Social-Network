@@ -1,0 +1,76 @@
+.messagesBlock {
+	&::-webkit-scrollbar {
+		border-radius: 50px;
+		width: 11px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+		border-radius: 50px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba(0, 0, 0, 0.3);
+		border-radius: 50px;
+		border: solid 3px transparent;
+		border-right-width: 4px;
+		box-sizing: border-box;
+		background-clip: content-box;
+	}
+}
+.messageForm {
+	textarea,
+	button {
+		margin: 0;
+		padding: 0;
+		margin-bottom: 10px;
+		display: block;
+		border-radius: 5px;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		padding: 4px 8px;
+		font-family: inherit;
+		line-height: 100%;
+	}
+	textarea {
+		padding: 8px;
+		width: 50%;
+		overflow-y: auto;
+		resize: none;
+		font-size: 1.2em;
+		&::-webkit-scrollbar {
+			border-radius: 50px;
+			width: 11px;
+		}
+		&::-webkit-scrollbar-track {
+			background-color: transparent;
+			border-radius: 50px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: rgba(0, 0, 0, 0.3);
+			border-radius: 50px;
+			border: solid 3px transparent;
+			border-right-width: 4px;
+			box-sizing: border-box;
+			background-clip: content-box;
+		}
+	}
+	button {
+		margin: 5px 0 0;
+		font-size: 1.2em;
+	}
+	button:disabled,
+	button[disabled] {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		background-color: rgba(200, 200, 200, 0.5);
+		color: rgb(150, 150, 150);
+		cursor: wait;
+	}
+}
+.notLogged {
+	padding: 0 8px;
+	font-size: 1.2em;
+	color: red;
+}
+.spinner {
+	width: 100%;
+	max-width: 6vmin;
+	margin: 0 auto;
+}

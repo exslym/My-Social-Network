@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react';
+
 export type ContactsType = {
 	github: string;
 	vk: string;
@@ -33,3 +35,4 @@ export type UserType = {
 	photos: PhotosType;
 	followed: boolean;
 };
+export type TextAreaOrInputOnChangeType = ChangeEvent<HTMLTextAreaElement | HTMLInputElement>;

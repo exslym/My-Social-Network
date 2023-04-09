@@ -1,22 +1,29 @@
+import { Spin } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { ChatMessageAPIType } from '../../api/chat-api';
+import { selectIsAuth } from '../../redux/auth-selectors';
 import {
 	sendMessage,
 	startMessagesListening,
 	stopMessagesListening,
 } from '../../redux/chat-reducer';
 import store, { AppStateGlobalType } from '../../redux/redux-store';
+import { TextAreaOrInputOnChangeType } from '../../types/types';
+import { outputDateSeconds } from '../../utils/object-helpers';
+import styles from './ChatPage.module.scss';
 
 type AppAction = ReturnType<typeof store.dispatch>;
 export type AppDispatch = ThunkDispatch<AppStateGlobalType, any, AppAction>;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 const ChatPage: React.FC = () => {
+	const isAuth = useSelector(selectIsAuth);
+
 	return (
 		<div style={{ padding: '10px', height: '100%', background: 'white' }}>
-			<Chat />
+			{isAuth ? <Chat /> : <AddMessageForm isAuth={isAuth} />}
 		</div>
 	);
 };
@@ -44,20 +51,23 @@ const Chat: React.FC = () => {
 			{status === 'error' && <div>Some error occured. Please refresh page</div>}
 			<>
 				<Messages />
-				<AddMessageForm />
+				<AddMessageForm isAuth={true} />
 			</>
 		</div>
 	);
 };
 
-const Messages: React.FC<{}> = () => {
+const Messages: React.FC = () => {
 	const messages = useSelector((state: AppStateGlobalType) => state.chat.messages);
 	const messagesAnchorRef = useRef<HTMLDivElement>(null);
 	const [isAutoScroll, setIsAutoScroll] = useState(true);
 
 	const scrollHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
 		const element = e?.currentTarget;
-		if (Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight) < 200) {
+		let differenceWhatWeSee = element.scrollHeight - element.scrollTop;
+		let value = Math.abs(differenceWhatWeSee - element.clientHeight);
+
+		if (value < 200) {
 			!isAutoScroll && setIsAutoScroll(true);
 		} else {
 			isAutoScroll && setIsAutoScroll(false);
@@ -71,7 +81,8 @@ const Messages: React.FC<{}> = () => {
 
 	return (
 		<div
-			style={{ maxHeight: '440px', height: '100%', overflowY: 'auto', marginBottom: '10px' }}
+			className={styles.messagesBlock}
+			style={{ height: '100%', overflowY: 'auto', marginBottom: '10px' }}
 			onScroll={scrollHandler}
 		>
 			{messages.map((m, index) => (
@@ -116,45 +127,90 @@ const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({ message
 	);
 });
 
-const AddMessageForm: React.FC<{}> = () => {
+const AddMessageForm: React.FC<{ isAuth: boolean }> = ({ isAuth }) => {
 	const [message, setMessage] = useState('');
 	const dispatch = useAppDispatch();
 
 	const status = useSelector((state: AppStateGlobalType) => state.chat.status);
 
-	const sendMessageHandler = () => {
+	// const sendMessageHandler = () => {
+	// 	if (!message) {
+	// 		return;
+	// 	}
+	// 	dispatch(sendMessage(message));
+	// 	setMessage('');
+	// };
+
+	//region Description
+	const onChangeTextArea = (event: TextAreaOrInputOnChangeType) => {
+		setMessage(event.target.value);
+	};
+
+	const onSendMassagesButton = () => {
+		onSendMessage();
+	};
+
+	const isDisabledButton = status !== 'ready';
+
+	const onKeyPressInTextArea = (event: any) => {
+		if (event.ctrlKey && event.code === 'Enter') {
+			if (isDisabledButton) {
+				console.log('хотел отправить сообщение через Ctrl + Enter в момент подключения');
+				return;
+			} else {
+				onSendMessage();
+			}
+		}
+	};
+
+	const onSendMessage = () => {
 		if (!message) {
+			alert('Пустое сообщение невозможно отправить!');
 			return;
 		}
-		dispatch(sendMessage(message));
+
+		const date = new Date();
+		const time = String(date.getHours() + ':' + date.getMinutes());
+
+		const messageWithTime = `${message} [${time}]`;
+
+		if (messageWithTime.length > 100) {
+			alert(
+				`Можно отправлять не более 100 знаков,
+            а сейчас уже ${messageWithTime.length}`,
+			);
+			return;
+		}
+
+		console.log('отправили сообщение', outputDateSeconds());
+
+		dispatch(sendMessage(messageWithTime));
+
 		setMessage('');
 	};
 
+	const placeholderText = `Press Ctrl + Enter to send a message or button "Send".\nYou can't send more than 100 symbols.`;
+	//endregion
+
 	return (
 		<>
-			<div>
-				<textarea
-					style={{
-						width: '50%',
-						borderRadius: '5px',
-						overflowY: 'auto',
-						resize: 'none',
-						border: '1px solid rgba(0, 0, 0, 0.25)',
-						fontSize: '1.2em',
-					}}
-					onChange={e => {
-						setMessage(e.currentTarget.value);
-					}}
-					value={message}
-				></textarea>
-
-				<button
-					disabled={status !== 'ready'}
-					onClick={sendMessageHandler}
-					style={{ margin: '5px 0 0', fontSize: '1.2em' }}
-				>
-					Send
-				</button>
+			<div className={styles.messageForm}>
+				<div>
+					<textarea
+						onChange={onChangeTextArea}
+						value={message}
+						placeholder={placeholderText}
+						onKeyPress={onKeyPressInTextArea}
+					></textarea>
+				</div>
+				<div className={styles.notLogged}>{isAuth ? '' : 'Chat works only for login users!'}</div>
+				<div>
+					{isDisabledButton ? (
+						<Spin className={styles.spinner} />
+					) : (
+						<button onClick={onSendMassagesButton}>Send</button>
+					)}
+				</div>
 			</div>
 		</>
 	);

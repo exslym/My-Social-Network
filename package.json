@@ -1,7 +1,7 @@
 {
 	"name": "my-app",
 	"version": "0.1.0",
-	"homepage": "https://exslym.github.io/React-learning_social-network",
+	"homepage": "https://exslym.github.io/My-Social-Network",
 	"private": true,
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.1",
