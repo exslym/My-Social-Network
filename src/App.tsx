@@ -172,6 +172,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 								borderRadius: '5px',
 								border: '1px solid rgba(0, 0, 0, 0.1)',
 								height: '100%',
+								position: 'relative',
 							}}
 						>
 							<Menu
@@ -181,18 +182,27 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
 									borderRadius: '5px',
 								}}
 								items={itemsSideMenu}
+								className={styles.sideMenuStyles}
 							/>
-							<Footer style={{ textAlign: 'center', fontSize: '1em' }}>
+
+							<Footer className={styles.App_footer}>
 								<div className='created-by'>
-									Social Network ©2023 Created by
-									<a
-										href={`https://github.com/exslym`}
-										target='_blank'
-										rel='noopener noreferrer'
-										style={{ padding: '0 0 0 0.25em' }}
-									>
-										exslym
-									</a>
+									<p>
+										Social Network <br />
+										Created by <br />
+										<a
+											href={`https://01dev.ru`}
+											target='_blank'
+											rel='noopener noreferrer'
+											className={styles.App_footer_name}
+										>
+											exslym
+										</a>
+										<br />
+										<a href={`https://github.com/exslym`} target='_blank' rel='noopener noreferrer'>
+											github
+										</a>
+									</p>
 								</div>
 							</Footer>
 						</Sider>

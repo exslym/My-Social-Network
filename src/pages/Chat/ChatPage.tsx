@@ -111,10 +111,10 @@ const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({ message
 				/>
 			)}
 
-			<span style={{ fontSize: '1.2em' }}>
+			<span>
 				<strong>{message.userName}</strong>
 			</span>
-			<p style={{ margin: '5px 0 0 40px', fontSize: '1.2em' }}>{message.message}</p>
+			<p>{message.message}</p>
 			<div
 				style={{
 					margin: '1em 0',
@@ -195,22 +195,34 @@ const AddMessageForm: React.FC<{ isAuth: boolean }> = ({ isAuth }) => {
 	return (
 		<>
 			<div className={styles.messageForm}>
-				<div>
-					<textarea
-						onChange={onChangeTextArea}
-						value={message}
-						placeholder={placeholderText}
-						onKeyPress={onKeyPressInTextArea}
-					></textarea>
-				</div>
-				<div className={styles.notLogged}>{isAuth ? '' : 'Chat works only for login users!'}</div>
-				<div>
-					{isDisabledButton ? (
-						<Spin className={styles.spinner} />
-					) : (
-						<button onClick={onSendMassagesButton}>Send</button>
-					)}
-				</div>
+				{isAuth ? (
+					<>
+						<div>
+							<textarea
+								onChange={onChangeTextArea}
+								value={message}
+								placeholder={placeholderText}
+								onKeyPress={onKeyPressInTextArea}
+							></textarea>
+						</div>
+
+						<div>
+							{isDisabledButton ? (
+								<Spin className={styles.spinner} />
+							) : (
+								<button onClick={onSendMassagesButton}>Send</button>
+							)}
+						</div>
+					</>
+				) : (
+					<>
+						<p className={styles.notLogged}>
+							Chat works only for authorized users!
+							<br />
+							Please login
+						</p>
+					</>
+				)}
 			</div>
 		</>
 	);

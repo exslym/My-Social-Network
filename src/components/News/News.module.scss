@@ -9,7 +9,35 @@
 	background: rgb(211, 253, 169);
 	// background: rgb(220, 235, 255);
 }
-.app_news p {
+.textBlock {
 	margin: 0;
 	padding: 0;
+	&_title {
+		margin-bottom: 1vmin;
+	}
+	&_login,
+	&_copyButton {
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: 1vmin;
+	}
+	&_login {
+		padding-right: 1vmin;
+	}
+	&_copyButton {
+		background-color: #fbfcfd;
+		font-size: 1em;
+		&:hover {
+			// border: 1px solid rgba(0, 0, 0, 0.6);
+			color: rgba(0, 0, 0, 1);
+			background-color: rgb(220, 235, 255);
+			transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
+		}
+	}
+	&_links a {
+		display: block;
+	}
+	& > * {
+		width: max-content;
+	}
 }

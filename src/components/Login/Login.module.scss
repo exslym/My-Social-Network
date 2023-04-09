@@ -4,7 +4,7 @@
 	&_testUserInfo {
 		margin: 0;
 		margin-top: 1rem;
-		font-size: 1em;
+		// font-size: 1em;
 		line-height: 1.4;
 		color: rgba(0, 0, 0, 0.6);
 		span {
@@ -19,11 +19,11 @@
 	}
 	h1 {
 		margin-top: 0;
-		font-size: 1em;
+		// font-size: 1em;
 	}
 	&_name,
 	&_pass {
-		font-size: 1em;
+		// font-size: 1em;
 		line-height: 100%;
 		max-width: 260px;
 		width: 100%;
@@ -36,7 +36,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		font-size: 0.8em;
+		// font-size: 0.8em;
 		margin-bottom: 10px;
 		input {
 			cursor: pointer;
@@ -65,7 +65,7 @@ button {
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	padding: 4px 8px;
 	font-family: inherit;
-	font-size: 0.79em;
+	// font-size: 0.79em;
 	line-height: 100%;
 }
 input::placeholder {
@@ -76,7 +76,7 @@ input[type='checkbox'] {
 	margin-bottom: 0;
 }
 input[name='captcha'] {
-	font-size: 0.79em;
+	// font-size: 0.79em;
 	line-height: 100%;
 	max-width: 200px;
 	width: 100%;
@@ -99,4 +99,38 @@ button[disabled] {
 label {
 	margin-left: 10px;
 	cursor: pointer;
+}
+
+.textBlock {
+	margin: 0;
+	padding: 0;
+	margin-top: 2vmin;
+	&_title {
+		margin-bottom: 1vmin;
+	}
+	&_login,
+	&_copyButton {
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: 1vmin;
+	}
+	&_login {
+		padding-right: 1vmin;
+	}
+	&_copyButton {
+		background-color: #fbfcfd;
+		font-size: 1em;
+		&:hover {
+			// border: 1px solid rgba(0, 0, 0, 0.6);
+			color: rgba(0, 0, 0, 1);
+			background-color: rgb(220, 235, 255);
+			transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
+		}
+	}
+	&_links a {
+		display: block;
+	}
+	& > * {
+		width: max-content;
+	}
 }

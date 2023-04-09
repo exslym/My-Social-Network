@@ -6,6 +6,8 @@
 	cursor: pointer;
 }
 .title {
+	margin-top: 1vmin;
+	font-size: 1.2em;
 	font-weight: bold;
 }
 .posts {
@@ -22,15 +24,16 @@
 		display: block;
 		width: 50%;
 		height: auto;
+		height: 7vmin;
 		border-radius: 5px;
 		border: 1px solid rgba(0, 0, 0, 0.3);
 		resize: none;
+		overflow-y: auto;
+
 		/* width: calc(100% - 10px); */
 		padding: 8px;
 		margin-right: 10px;
-		max-height: 50px;
-		height: 100%;
-		font-size: 80%;
+		font-size: 1.2em;
 		font-family: Arial, Helvetica, sans-serif;
 		// background: #edeef0;
 		// background: #fbfcfd;
@@ -62,7 +65,8 @@
 	}
 }
 .button {
-	margin-top: 10px;
+	margin: 10px 0 0;
+	font-size: 1.2em;
 	/* height: 50px;
 	width: 50px;
 	border-radius: 50%; */
@@ -75,5 +79,4 @@
 	background: rgb(136, 187, 255); */
 	text-align: center;
 	align-items: center;
-	font-size: 0.8em;
 }

@@ -1,4 +1,12 @@
 .messagesBlock {
+	// font-size: 1.2em;
+	p,
+	span {
+		font-size: 1.6vmin;
+	}
+	p {
+		margin: 5px 0 0 40px;
+	}
 	&::-webkit-scrollbar {
 		border-radius: 50px;
 		width: 11px;
@@ -27,14 +35,21 @@
 		border: 1px solid rgba(0, 0, 0, 0.3);
 		padding: 4px 8px;
 		font-family: inherit;
+		// font-size: 1.2em;
+		font-size: 1.6vmin;
 		line-height: 100%;
 	}
 	textarea {
 		padding: 8px;
 		width: 50%;
+		height: 7vmin;
 		overflow-y: auto;
 		resize: none;
-		font-size: 1.2em;
+
+		&:focus {
+			outline: none;
+			border: 1px solid rgb(92, 157, 255);
+		}
 		&::-webkit-scrollbar {
 			border-radius: 50px;
 			width: 11px;
@@ -51,10 +66,12 @@
 			box-sizing: border-box;
 			background-clip: content-box;
 		}
+		@media screen and (max-width: 768px) {
+			width: 100%;
+		}
 	}
 	button {
 		margin: 5px 0 0;
-		font-size: 1.2em;
 	}
 	button:disabled,
 	button[disabled] {
@@ -66,11 +83,12 @@
 }
 .notLogged {
 	padding: 0 8px;
-	font-size: 1.2em;
+	// font-size: 1.2em;
+	font-size: 1.6vmin;
 	color: red;
 }
 .spinner {
-	width: 100%;
-	max-width: 6vmin;
 	margin: 0 auto;
+	margin-top: 10px;
+	padding: 0 8px;
 }

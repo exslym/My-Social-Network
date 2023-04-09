@@ -43,6 +43,33 @@ export const LoginPage: React.FC = () => {
 				<br />
 				pass: <span>$TUsnRe72</span>
 			</p> */}
+
+			<div className={styles.textBlock}>
+				<p className={styles.textBlock_title}>Test access for this project:</p>
+				<p className={styles.textBlock_login}>
+					Login: <strong>free@samuraijs.com</strong>
+				</p>
+				<button
+					className={styles.textBlock_copyButton}
+					onClick={() => navigator.clipboard.writeText('free@samuraijs.com')}
+				>
+					Copy
+				</button>
+				<p className={styles.textBlock_pass}>
+					Password: <strong>free</strong>
+				</p>
+
+				<p className={styles.textBlock_links}>
+					<strong>GitHub Project Source Code:</strong>
+					<a
+						href='https://github.com/exslym/My-Social-Network/'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						https://github.com/exslym/My-Social-Network
+					</a>
+				</p>
+			</div>
 		</div>
 	);
 };

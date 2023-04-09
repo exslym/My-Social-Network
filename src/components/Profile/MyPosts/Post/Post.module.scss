@@ -3,13 +3,14 @@
 }
 .post_wrap {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: flex-start;
 	overflow-y: auto;
 }
 .item p {
 	margin: 0;
 	padding: 0;
+	font-size: 1.2em;
 	font-weight: bold;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -27,15 +28,19 @@
 	max-width: clamp(20px, 3vw, 50px);
 	border-radius: 50%;
 }
-.likes img {
-	display: inline-block;
-	vertical-align: middle;
-	width: 100%;
-	max-width: 20px;
-	margin-right: 4px;
-}
-.likes span {
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 0.8em;
+.likes {
+	margin-top: 5px;
+	width: max-content;
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		width: 100%;
+		max-width: 20px;
+		margin-right: 4px;
+	}
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 1em;
+	}
 }

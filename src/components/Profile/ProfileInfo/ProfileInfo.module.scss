@@ -105,12 +105,11 @@
 	top: 0;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	color: rgba(0, 0, 0, 0.5);
-	background: #edeef0;
-	background: #fbfcfd;
+	background-color: #fbfcfd;
 	border-radius: 5px;
 	text-align: center;
 	transition: color 0.2s linear, border 0.2s linear, background-color 0.2s linear;
-
+	font-size: 1em;
 	&:hover {
 		border: 1px solid rgba(0, 0, 0, 0.6);
 		color: rgba(0, 0, 0, 1);
@@ -282,7 +281,7 @@ label:checked::before {
 	height: 24px;
 	padding: 0;
 	margin: 0;
-	font-size: 0.8em;
+	font-size: 1em;
 	line-height: 120%;
 	position: absolute;
 	left: 6px;

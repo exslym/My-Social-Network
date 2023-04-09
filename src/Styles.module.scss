@@ -16,7 +16,6 @@ p {
 	}
 	&_content {
 		padding: 1em 0;
-
 		height: 100%;
 	}
 	&_notFound {
@@ -33,6 +32,24 @@ p {
 		color: $clr-blue-dk;
 		border-radius: 5px;
 		width: 100%;
+	}
+	&_footer {
+		position: absolute;
+		bottom: 0;
+		background: $clr-blue !important;
+		padding: 2vmin !important;
+		width: 100% !important;
+		p {
+			margin: 0;
+			text-align: center;
+			font-size: 1em;
+		}
+		a {
+			padding: 0.25em;
+		}
+		&_name {
+			font-size: 1.25em;
+		}
 	}
 }
 .Header {
@@ -340,5 +357,13 @@ p {
 			background: rgb(220, 255, 185); */
 		background: rgb(220, 235, 255);
 		border-radius: 50%;
+	}
+}
+
+.sideMenuStyles {
+	:global {
+		.ant-menu-title-content {
+			font-size: 1.6vmin;
+		}
 	}
 }
