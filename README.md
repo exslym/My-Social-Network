@@ -20,7 +20,7 @@ GitHub project source code: [https://github.com/exslym/My-Social-Network](https:
 [Link to MY profile in this project](https://exslym.github.io/My-Social-Network/#/profile/24070)  
 [Link to TEST profile in this project](https://exslym.github.io/My-Social-Network/#/profile/1079)
 
-##### My Portfolio: [https://01dev.ru](https://01dev.ru)
+#### My Portfolio: [https://01dev.ru](https://01dev.ru)
 
 #### Project tech stack:
 
