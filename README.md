@@ -1,10 +1,8 @@
-## Social Network
-
+### My Social Network
+---
 ### GitHub Pages: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
 ### Vercel: [https://exslym.github.io/My-Social-Network](https://exslym.github.io/My-Social-Network)
-
 ---
-
 #### Authorization and other functional works.
 
 For test use:  
