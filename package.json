@@ -2,6 +2,7 @@
 	"name": "my-app",
 	"version": "0.1.0",
 	"author": "exslym",
+	"homepage": "https://exslym.github.io/My-Social-Network",
 	"description": "A social network project is a dynamic web application (SPA) that allows users to search and interact with each other by liking, commenting on posts or chatting.",
 	"private": true,
 	"license": "ISC",
