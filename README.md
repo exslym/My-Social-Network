@@ -1,10 +1,10 @@
 ## [My Social Network Project](https://exslym.github.io/My-Social-Network/)
 
-[![preview](https://github.com/exslym/My-Social-Network/blob/master/public/preview.jpg)](https://exslym.github.io/My-Social-Network/)
+[![preview](https://github.com/exslym/My-Social-Network/blob/master/public/assets/preview.jpg)](https://exslym.github.io/My-Social-Network/)
 
 ### A social network project is a dynamic web application (SPA) that allows users to search and interact with each other by liking, commenting on posts or chatting.
 
-### Vercel: [https://social-network-exslym.vercel.app/](https://social-network-exslym.vercel.app/)
+### Vercel: [https://social-network-exslym.vercel.app](https://social-network-exslym.vercel.app)
 
 ---
 
