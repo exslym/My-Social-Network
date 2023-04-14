@@ -1,4 +1,6 @@
 {
+	"typeRoots": ["./src/Globals.d.ts", "./node_modules/@types"],
+
 	"compilerOptions": {
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],

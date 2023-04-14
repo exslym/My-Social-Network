@@ -1,7 +1,27 @@
 {
 	"name": "my-app",
 	"version": "0.1.0",
+	"author": "exslym",
+	"description": "A social network project is a dynamic web application (SPA) that allows users to search and interact with each other by liking, commenting on posts or chatting.",
+	"license": "ISC",
+	"keywords": [
+		"react",
+		"typescript",
+		"axios",
+		"ant-design",
+		"react-hooks",
+		"formik",
+		"javascript",
+		"gh-pages"
+	],
 	"homepage": "https://exslym.github.io/My-Social-Network",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/exslym/My-Social-Network.git"
+	},
+	"bugs": {
+		"url": "https://github.com/exslym/My-Social-Network/issues"
+	},
 	"private": true,
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.1",
@@ -56,9 +76,13 @@
 		"@babel/preset-typescript": "^7.18.6",
 		"@types/jest": "^28.1.6",
 		"@types/redux-form": "^8.3.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
 		"formik": "^2.2.9",
 		"gh-pages": "^4.0.0",
 		"jest": "^28.1.3",
+		"os-browserify": "^0.3.0",
+		"path-browserify": "^1.0.1",
 		"ts-jest": "^28.0.7",
 		"uuidv4": "^6.2.13"
 	}

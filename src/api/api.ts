@@ -1,10 +1,16 @@
 import axios from 'axios';
+// import * as dotenv from 'dotenv';
+// import config from '../config';
 import type { UserType } from '../types/types';
+
+// dotenv.config();
 
 export const instance = axios.create({
 	withCredentials: true,
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
 	headers: { 'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645' },
+	// baseURL: config.BASE_URL,
+	// headers: { 'API-KEY': config.API_KEY },
 });
 
 //* ENUMS:
