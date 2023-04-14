@@ -8,7 +8,10 @@ import type { UserType } from '../types/types';
 export const instance = axios.create({
 	withCredentials: true,
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-	headers: { 'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645' },
+	headers: {
+		'API-KEY': '254005db-0ca0-46a6-8acf-d019e2f14645',
+		'Access-Control-Allow-Origin': 'https://social-network.samuraijs.com/api/1.0/auth/me',
+	},
 	// baseURL: config.BASE_URL,
 	// headers: { 'API-KEY': config.API_KEY },
 });
