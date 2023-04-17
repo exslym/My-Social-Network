@@ -4,7 +4,7 @@
 
 ### A social network project is a dynamic web application (SPA) that allows users to search and interact with each other by liking, commenting on posts or chatting.
 
-### Vercel: [https://social-network-exslym.vercel.app](https://social-network-exslym.vercel.app)
+<!-- ### Vercel: [https://social-network-exslym.vercel.app](https://social-network-exslym.vercel.app) -->
 
 ---
 
